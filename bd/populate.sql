@@ -13,61 +13,88 @@ VALUES ("Pedro Freitas", "35999999", 100000, "senha123"),
 -- gerando gerentes
 -- ------------------------------------------------------------
 INSERT INTO gerente(id_funcionario)
-VALUES (1, 6);
+VALUES (1), (6);
 
 -- ------------------------------------------------------------
 -- gerando locadoras
 -- ------------------------------------------------------------
-INSERT INTO locadora(nome, endereco, gerente) 
+INSERT INTO locadora(nome, endereco, id_gerente) 
 VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 1),
 ("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR" ,6);
 
 -- ------------------------------------------------------------
 -- gerando filmes
 -- ------------------------------------------------------------
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Brilho eterno de uma mente sem lembranças", 2004);
-INSERT INTO generos(id_filme, nome)
+INSERT INTO generos(id_info_filme, nome)
 VALUES (1, "Ficção Científica"),(1, "Drama"), (1, "Comédia");
 
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Clube da Luta", 1999);
-INSERT INTO generos(id_filme, nome)
+INSERT INTO generos(id_info_filme, nome)
 VALUES (2, "Suspense"), (2, "Drama");
 
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Five nights at freddy's", 2023);
-INSERT INTO generos(id_filme, nome)
+INSERT INTO generos(id_info_filme, nome)
 VALUES (3, "Terror");
 
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Homem-Aranha: Através do Aranhaverso", 2023);
-INSERT INTO generos(id_filme, nome)
+INSERT INTO generos(id_info_filme, nome)
 VALUES (4, "Animação"), (4, " Ação"), (4, " Fantasia"), (4, " Aventura");
 
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Sonic 2", 2022);
-INSERT INTO generos(id_filme, nome)
+INSERT INTO generos(id_info_filme, nome)
 VALUES (5, "Aventura"), (5, "Família");
 
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Morbius", 2022);
-INSERT INTO generos(id_filme, nome)
-VALUES (6, "Ação"), (6, "Fantasia"), (7, "Aventura");
+INSERT INTO generos(id_info_filme, nome)
+VALUES (6, "Ação"), (6, "Fantasia"), (6, "Aventura");
 
-INSERT INTO filme(nome, ano_lancamento) 
+INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("John Carter", 2012);
-INSERT INTO generos(id_filme, nome)
-VALUES (7, "Ficção Científica"), (7, "Aventura"), (8, "Ação");
+INSERT INTO generos(id_info_filme, nome)
+VALUES (7, "Ficção Científica"), (7, "Aventura"), (7, "Ação");
 
 -- ------------------------------------------------------------
 -- cadastrando filmes em locadoras
 -- ------------------------------------------------------------
+INSERT INTO filme(id_info_filme, id_locadora, n_copias)
+VALUES (1, 1, 2), (2, 1, 4), (3, 1, 5), (4, 1, 4), (5, 1, 4), (6, 1, 4), (7, 1, 6); 
+
+INSERT INTO filme(id_info_filme, id_locadora, n_copias)
+VALUES (1, 2, 6), (2, 2, 2), (3, 2, 5), (4, 2, 4), (5, 2, 2), (7, 2, 6); 
 
 -- ------------------------------------------------------------
 -- gerando clientes
 -- ------------------------------------------------------------
+INSERT INTO cliente(nome, cpf, senha, telefone)
+VALUES ('Yasmin', '00145720258', 'yasminlinda', '(35)99271-2929'),
+('cliente', '00000000001', 'cliente', '358888888888');
 
 -- ------------------------------------------------------------
 -- gerando alugueis
 -- ------------------------------------------------------------
+INSERT INTO aluguel(data_locacao, status, id_cliente, id_locadora)
+VALUES ('2023-11-10', 'no prazo', 1, 1);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (1, 13), (1, 12);
+
+-- ALTER TABLE aluguel MODIFY id INT NOT NULL AUTO_INCREMENT;
+
+UPDATE aluguel
+SET `status` = "entregue"
+WHERE `id` = 1;
+
+SELECT * FROM aluguel
+WHERE id = 1;
+
+INSERT INTO aluguel(data_locacao, status, id_cliente, id_locadora)
+VALUES ('2023-05-10', 'no prazo', 1, 1);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (2, 16);
+
