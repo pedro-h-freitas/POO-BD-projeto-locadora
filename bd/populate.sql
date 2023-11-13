@@ -74,27 +74,39 @@ VALUES (1, 2, 6), (2, 2, 2), (3, 2, 5), (4, 2, 4), (5, 2, 2), (7, 2, 6);
 -- ------------------------------------------------------------
 INSERT INTO cliente(nome, cpf, senha, telefone)
 VALUES ('Yasmin', '00145720258', 'yasminlinda', '(35)99271-2929'),
+('Julia Helena', '12345678910', 'pedroehumlindo', '(35)90000-0000'),
+('Jose Alfredo', '10784381734', 'alfanumerica', '(35)9999-9999'),
+('Silvana Almeida de Freitas', '79865412385', 'senha', '(35)91234-3214'),
 ('cliente', '00000000001', 'cliente', '358888888888');
 
 -- ------------------------------------------------------------
 -- gerando alugueis
 -- ------------------------------------------------------------
-INSERT INTO aluguel(data_locacao, status, id_cliente, id_locadora)
-VALUES ('2023-11-10', 'no prazo', 1, 1);
+INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
+VALUES ('2023-11-10', 1, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
 VALUES (1, 13), (1, 12);
 
--- ALTER TABLE aluguel MODIFY id INT NOT NULL AUTO_INCREMENT;
+INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
+VALUES ('2023-11-10', 2, 1);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (2, 15);
+
+INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
+VALUES ('2023-11-10', 3, 1);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (3, 12), (3, 13), (3, 14);
+
+INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
+VALUES ('2023-11-10', 4, 2);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (4, 22);
+
+INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
+VALUES ('2023-05-10', 5, 1);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (5, 16);
 
 UPDATE aluguel
-SET `status` = "entregue"
-WHERE `id` = 1;
-
-SELECT * FROM aluguel
-WHERE id = 1;
-
-INSERT INTO aluguel(data_locacao, status, id_cliente, id_locadora)
-VALUES ('2023-05-10', 'no prazo', 1, 1);
-INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (2, 16);
-
+SET status = 'entregue'
+WHERE id = 5;
