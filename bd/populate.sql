@@ -8,6 +8,7 @@ VALUES ("Pedro Freitas", "35999999", 100000, "senha123"),
 ("Vincius Souza", "3599001234", 150000, "lucasgadgp"),
 ("Lucas Gadben", "35999690569", 100000, "40028922"), 
 ("Alexandre Calazans", "35991819603", 130000, "246971"),
+("Alexandre Ribeiro", "3599190135", 200000, "242424"),
 ("funcionario", "35999999999", 130000, "funcionario"),
 ("gerente", "358888888888", 300000, "gerente");
 
@@ -23,6 +24,17 @@ VALUES (101), (106);
 INSERT INTO locadora(nome, endereco, id_gerente) 
 VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 101),
 ("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR", 106);
+
+-- ------------------------------------------------------------
+-- registrando funcionario em uma locadora
+-- ------------------------------------------------------------
+UPDATE funcionario
+SET id_locadora = 1
+WHERE id IN (101, 102, 103);
+
+UPDATE funcionario
+SET id_locadora = 2
+WHERE id IN (104, 105, 106, 107);
 
 -- ------------------------------------------------------------
 -- gerando filmes
