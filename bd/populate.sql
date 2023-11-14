@@ -102,7 +102,7 @@ VALUES (13, 12), (13, 13), (13, 14);
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-11-10', 4, 2);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (24, 22);
+VALUES (24, 27);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-05-10', 5, 1);
