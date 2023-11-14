@@ -22,7 +22,15 @@ public class Aluguel {
      * @param idCliente id do cliente que realizou a locação
      * @param idLocadora id da locadora onde se realizou a locação
      */
-    public Aluguel(int id, String dataLocacao, String dataDevolucao, String status, int multa, int idCliente, int idLocadora) {
+    public Aluguel(
+            int id,
+            String dataLocacao,
+            String dataDevolucao,
+            String status,
+            int multa,
+            int idCliente,
+            int idLocadora
+    ){
         this.id = id;
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
