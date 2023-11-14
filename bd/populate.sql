@@ -111,4 +111,4 @@ VALUES (15, 16);
 
 UPDATE aluguel
 SET status = 'entregue'
-WHERE id = 5;
+WHERE id = 15;
