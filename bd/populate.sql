@@ -15,14 +15,14 @@ VALUES ("Pedro Freitas", "35999999", 100000, "senha123"),
 -- gerando gerentes
 -- ------------------------------------------------------------
 INSERT INTO gerente(id_funcionario)
-VALUES (1), (6);
+VALUES (101), (106);
 
 -- ------------------------------------------------------------
 -- gerando locadoras
 -- ------------------------------------------------------------
 INSERT INTO locadora(nome, endereco, id_gerente) 
-VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 1),
-("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR" ,6);
+VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 101),
+("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR", 106);
 
 -- ------------------------------------------------------------
 -- gerando filmes
@@ -85,30 +85,30 @@ VALUES ('Yasmin', '00145720258', 'yasminlinda', '(35)99271-2929'),
 -- gerando alugueis
 -- ------------------------------------------------------------
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
-VALUES ('2023-11-10', 1, 1);
+VALUES ('2023-11-10', 201, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (11, 13), (11, 12);
+VALUES (1201, 13), (1201, 12);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
-VALUES ('2023-11-10', 2, 1);
+VALUES ('2023-11-10', 202, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (12, 15);
+VALUES (1202, 15);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
-VALUES ('2023-11-10', 3, 1);
+VALUES ('2023-11-10', 203, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (13, 12), (13, 13), (13, 14);
+VALUES (1203, 12), (1203, 13), (1203, 14);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
-VALUES ('2023-11-10', 4, 2);
+VALUES ('2023-11-10', 204, 2);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (24, 27);
+VALUES (2204, 27);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
-VALUES ('2023-05-10', 5, 1);
+VALUES ('2023-05-10', 205, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (15, 16);
+VALUES (1205, 16);
 
 UPDATE aluguel
 SET status = 'entregue'
-WHERE id = 15;
+WHERE id = 1205;
