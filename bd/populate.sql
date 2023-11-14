@@ -1,3 +1,5 @@
+-- Script to initializate the databse 
+
 -- ------------------------------------------------------------
 -- gerando funcionarios
 -- ------------------------------------------------------------
@@ -85,27 +87,27 @@ VALUES ('Yasmin', '00145720258', 'yasminlinda', '(35)99271-2929'),
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-11-10', 1, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (1, 13), (1, 12);
+VALUES (11, 13), (11, 12);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-11-10', 2, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (2, 15);
+VALUES (12, 15);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-11-10', 3, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (3, 12), (3, 13), (3, 14);
+VALUES (13, 12), (13, 13), (13, 14);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-11-10', 4, 2);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (4, 22);
+VALUES (24, 22);
 
 INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-05-10', 5, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
-VALUES (5, 16);
+VALUES (15, 16);
 
 UPDATE aluguel
 SET status = 'entregue'
