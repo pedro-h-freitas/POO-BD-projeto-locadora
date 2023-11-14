@@ -9,7 +9,7 @@ public class Funcionario {
     private String telefone;    // telefone do funcionario
     private int salario;        // salario do funcionario
     private String senha;       // senha do funcionario para acessar o sistema
-    private int id_locadora;    // id da locadora que o funcionario trabalha
+    private int idLocadora;    // id da locadora que o funcionario trabalha
 
     /**
      * Getter do id
@@ -52,10 +52,10 @@ public class Funcionario {
     }
 
     /**
-     * Getter do id_locadora
-     * @return id_locadora
+     * Getter do idLocadora
+     * @return idLocadora
      */
-    public int getId_locadora() {
-        return id_locadora;
+    public int getIdLocadora() {
+        return idLocadora;
     }
 }
