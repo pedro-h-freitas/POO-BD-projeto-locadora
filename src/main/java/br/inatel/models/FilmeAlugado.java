@@ -8,6 +8,16 @@ public class FilmeAlugado {
     private int idFilme;    // id do Filme alugado
 
     /**
+     * Construtor da Classe FilmeAlugado para INSERT e SELECT
+     * @param idAluguel id de Aluguel de um ou mais filmes
+     * @param idFilme id do Filme alugado
+     */
+    public FilmeAlugado(int idAluguel, int idFilme) {
+        this.idAluguel = idAluguel;
+        this.idFilme = idFilme;
+    }
+
+    /**
      * Getter do idAluguel
      * @return idAluguel
      */

@@ -10,6 +10,32 @@ public class Locadora {
     private int idGerente;      // id do gerente da locadora
 
     /**
+     * Construtor da Classe Locadora para retorno de uma query (SELECT)
+     * @param id id da locadora
+     * @param nome nome da locadora
+     * @param endereco endereco da locadora
+     * @param idGerente id do gerente da locadora
+     */
+    public Locadora(int id, String nome, String endereco, int idGerente) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.idGerente = idGerente;
+    }
+
+    /**
+     * Construtor da Classe Locadora para inserção de um novo (INSERT)
+     * @param nome nome da locadora
+     * @param endereco endereco da locadora
+     * @param idGerente id do gerente da locadora
+     */
+    public Locadora(String nome, String endereco, int idGerente) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.idGerente = idGerente;
+    }
+
+    /**
      * Getter do id
      * @return id
      */
