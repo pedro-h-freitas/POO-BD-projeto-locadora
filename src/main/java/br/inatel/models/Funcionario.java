@@ -1,8 +1,5 @@
 package br.inatel.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 /**
  * Model da tabela "funcionario".
  */
@@ -96,24 +93,4 @@ public class Funcionario {
         return idLocadora;
     }
 
-    /**
-     * Função para mapear um ResultSet em um model.Funcionario
-     * @param rs ResultSet de um SELECT na table Funcionario
-     * @return Funcionario mapeado
-     */
-    public static Funcionario sqlMapper(ResultSet rs) {
-        try {
-            return new Funcionario(
-                    rs.getInt("id"),
-                    rs.getString("nome"),
-                    rs.getString("telefone"),
-                    rs.getInt("salario"),
-                    rs.getString("senha"),
-                    rs.getInt("id_locadora")
-            );
-        } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
-            return null;
-        }
-    }
 }

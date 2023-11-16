@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * Class for CREATE, READ, UPDATE objects of the table "cliente"
  */
-public class ClienteDAO extends ConnectionDAO<Cliente> {
+public class ClienteDAO extends DAOWithId<Cliente> {
 
     /**
      * Método para obter a query de inserção específica do Cliente
@@ -36,4 +36,32 @@ public class ClienteDAO extends ConnectionDAO<Cliente> {
         pst.setString(6, cliente.getEmail());
     }
 
-}
+    /**
+     * Método para obter a query de seleção por id do Cliente
+     * @return "SELECT * FROM cliente WHERE id=?"
+     */
+    @Override
+    protected String getSelectByIdQuery() {
+        return "SELECT * FROM cliente WHERE id=?";
+    }
+
+    /**
+     * Função para mapear um ResultSet em um model.Funcionario
+     * @return Objeto Funcionario resultante do ResultSet
+     */
+    public Cliente getMapper() {
+        try {
+            return new Cliente(
+                    rs.getInt("id"),
+                    rs.getString("nome"),
+                    rs.getString("cpf"),
+                    rs.getString("senha"),
+                    rs.getString("endereco"),
+                    rs.getString("telefone"),
+                    rs.getString("email")
+            );
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+            return null;
+        }
+    }}

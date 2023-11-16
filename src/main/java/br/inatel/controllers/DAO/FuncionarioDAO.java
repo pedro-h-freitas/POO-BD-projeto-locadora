@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * Class for CREATE, READ, UPDATE objects of the table "funcionario"
  */
-public class FuncionarioDAO extends ConnectionDAO<Funcionario> {
+public class FuncionarioDAO extends DAOWithId<Funcionario> {
 
     /**
      * Método para obter a query de inserção específica do Funcionario
@@ -35,4 +35,33 @@ public class FuncionarioDAO extends ConnectionDAO<Funcionario> {
         pst.setInt(5, funcionario.getIdLocadora());
     }
 
+    /**
+     * Método para obter a query de seleção por id do Funcionario
+     * @return "SELECT * FROM funcionario WHERE id=?"
+     */
+    @Override
+    protected String getSelectByIdQuery() {
+        return "SELECT * FROM funcionario WHERE id=?";
+    }
+
+    /**
+     * Função para mapear um ResultSet em um model.Funcionario
+     * @return Objeto Funcionario resultante do ResultSet
+     */
+    @Override
+    public Funcionario getMapper() {
+        try {
+            return new Funcionario(
+                    rs.getInt("id"),
+                    rs.getString("nome"),
+                    rs.getString("telefone"),
+                    rs.getInt("salario"),
+                    rs.getString("senha"),
+                    rs.getInt("id_locadora")
+            );
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+            return null;
+        }
+    }
 }
