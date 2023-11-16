@@ -54,4 +54,38 @@ public class FuncionarioDAO extends ConnectionDAO {
         return id;
     }
 
+    /**
+     * Função para selecionar um funcionario pelo id
+     * @param id id do funcionario
+     * @return Funcionario selecionado | null: funcionario não encontrado
+     */
+    public Funcionario getFuncionarioById(int id){
+        connectToDB();
+        Funcionario funcionario = null;
+
+        String sql = "SELECT * FROM funcionario WHERE id=?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                funcionario = Funcionario.sqlMapper(rs);
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                // st.close();
+            } catch (SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
+        return funcionario;
+    }
+
 }
