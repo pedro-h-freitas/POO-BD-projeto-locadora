@@ -1,29 +1,27 @@
-package br.inatel.DAO;
+package br.inatel.controllers.DAO;
 
-import br.inatel.models.Locadora;
+import br.inatel.models.Generos;
 
 import java.sql.SQLException;
 
 /**
- * Class for CREATE, READ, UPDATE objects of the table "locadora"
+ * Class for CREATE, READ, UPDATE objects of the table "generos"
  */
-public class LocadoraDAO extends ConnectionDAO {
+public class GenerosDAO extends ConnectionDAO {
 
     /**
-     * Função para criar um novo objeto na tabela "locadora"
-     *
-     * @param locadora Objeto InfoFilme que irá adicionar
+     * Função para criar um novo objeto na tabela "generos"
+     * @param generos Objeto Generos que irá adicionar
      * @return boolean var (true: sucesso | false: falhou)
      */
-    public boolean insertLocadora(Locadora locadora) {
+    public boolean insertFilmeAlugado(Generos generos) {
         connectToDB();
 
-        String sql = "INSERT INTO locadora(nome, endereco, id_gerente) VALUES(?, ?, ?)";
+        String sql = "INSERT INTO generos(id_filme, nome) VALUES(?, ?)";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, locadora.getNome());
-            pst.setString(2, locadora.getEndereco());
-            pst.setInt(3, locadora.getIdGerente());
+            pst.setInt(1, generos.getIdInfoFilme());
+            pst.setString(2, generos.getNome());
             pst.execute();
             sucesso = true;
         } catch (SQLException e) {
@@ -40,4 +38,5 @@ public class LocadoraDAO extends ConnectionDAO {
 
         return sucesso;
     }
+
 }

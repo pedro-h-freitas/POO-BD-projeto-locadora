@@ -1,4 +1,4 @@
-package br.inatel.DAO;
+package br.inatel.controllers.DAO;
 
 import br.inatel.config.DbConfig;
 

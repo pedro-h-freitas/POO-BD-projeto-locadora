@@ -1,27 +1,29 @@
-package br.inatel.DAO;
+package br.inatel.controllers.DAO;
 
-import br.inatel.models.InfoFilme;
+import br.inatel.models.Locadora;
 
 import java.sql.SQLException;
 
 /**
- * Class for CREATE, READ, UPDATE objects of the table "info_filme"
+ * Class for CREATE, READ, UPDATE objects of the table "locadora"
  */
-public class InfoFilmeDAO extends ConnectionDAO {
+public class LocadoraDAO extends ConnectionDAO {
 
     /**
-     * Função para criar um novo objeto na tabela "info_filme"
-     * @param infoFilme Objeto InfoFilme que irá adicionar
+     * Função para criar um novo objeto na tabela "locadora"
+     *
+     * @param locadora Objeto InfoFilme que irá adicionar
      * @return boolean var (true: sucesso | false: falhou)
      */
-    public boolean insertInfoFilme(InfoFilme infoFilme) {
+    public boolean insertLocadora(Locadora locadora) {
         connectToDB();
 
-        String sql = "INSERT INTO info_filme(nome, ano_lancamento) VALUES(?, ?)";
+        String sql = "INSERT INTO locadora(nome, endereco, id_gerente) VALUES(?, ?, ?)";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, infoFilme.getNome());
-            pst.setInt(2, infoFilme.getAnoLancamento());
+            pst.setString(1, locadora.getNome());
+            pst.setString(2, locadora.getEndereco());
+            pst.setInt(3, locadora.getIdGerente());
             pst.execute();
             sucesso = true;
         } catch (SQLException e) {

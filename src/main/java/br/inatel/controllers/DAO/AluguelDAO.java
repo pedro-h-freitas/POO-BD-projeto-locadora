@@ -1,34 +1,32 @@
-package br.inatel.DAO;
+package br.inatel.controllers.DAO;
 
-import br.inatel.models.Cliente;
+import br.inatel.models.Aluguel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
- * Class for CREATE, READ, UPDATE objects of the table "cliente"
+ * Class for CREATE, READ, UPDATE objects of the table "aluguel"
  */
-public class ClienteDAO extends ConnectionDAO {
+public class AluguelDAO extends ConnectionDAO {
 
     /**
-     * Função para criar um novo objeto na tabela "cliente"
-     * @param cliente Objeto Cliente que irá adicionar
-     * @return id do cliente adicionado (-1: não foi adicionado)
+     * Função para criar um novo objeto na tabela "aluguel"
+     * @param aluguel Objeto Aluguel que irá adicionar
+     * @return id do aluguel criado (-1: não foi criado)
      */
-    public int insertCliente(Cliente cliente){
+    public int insertAluguel(Aluguel aluguel){
         int id = -1;
 
         connectToDB();
 
-        String sql = "INSERT INTO cliente(nome, cpf, senha, endereco, telefone, email) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO aluguel(data_locacao, id_cliente, id_locadora) VALUES(?, ?, ?)";
         try {
-            pst = con.prepareStatement(sql);
-            pst.setString(1, cliente.getNome());
-            pst.setString(2, cliente.getCpf());
-            pst.setString(3, cliente.getSenha());
-            pst.setString(4, cliente.getEndereco());
-            pst.setString(5, cliente.getTelefone());
-            pst.setString(6, cliente.getEmail());
+            pst = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pst.setString(1, aluguel.getdataLocacao());
+            pst.setInt(2, aluguel.getIdCliente());
+            pst.setInt(3, aluguel.getIdLocadora());
 
             int affectedRows = pst.executeUpdate();
 
