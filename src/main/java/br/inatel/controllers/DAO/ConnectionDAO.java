@@ -7,7 +7,7 @@ import java.sql.*;
 /**
  * Super class for all DAO's class (DAO - Data Access Object)
  */
-public abstract class ConnectionDAO {
+public abstract class ConnectionDAO<T> {
 
     protected Connection con;
     protected PreparedStatement pst;
@@ -15,12 +15,12 @@ public abstract class ConnectionDAO {
     protected ResultSet rs;
 
     //Config DataBase
-    private DbConfig config = new DbConfig();
+    private final DbConfig config = new DbConfig();
 
     //Information for connect to DB
-    private String user = config.getUser();
-    private String password = config.getPassword();
-    private String url = config.getUrl();
+    private final String user = config.getUser();
+    private final String password = config.getPassword();
+    private final String url = config.getUrl();
 
     protected boolean sucesso = false; // define se uma request falhou ou sucedeu
 
@@ -36,4 +36,32 @@ public abstract class ConnectionDAO {
         }
     }
 
+    protected abstract String getInsertQuery();
+
+    protected abstract void setInsertValues(PreparedStatement pst, T object) throws SQLException;
+
+    public boolean insert(T object) {
+        connectToDB();
+
+        String sql = getInsertQuery();
+        try {
+            pst = con.prepareStatement(sql);
+            setInsertValues(pst, object);
+            pst.execute();
+
+            sucesso = true;
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
+
+        return sucesso;
+    }
 }
