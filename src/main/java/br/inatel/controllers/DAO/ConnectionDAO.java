@@ -5,7 +5,7 @@ import br.inatel.config.DbConfig;
 import java.sql.*;
 
 /**
- * Super class for all DAO's class (DAO - Data Access Object)
+ * Super classe para todas classes DAO (DAO - Data Access Object)
  */
 public abstract class ConnectionDAO<T> {
 
@@ -25,21 +25,36 @@ public abstract class ConnectionDAO<T> {
     protected boolean sucesso = false; // define se uma request falhou ou sucedeu
 
     /**
-     * Function for connect to DB
+     * Função para conectar no Banco de Dados
      */
     public void connectToDB() {
         try {
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexao deu certo!");
+            // System.out.println("Conexao deu certo!");
         } catch(SQLException exc) {
             System.out.println("Erro: " + exc.getMessage());
         }
     }
 
+    /**
+     * Método abstrato para obter a query de inserção específica para cada tabela
+     * @return query de inserção
+     */
     protected abstract String getInsertQuery();
 
+    /**
+     * Método abstrato para definir os valores específicos para cada tabela
+     * @param pst PreparedStatement
+     * @param object objeto T a ser inserido
+     * @throws SQLException Exceção de SQL
+     */
     protected abstract void setInsertValues(PreparedStatement pst, T object) throws SQLException;
 
+    /**
+     * Insere um objet T em sua respectiva tabela
+     * @param object objeto a ser inserido
+     * @return boolean var (true: inseriu | false: falhou)
+     */
     public boolean insert(T object) {
         connectToDB();
 

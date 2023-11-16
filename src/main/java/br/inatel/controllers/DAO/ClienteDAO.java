@@ -11,11 +11,21 @@ import java.sql.SQLException;
  */
 public class ClienteDAO extends ConnectionDAO<Cliente> {
 
+    /**
+     * Método para obter a query de inserção específica do Cliente
+     * @return "INSERT INTO cliente(nome, cpf, senha, endereco, telefone, email) VALUES(?, ?, ?, ?, ?, ?)"
+     */
     @Override
     protected String getInsertQuery() {
         return "INSERT INTO cliente(nome, cpf, senha, endereco, telefone, email) VALUES(?, ?, ?, ?, ?, ?)";
     }
 
+    /**
+     * Método para definir os valores de um Cliente para inserir
+     * @param pst PreparedStatement
+     * @param cliente objeto Cliente a ser inserido
+     * @throws SQLException Exceção de SQL
+     */
     @Override
     protected void setInsertValues(PreparedStatement pst, Cliente cliente) throws SQLException {
         pst.setString(1, cliente.getNome());

@@ -10,11 +10,21 @@ import java.sql.SQLException;
  */
 public class GenerosDAO extends ConnectionDAO<Generos> {
 
+    /**
+     * Método para obter a query de inserção específica do Generos
+     * @return "INSERT INTO generos(id_filme, nome) VALUES(?, ?)"
+     */
     @Override
     protected String getInsertQuery() {
         return "INSERT INTO generos(id_filme, nome) VALUES(?, ?)";
     }
 
+    /**
+     * Método para definir os valores de um Generos para inserir
+     * @param pst PreparedStatement
+     * @param generos objeto Generos a ser inserido
+     * @throws SQLException Exceção de SQL
+     */
     @Override
     protected void setInsertValues(PreparedStatement pst, Generos generos) throws SQLException {
         pst.setInt(1, generos.getIdInfoFilme());

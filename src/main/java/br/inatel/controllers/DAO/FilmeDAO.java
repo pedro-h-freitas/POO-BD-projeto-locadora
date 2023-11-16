@@ -10,11 +10,21 @@ import java.sql.SQLException;
  */
 public class FilmeDAO extends ConnectionDAO<Filme> {
 
+    /**
+     * Método para obter a query de inserção específica do Filme
+     * @return "INSERT INTO filme(n_copias, id_locadora, id_info_filme) VALUES(?, ?, ?)"
+     */
     @Override
     protected String getInsertQuery() {
         return "INSERT INTO filme(n_copias, id_locadora, id_info_filme) VALUES(?, ?, ?)";
     }
 
+    /**
+     * Método para definir os valores de um Filme para inserir
+     * @param pst PreparedStatement
+     * @param filme objeto Filme a ser inserido
+     * @throws SQLException Exceção de SQL
+     */
     @Override
     protected void setInsertValues(PreparedStatement pst, Filme filme) throws SQLException {
         pst.setInt(1, filme.getnCopias());
