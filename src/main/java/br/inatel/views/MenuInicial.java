@@ -23,6 +23,7 @@ public class MenuInicial {
         System.out.print("Opção: ");
 
         opcao = Main.sc.nextInt();
+        Main.sc.nextLine();
 
         switch (opcao){
             case 1:
@@ -36,7 +37,6 @@ public class MenuInicial {
             default:
                 System.out.println("!!!!! Opção Inválida !!!!!");
                 System.out.print("Aperte [ENTER] para continuar");
-                Main.sc.nextLine();
                 Main.sc.nextLine();
                 break;
         }

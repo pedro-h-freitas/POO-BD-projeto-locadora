@@ -16,9 +16,8 @@ public class FuncionarioDAO extends ConnectionDAO {
      * @return id do funcionario adicionado (-1: não foi adicionado)
      */
     public int insertFuncionario(Funcionario funcionario) {
-        int id = -1;
-
         connectToDB();
+        int id = -1;
 
         String sql = "INSERT INTO funcionario(nome, telefone, salario, senha, id_locadora) VALUES(?, ?, ?, ?, ?)";
         try {
