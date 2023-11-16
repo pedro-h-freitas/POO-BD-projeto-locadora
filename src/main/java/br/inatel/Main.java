@@ -15,7 +15,7 @@ public class Main {
         // loop de execução
         System.out.println("----- Bem vindo à POO-BD locadora -----");
         while (run) {
-            run = MenuInicial.run();
+            run = MenuInicial.render();
         }
         System.out.println("--------- Programa Finalizado ---------");
         sc.close();

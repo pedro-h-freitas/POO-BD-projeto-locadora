@@ -12,7 +12,7 @@ public class MenuInicial {
      * Chama Tela de Cadastro
      * @return boolean var (true: roda novamente | false: encerra o programa)
      */
-    public static boolean run() {
+    public static boolean render() {
         int opcao;
 
         System.out.println("------------ Menu Inicial -------------");
@@ -26,10 +26,10 @@ public class MenuInicial {
 
         switch (opcao){
             case 1:
-                TelaLogin.run();
+                TelaLogin.render();
                 break;
             case 2:
-                TelaCadastro.run();
+                TelaCadastro.render();
                 break;
             case 0:
                 return false;

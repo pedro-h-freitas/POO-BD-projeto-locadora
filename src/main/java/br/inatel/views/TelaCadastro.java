@@ -7,7 +7,7 @@ public class TelaCadastro {
     /**
      *
      */
-    public static void run(){
+    public static void render(){
         // TODO
         System.out.println("TELA DE CADASTRO");
     }

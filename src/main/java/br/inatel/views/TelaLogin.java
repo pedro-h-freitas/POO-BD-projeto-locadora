@@ -7,7 +7,7 @@ public class TelaLogin {
     /**
      * Exibe a Tela de Login
      */
-    public static void run() {
+    public static void render() {
         // TODO
         System.out.println("TELA DE LOGIN");
     }
