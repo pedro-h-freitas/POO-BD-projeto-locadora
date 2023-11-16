@@ -2,7 +2,9 @@ package br.inatel.DAO;
 
 import br.inatel.models.Aluguel;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "aluguel"
@@ -12,18 +14,30 @@ public class AluguelDAO extends ConnectionDAO {
     /**
      * Função para criar um novo objeto na tabela "aluguel"
      * @param aluguel Objeto Aluguel que irá adicionar
-     * @return boolean var (true: sucesso | false: falhou)
+     * @return id do aluguel criado (-1: não foi criado)
      */
-    public boolean insertAluguel(Aluguel aluguel){
+    public int insertAluguel(Aluguel aluguel){
+        int id = -1;
+
         connectToDB();
 
         String sql = "INSERT INTO aluguel(data_locacao, id_cliente, id_locadora) VALUES(?, ?, ?)";
         try {
-            pst = con.prepareStatement(sql);
+            pst = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, aluguel.getdataLocacao());
             pst.setInt(2, aluguel.getIdCliente());
             pst.setInt(3, aluguel.getIdLocadora());
-            pst.execute();
+
+            int affectedRows = pst.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        id = generatedKeys.getInt(1);
+                    }
+                }
+            }
+
             sucesso = true;
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
@@ -37,6 +51,6 @@ public class AluguelDAO extends ConnectionDAO {
             }
         }
 
-        return sucesso;
+        return id;
     }
 }

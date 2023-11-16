@@ -2,6 +2,7 @@ package br.inatel.DAO;
 
 import br.inatel.models.Funcionario;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -12,9 +13,11 @@ public class FuncionarioDAO extends ConnectionDAO {
     /**
      * Função para criar um novo objeto na tabela "funcionario"
      * @param funcionario Objeto Funcionario que irá adicionar
-     * @return boolean var (true: sucesso | false: falhou)
+     * @return id do funcionario adicionado (-1: não foi adicionado)
      */
-    public boolean insertFuncionario(Funcionario funcionario) {
+    public int insertFuncionario(Funcionario funcionario) {
+        int id = -1;
+
         connectToDB();
 
         String sql = "INSERT INTO funcionario(nome, telefone, salario, senha, id_locadora) VALUES(?, ?, ?, ?, ?)";
@@ -25,7 +28,17 @@ public class FuncionarioDAO extends ConnectionDAO {
             pst.setInt(3, funcionario.getSalario());
             pst.setString(4, funcionario.getSenha());
             pst.setInt(5, funcionario.getIdLocadora());
-            pst.execute();
+
+            int affectedRows = pst.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        id = generatedKeys.getInt(1);
+                    }
+                }
+            }
+
             sucesso = true;
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
@@ -39,7 +52,7 @@ public class FuncionarioDAO extends ConnectionDAO {
             }
         }
 
-        return sucesso;
+        return id;
     }
 
 }

@@ -2,6 +2,7 @@ package br.inatel.DAO;
 
 import br.inatel.models.Cliente;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -12,9 +13,11 @@ public class ClienteDAO extends ConnectionDAO {
     /**
      * Função para criar um novo objeto na tabela "cliente"
      * @param cliente Objeto Cliente que irá adicionar
-     * @return boolean var (true: sucesso | false: falhou)
+     * @return id do cliente adicionado (-1: não foi adicionado)
      */
-    public boolean insertCliente(Cliente cliente){
+    public int insertCliente(Cliente cliente){
+        int id = -1;
+
         connectToDB();
 
         String sql = "INSERT INTO cliente(nome, cpf, senha, endereco, telefone, email) VALUES(?, ?, ?, ?, ?, ?)";
@@ -26,7 +29,17 @@ public class ClienteDAO extends ConnectionDAO {
             pst.setString(4, cliente.getEndereco());
             pst.setString(5, cliente.getTelefone());
             pst.setString(6, cliente.getEmail());
-            pst.execute();
+
+            int affectedRows = pst.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        id = generatedKeys.getInt(1);
+                    }
+                }
+            }
+
             sucesso = true;
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
@@ -40,6 +53,6 @@ public class ClienteDAO extends ConnectionDAO {
             }
         }
 
-        return sucesso;
+        return id;
     }
 }
