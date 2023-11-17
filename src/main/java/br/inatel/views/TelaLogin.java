@@ -27,17 +27,29 @@ public class TelaLogin {
 
         switch (l.login(id, senha)) {
             case 1:
-                System.out.println("Funcionário");
-                System.out.println("ID: " + Main.context.getUserId());
+//                System.out.println("Gerente");
+//                System.out.println("ID: " + Main.context.getUserId());
+                TelaGerente.render();
                 break;
             case 2:
-                System.out.println("Cliente");
+//                System.out.println("Cliente");
+//                System.out.println("ID: " + Main.context.getUserId());
+                TelaCliente.render();
+                break;
+            case 3:
+//                System.out.println("Funcionário");
+//                System.out.println("ID: " + Main.context.getUserId());
+                TelaFuncionario.render();
                 break;
             case -1:
-                System.out.println("ID INVÁLIDO");
+                System.out.println("!!!!! ID INVÁLIDO !!!!!");
+                System.out.print("Aperte [ENTER] para continuar");
+                Main.sc.nextLine();
                 break;
             case -2:
-                System.out.println("SENHA INVÁLIDA");
+                System.out.println("!!!!! SENHA INVÁLIDA !!!!!");
+                System.out.print("Aperte [ENTER] para continuar");
+                Main.sc.nextLine();
                 break;
         }
 
