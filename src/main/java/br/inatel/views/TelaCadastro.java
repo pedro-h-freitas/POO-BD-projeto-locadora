@@ -11,7 +11,7 @@ public class TelaCadastro {
      * Exibe a tela de Cadastro
      */
     public static void render(){
-        // TODO
+        // TODO fazer validação dos dados
         String nome, cpf, senha, endereco, telefone, email;
         CadastroController c = new CadastroController();
 
