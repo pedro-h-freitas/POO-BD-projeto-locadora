@@ -2,7 +2,9 @@ package br.inatel.controllers.DAO;
 
 import br.inatel.models.Funcionario;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Classe para manipular DAO com ID
@@ -53,5 +55,50 @@ public abstract class DAOWithId<T> extends ConnectionDAO<T>{
             }
         }
         return null;
+    }
+
+    /**
+     * Insere um objeto T que teha index em sua respectiva tabela
+     * @param object objeto a ser inserido
+     * @return boolean var (true: inseriu | false: falhou)
+     */
+    @Override
+    public int insert(T object) {
+        int id = -1;
+
+        connectToDB();
+
+        String sql = getInsertQuery();
+        try {
+            pst = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            setInsertValues(pst, object);
+            int affectedRows = pst.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                    if(generatedKeys.next()) {
+                        id = generatedKeys.getInt(1);
+                    } else {
+                        System.out.println("Erro ao recupera o ID gerado");
+                    }
+                }
+            } else {
+                System.out.println("Nenhum registro foi inserido");
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
+
+        return id;
     }
 }

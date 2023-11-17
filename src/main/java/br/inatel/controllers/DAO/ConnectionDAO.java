@@ -51,11 +51,13 @@ public abstract class ConnectionDAO<T> {
     protected abstract void setInsertValues(PreparedStatement pst, T object) throws SQLException;
 
     /**
-     * Insere um objet T em sua respectiva tabela
+     * Insere um objeto T em sua respectiva tabela
      * @param object objeto a ser inserido
-     * @return boolean var (true: inseriu | false: falhou)
+     * @return int var (1: inseriu | 0: falhou)
      */
-    public boolean insert(T object) {
+    public int insert(T object) {
+        int sucesso;
+
         connectToDB();
 
         String sql = getInsertQuery();
@@ -64,10 +66,13 @@ public abstract class ConnectionDAO<T> {
             setInsertValues(pst, object);
             pst.execute();
 
-            sucesso = true;
+            sucesso = 1;
+            this.sucesso = true;
         } catch (SQLException e) {
             System.out.println("Erro: " + e.getMessage());
-            sucesso = false;
+
+            sucesso = 0;
+            this.sucesso = false;
         } finally {
             try {
                 con.close();
