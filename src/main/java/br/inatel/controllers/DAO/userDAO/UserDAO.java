@@ -1,6 +1,7 @@
 package br.inatel.controllers.DAO.userDAO;
 
 import br.inatel.controllers.DAO.ConnectionDAO;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,14 +45,14 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
 
             sucesso = true;
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             sucesso = false;
         } finally {
             try {
                 con.close();
                 // st.close();
             } catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+                ColorPrinter.printErro(e);
             }
         }
         return null;
@@ -88,14 +89,14 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
 
             sucesso = true;
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             sucesso = false;
         } finally {
             try {
                 con.close();
                 pst.close();
             } catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+                ColorPrinter.printErro(e);
             }
         }
 

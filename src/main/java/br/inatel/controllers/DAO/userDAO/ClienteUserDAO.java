@@ -1,6 +1,7 @@
 package br.inatel.controllers.DAO.userDAO;
 
 import br.inatel.models.Cliente;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -60,7 +61,7 @@ public class ClienteUserDAO extends UserDAO<Cliente> {
                     rs.getString("email")
             );
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             return null;
         }
     }

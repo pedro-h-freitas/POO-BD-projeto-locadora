@@ -1,6 +1,7 @@
 package br.inatel.controllers.DAO.userDAO;
 
 import br.inatel.models.Gerente;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -50,7 +51,7 @@ public class GerenteUserDAO extends UserDAO<Gerente> {
                     rs.getInt("id_funcionario")
             );
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             return null;
         }
     }

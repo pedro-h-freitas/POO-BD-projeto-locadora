@@ -1,6 +1,7 @@
 package br.inatel.controllers.DAO.userDAO;
 
 import br.inatel.models.Funcionario;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -59,7 +60,7 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
                     rs.getInt("id_locadora")
             );
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             return null;
         }
     }

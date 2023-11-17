@@ -1,56 +1,17 @@
 package br.inatel.views;
 
 import br.inatel.Main;
+import br.inatel.views.utils.ColorPrinter;
 
 /**
  * Classe abstrata para toda Tela
  */
-public abstract class Tela {
+public abstract class Tela extends ColorPrinter {
     /**
      * Método abstrado para exibir uma Tela
      * @return (true: renderizar novamente | false: encerrar execução)
      */
     protected abstract boolean render();
-
-    /**
-     * Mostra um texto em azul
-     * @param label texto a ser exibido
-     */
-    protected static void printAzul(String label) {
-        System.out.print("\u001B[34m" + label + "\u001B[0m");
-    }
-
-    /**
-     * Mostra um texto em azul
-     * @param label texto a ser exibido
-     */
-    protected static void printCiano(String label) {
-        System.out.print("\u001B[36m" + label + "\u001B[0m");
-    }
-
-    /**
-     * Mostra um texto em vermelho
-     * @param label texto a ser exibido
-     */
-    protected static void printVermelho(String label) {
-        System.out.print("\u001B[31m" + label + "\u001B[0m");
-    }
-
-    /**
-     * Mostra um texto em verde
-     * @param label texto a ser exibido
-     */
-    protected static void printVerde(String label){
-        System.out.print("\u001B[32m" + label + "\u001B[0m");
-    }
-
-    /**
-     * Mostra um texto em amarelo
-     * @param label texto a ser exibido
-     */
-    protected static void printAmarelo(String label){
-        System.out.print("\u001B[33m" + label + "\u001B[0m");
-    }
 
     /**
      * Mostra um Input de string

@@ -1,6 +1,7 @@
 package br.inatel.controllers.DAO;
 
 import br.inatel.config.DbConfig;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.*;
 
@@ -69,7 +70,7 @@ public abstract class ConnectionDAO<T> {
             sucesso = 1;
             this.sucesso = true;
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
 
             sucesso = 0;
             this.sucesso = false;
@@ -78,7 +79,7 @@ public abstract class ConnectionDAO<T> {
                 con.close();
                 pst.close();
             } catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+                ColorPrinter.printErro(e);
             }
         }
 

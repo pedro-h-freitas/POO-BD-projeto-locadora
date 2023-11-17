@@ -2,6 +2,7 @@ package br.inatel.controllers.DAO;
 
 import br.inatel.models.Cliente;
 import br.inatel.models.Locadora;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -47,7 +48,7 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
                     rs.getInt("id_gerente")
             );
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             return null;
         }
     }
@@ -73,13 +74,13 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
 
             sucesso = true;
         } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+            ColorPrinter.printErro(e);
             sucesso = false;
         } finally {
             try {
                 con.close();
             } catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+                ColorPrinter.printErro(e);
             }
         }
 
