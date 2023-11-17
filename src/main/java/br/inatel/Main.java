@@ -6,7 +6,10 @@ import br.inatel.views.MenuInicial;
 import java.util.Scanner;
 
 public class Main {
-    public static Context context = new Context(); // contexto de usuário logado
+    /**
+     * contexto atual da sessão
+     */
+    public static Context context = new Context();
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {

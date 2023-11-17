@@ -46,7 +46,7 @@ public class FuncionarioDAO extends DAOWithId<Funcionario> {
 
     /**
      * Função para mapear um ResultSet em um model.Funcionario
-     * @return Objeto Funcionario resultante do ResultSet
+     * @return Objeto Funcionario mapeado do ResultSet
      */
     @Override
     public Funcionario getMapper() {

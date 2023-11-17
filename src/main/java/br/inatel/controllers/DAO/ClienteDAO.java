@@ -46,8 +46,8 @@ public class ClienteDAO extends DAOWithId<Cliente> {
     }
 
     /**
-     * Função para mapear um ResultSet em um model.Funcionario
-     * @return Objeto Funcionario resultante do ResultSet
+     * Método para mapear um ResultSet em um model.Cliente
+     * @return Objeto Cliente mapeado no ResultSet
      */
     public Cliente getMapper() {
         try {

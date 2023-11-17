@@ -7,7 +7,16 @@ import br.inatel.controllers.DAO.FuncionarioDAO;
 import br.inatel.models.Cliente;
 import br.inatel.models.Funcionario;
 
+/**
+ * Classe para manipular as ações na tela de Login
+ */
 public class LoginController {
+    /**
+     * Realiza um login
+     * @param id id do usuario
+     * @param senha senha do usuario
+     * @return contexto (1: Funcionario | 2: Cliente | 3: Gerente | -1: id não encontrado | -2: senha incorreta)
+     */
     public int login(String id, String senha) {
         if (id.charAt(0) == '1') {
             FuncionarioDAO dao = new FuncionarioDAO();
@@ -38,6 +47,6 @@ public class LoginController {
 
             return 2;
         }
-        return -3;
+        return -1;
     }
 }
