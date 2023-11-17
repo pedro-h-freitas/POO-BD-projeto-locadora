@@ -6,11 +6,12 @@ import br.inatel.controllers.CadastroController;
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente
  */
-public class TelaCadastro {
+public class TelaCadastro extends Tela{
     /**
      * Exibe a tela de Cadastro
      */
-    public static void render(){
+    @Override
+    public boolean render(){
         // TODO fazer validação dos dados
         String nome, cpf, senha, endereco, telefone, email;
         CadastroController c = new CadastroController();
@@ -29,14 +30,18 @@ public class TelaCadastro {
             if (!(endereco == null && telefone == null && email == null))
                 break;
 
-            System.out.println("Insira pelo menos uma forma de contato");
+            printAmarelo("Insira pelo menos uma forma de contato\n");
         }
 
         if (c.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
-            TelaCliente.render();
+            TelaCliente telaCliente = new TelaCliente();
+            telaCliente.render();
         } else {
-            System.out.println("Cadastro falhou");
+            printVermelho("Cadastro falhou\n");
+            return false;
         }
+
+        return true;
     }
 
     /**
@@ -44,16 +49,14 @@ public class TelaCadastro {
      * @param nomeCampo Label para o input
      * @return valor inputado
      */
-    private static String inputCampoObrigatorio(String nomeCampo) {
+    private String inputCampoObrigatorio(String nomeCampo) {
         String campo;
 
-        System.out.print(nomeCampo + ": ");
-        campo = Main.sc.nextLine();
+        campo = stringInput(nomeCampo + ": ");
         while (campo.isEmpty()) {
-            System.out.println("CAMPO OBRIGATÓRIO");
+            printVermelho("CAMPO OBRIGATÓRIO\n");
 
-            System.out.print(nomeCampo + ": ");
-            campo = Main.sc.nextLine();
+            campo = stringInput(nomeCampo + ": ");
         }
 
         return campo;
@@ -64,12 +67,10 @@ public class TelaCadastro {
      * @param nomeCampo Label para o input
      * @return valor inputado
      */
-    private static String inputCampoOpcional(String nomeCampo) {
+    private String inputCampoOpcional(String nomeCampo) {
         String campo;
 
-        System.out.print(nomeCampo + " (opcional): ");
-        campo = Main.sc.nextLine();
-
+        campo = stringInput(nomeCampo + " (opcional): ");
         if (campo.isEmpty()) {
             campo = null;
         }
