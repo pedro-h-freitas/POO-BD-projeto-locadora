@@ -16,15 +16,23 @@ public abstract class Tela {
      * Mostra um texto em azul
      * @param label texto a ser exibido
      */
-    protected void printAzul(String label) {
+    protected static void printAzul(String label) {
         System.out.print("\u001B[34m" + label + "\u001B[0m");
+    }
+
+    /**
+     * Mostra um texto em azul
+     * @param label texto a ser exibido
+     */
+    protected static void printCiano(String label) {
+        System.out.print("\u001B[36m" + label + "\u001B[0m");
     }
 
     /**
      * Mostra um texto em vermelho
      * @param label texto a ser exibido
      */
-    protected void printVermelho(String label) {
+    protected static void printVermelho(String label) {
         System.out.print("\u001B[31m" + label + "\u001B[0m");
     }
 
@@ -32,7 +40,7 @@ public abstract class Tela {
      * Mostra um texto em verde
      * @param label texto a ser exibido
      */
-    protected void printVerde(String label){
+    protected static void printVerde(String label){
         System.out.print("\u001B[32m" + label + "\u001B[0m");
     }
 
@@ -40,7 +48,7 @@ public abstract class Tela {
      * Mostra um texto em amarelo
      * @param label texto a ser exibido
      */
-    protected void printAmarelo(String label){
+    protected static void printAmarelo(String label){
         System.out.print("\u001B[33m" + label + "\u001B[0m");
     }
 

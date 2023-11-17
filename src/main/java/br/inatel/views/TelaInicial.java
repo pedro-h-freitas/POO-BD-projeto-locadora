@@ -5,7 +5,7 @@ import br.inatel.Main;
 /**
  * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa
  */
-public class TelaInicial extends Tela{
+public class TelaInicial extends Tela implements Menu{
     /**
      * Exibe o Menu Principal
      * Chama Tela de Login
@@ -44,16 +44,5 @@ public class TelaInicial extends Tela{
         }
 
         return true;
-    }
-
-    /**
-     * Método auxiliar mostrar as opções do menu
-     * @param id número da opção
-     * @param opcao descrição da opção
-     */
-    private void printOpcao(String id, String opcao){
-        printVerde(id);
-        System.out.print(" - " + opcao);
-        System.out.println();
     }
 }
