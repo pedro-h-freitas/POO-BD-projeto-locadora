@@ -1,7 +1,7 @@
 package br.inatel.views;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.CadastroController;
+import br.inatel.controllers.CadastroController;
 
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente
@@ -32,13 +32,18 @@ public class TelaCadastro {
             System.out.println("Insira pelo menos uma forma de contato");
         }
 
-        if (c.cadastro(nome, cpf, senha, endereco, telefone, email)) {
+        if (c.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
             TelaCliente.render();
         } else {
             System.out.println("Cadastro falhou");
         }
     }
 
+    /**
+     * Método auxiliar para realizar o input de um campo obrigatório
+     * @param nomeCampo Label para o input
+     * @return valor inputado
+     */
     private static String inputCampoObrigatorio(String nomeCampo) {
         String campo;
 
@@ -54,6 +59,11 @@ public class TelaCadastro {
         return campo;
     }
 
+    /**
+     * Método auxiliar para realizar o input de um campo obrigatório
+     * @param nomeCampo Label para o input
+     * @return valor inputado
+     */
     private static String inputCampoOpcional(String nomeCampo) {
         String campo;
 
