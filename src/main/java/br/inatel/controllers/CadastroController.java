@@ -1,7 +1,7 @@
 package br.inatel.controllers;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.ClienteDAO;
+import br.inatel.controllers.DAO.ClienteUserDAO;
 import br.inatel.models.Cliente;
 
 /**
@@ -26,7 +26,7 @@ public class CadastroController {
             String telefone,
             String email
     ) {
-        ClienteDAO clienteDAO = new ClienteDAO();
+        ClienteUserDAO clienteDAO = new ClienteUserDAO();
         int id = clienteDAO.insert(new Cliente(
                 nome,
                 cpf,

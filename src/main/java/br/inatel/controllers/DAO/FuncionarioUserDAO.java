@@ -3,13 +3,12 @@ package br.inatel.controllers.DAO;
 import br.inatel.models.Funcionario;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "funcionario"
  */
-public class FuncionarioDAO extends DAOWithId<Funcionario> {
+public class FuncionarioUserDAO extends UserDAO<Funcionario> {
 
     /**
      * Método para obter a query de inserção específica do Funcionario

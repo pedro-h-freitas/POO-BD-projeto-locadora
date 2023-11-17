@@ -3,13 +3,12 @@ package br.inatel.controllers.DAO;
 import br.inatel.models.Cliente;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "cliente"
  */
-public class ClienteDAO extends DAOWithId<Cliente> {
+public class ClienteUserDAO extends UserDAO<Cliente> {
 
     /**
      * Método para obter a query de inserção específica do Cliente

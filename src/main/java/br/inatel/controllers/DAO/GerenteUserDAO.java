@@ -1,6 +1,5 @@
 package br.inatel.controllers.DAO;
 
-import br.inatel.models.Funcionario;
 import br.inatel.models.Gerente;
 
 import java.sql.PreparedStatement;
@@ -9,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Class for CREATE, READ, UPDATE objects of the table "gerente"
  */
-public class GerenteDAO extends DAOWithId<Gerente> {
+public class GerenteUserDAO extends UserDAO<Gerente> {
 
     /**
      * Método para obter a query de inserção específica do Gerente

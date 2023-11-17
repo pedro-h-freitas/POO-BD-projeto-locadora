@@ -1,9 +1,9 @@
 package br.inatel.controllers;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.ClienteDAO;
-import br.inatel.controllers.DAO.FuncionarioDAO;
-import br.inatel.controllers.DAO.GerenteDAO;
+import br.inatel.controllers.DAO.ClienteUserDAO;
+import br.inatel.controllers.DAO.FuncionarioUserDAO;
+import br.inatel.controllers.DAO.GerenteUserDAO;
 import br.inatel.models.Cliente;
 import br.inatel.models.Funcionario;
 import br.inatel.models.Gerente;
@@ -20,7 +20,7 @@ public class LoginController {
      */
     public int login(String id, String senha) {
         if (id.charAt(0) == '1') {
-            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            FuncionarioUserDAO funcionarioDAO = new FuncionarioUserDAO();
             Funcionario funcionario = funcionarioDAO.selectById(Integer.parseInt(id));
 
             if (funcionario == null)
@@ -28,7 +28,7 @@ public class LoginController {
             if (!funcionario.getSenha().equals(senha))
                 return -2;
 
-            GerenteDAO gerenteDAO = new GerenteDAO();
+            GerenteUserDAO gerenteDAO = new GerenteUserDAO();
             Gerente gerente = gerenteDAO.selectById(Integer.parseInt(id));
             if (!(gerente == null)) {
                 Main.context.setUserId(funcionario.getId());
@@ -45,7 +45,7 @@ public class LoginController {
             return 2;
         }
         else if (id.charAt(0) == '2') {
-            ClienteDAO clienteDAO = new ClienteDAO();
+            ClienteUserDAO clienteDAO = new ClienteUserDAO();
             Cliente cliente = clienteDAO.selectById(Integer.parseInt(id));
 
             if (cliente == null)
