@@ -7,7 +7,7 @@ import br.inatel.Main;
  */
 public class TelaFuncionario {
     /**
-     * Mostra Menu do Funcionario
+     * Mostra Tela do Funcionario
      */
     public static void render() {
         //TODO

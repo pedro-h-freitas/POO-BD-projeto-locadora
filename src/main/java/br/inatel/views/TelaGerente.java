@@ -7,7 +7,7 @@ import br.inatel.Main;
  */
 public class TelaGerente {
     /**
-     * Mostra Menu do Gerente
+     * Mostra Tela do Gerente
      */
     public static void render() {
         //TODO

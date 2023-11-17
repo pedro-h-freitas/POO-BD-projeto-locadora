@@ -8,7 +8,7 @@ import br.inatel.Main;
 public class TelaCliente {
 
     /**
-     * Mostra Menu do Cliente
+     * Mostra Tela do Cliente
      */
     public static void render() {
         //TODO
