@@ -85,4 +85,32 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
 
         return locadoras;
     }
+
+    public String selectNome(int id) {
+        connectToDB();
+        
+        String sql = "SELECT nome FROM locadora WHERE id=?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                return rs.getString("nome");
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                // st.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+        return null;
+    }
 }
