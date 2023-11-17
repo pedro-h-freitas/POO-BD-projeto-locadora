@@ -10,7 +10,6 @@ import java.sql.SQLException;
  */
 public abstract class DAOWithId<T> extends ConnectionDAO<T>{
 
-
     /**
      * Método abstrato para obter a query de seleção por id para cada tabela
      * @return query de busca
@@ -30,7 +29,6 @@ public abstract class DAOWithId<T> extends ConnectionDAO<T>{
      */
     public T selectById(int id){
         connectToDB();
-        Funcionario funcionario = null;
 
         String sql = getSelectByIdQuery();
         try {

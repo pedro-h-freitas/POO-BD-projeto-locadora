@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     /**
-     * contexto atual da sessão
+     * contexto da sessão atual
      */
     public static Context context = new Context();
     public static Scanner sc = new Scanner(System.in);

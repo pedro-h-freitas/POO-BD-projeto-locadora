@@ -9,9 +9,11 @@ import br.inatel.controllers.LoginController;
 public class TelaLogin {
     /**
      * Exibe a Tela de Login
+     * Chama Tela do Gerente
+     * Chama Tela de Funcionario
+     * Chama Tela de Cliente
      */
     public static void render() {
-        // TODO
         String id, senha;
         LoginController l = new LoginController();
 

@@ -33,11 +33,11 @@ public class GerenteDAO extends DAOWithId<Gerente> {
 
     /**
      * Método para obter a query de seleção por id do Gerente
-     * @return "SELECT * FROM funcionario WHERE id_funcionario=?"
+     * @return "SELECT * FROM gerente WHERE id_funcionario=?"
      */
     @Override
     protected String getSelectByIdQuery() {
-        return "SELECT * FROM funcionario WHERE id_funcionario=?";
+        return "SELECT * FROM gerente WHERE id_funcionario=?";
     }
 
     /**
