@@ -46,6 +46,11 @@ public class TelaInicial extends Tela{
         return true;
     }
 
+    /**
+     * Método auxiliar mostrar as opções do menu
+     * @param id número da opção
+     * @param opcao descrição da opção
+     */
     private void printOpcao(String id, String opcao){
         printVerde(id);
         System.out.print(" - " + opcao);

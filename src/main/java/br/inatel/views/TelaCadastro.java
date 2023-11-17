@@ -1,6 +1,5 @@
 package br.inatel.views;
 
-import br.inatel.Main;
 import br.inatel.controllers.CadastroController;
 
 /**

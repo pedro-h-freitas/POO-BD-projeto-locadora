@@ -5,15 +5,17 @@ import br.inatel.Main;
 /**
  * Tela do Cliente
  */
-public class TelaCliente {
+public class TelaCliente extends Tela{
 
     /**
      * Mostra Tela do Cliente
      */
-    public static void render() {
+    public boolean render() {
         //TODO
         System.out.println("Cliente Logado");
         System.out.println("ID: " + Main.context.getUserId());
         Main.sc.nextLine();
+
+        return true;
     }
 }

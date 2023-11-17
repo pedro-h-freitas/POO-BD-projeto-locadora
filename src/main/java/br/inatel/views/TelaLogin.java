@@ -27,18 +27,20 @@ public class TelaLogin extends Tela{
             case 1:
 //                System.out.println("Gerente");
 //                System.out.println("ID: " + Main.context.getUserId());
-                TelaGerente.render();
+                TelaGerente telaGerente = new TelaGerente();
+                telaGerente.render();
                 break;
             case 2:
-//                System.out.println("Cliente");
+//                System.out.println("Funcionário");
 //                System.out.println("ID: " + Main.context.getUserId());
-                TelaCliente telaCliente = new TelaCliente();
-                telaCliente.render();
+                TelaFuncionario telaFuncionario = new TelaFuncionario();
+                telaFuncionario.render();
                 break;
             case 3:
 //                System.out.println("Funcionário");
 //                System.out.println("ID: " + Main.context.getUserId());
-                TelaFuncionario.render();
+                TelaCliente telaCliente = new TelaCliente();
+                telaCliente.render();
                 break;
             case -1:
                 printVermelho("""
