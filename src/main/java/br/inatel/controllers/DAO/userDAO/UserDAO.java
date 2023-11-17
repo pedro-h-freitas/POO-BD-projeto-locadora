@@ -19,6 +19,12 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
     protected abstract String getSelectByIdQuery();
 
     /**
+     * Método abstrato para mapear o ResultSet em um model
+     * @return Objeto T mapeado no ResultSet
+     */
+    protected abstract T getMapper();
+
+    /**
      * Busca um objeto T em pelo id sua respectiva tabela
      * @param id do objeto selecionado
      * @return Objeto T selecionado
