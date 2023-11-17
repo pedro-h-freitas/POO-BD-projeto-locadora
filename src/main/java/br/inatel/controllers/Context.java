@@ -4,8 +4,13 @@ package br.inatel.controllers;
  * Classe para criar o contexto da sessão
  */
 public class Context {
+    // Constantes
+    public static final String CLIENTE = "CLIENTE";
+    public static final String FUNCIONARIO = "FUNCIONARIO";
+    public static final String GERENTE = "GERENTE";
+
     private int userId;
-    private String userType; // (Cliente, Funcionario, Gerente, Dono)
+    private String userType; // (CLIENTE, FUNCIONARIO, GERENTE)
     private int locadoraId;
 
     /**

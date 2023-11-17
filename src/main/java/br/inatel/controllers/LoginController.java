@@ -2,7 +2,6 @@ package br.inatel.controllers;
 
 import br.inatel.Main;
 import br.inatel.controllers.DAO.ClienteDAO;
-import br.inatel.controllers.DAO.DAOWithId;
 import br.inatel.controllers.DAO.FuncionarioDAO;
 import br.inatel.controllers.DAO.GerenteDAO;
 import br.inatel.models.Cliente;
@@ -33,14 +32,14 @@ public class LoginController {
             Gerente gerente = gerenteDAO.selectById(Integer.parseInt(id));
             if (!(gerente == null)) {
                 Main.context.setUserId(funcionario.getId());
-                Main.context.setUserType("Gerente");
+                Main.context.setUserType(Context.GERENTE);
                 Main.context.setLocadoraId(funcionario.getIdLocadora());
 
                 return 1;
             }
 
             Main.context.setUserId(funcionario.getId());
-            Main.context.setUserType("Funcionario");
+            Main.context.setUserType(Context.FUNCIONARIO);
             Main.context.setLocadoraId(funcionario.getIdLocadora());
 
             return 2;
@@ -55,7 +54,7 @@ public class LoginController {
                 return -2;
 
             Main.context.setUserId(cliente.getId());
-            Main.context.setUserType("Cliente");
+            Main.context.setUserType(Context.CLIENTE);
             Main.context.setLocadoraId(-1);
 
             return 3;
