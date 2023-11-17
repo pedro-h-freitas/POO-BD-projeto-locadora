@@ -1,6 +1,5 @@
 package br.inatel.controllers.DAO;
 
-import br.inatel.models.Cliente;
 import br.inatel.models.Locadora;
 import br.inatel.views.utils.ColorPrinter;
 

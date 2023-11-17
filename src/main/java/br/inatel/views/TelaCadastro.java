@@ -13,7 +13,7 @@ public class TelaCadastro extends Tela{
     public boolean render(){
         // TODO fazer validação dos dados
         String nome, cpf, senha, endereco, telefone, email;
-        CadastroController c = new CadastroController();
+        CadastroController controller = new CadastroController();
 
         System.out.println("-------------- CADASTRO ---------------");
 
@@ -32,7 +32,7 @@ public class TelaCadastro extends Tela{
             printAmarelo("Insira pelo menos uma forma de contato\n");
         }
 
-        if (c.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
+        if (controller.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
             TelaCliente telaCliente = new TelaCliente();
             telaCliente.render();
         } else {

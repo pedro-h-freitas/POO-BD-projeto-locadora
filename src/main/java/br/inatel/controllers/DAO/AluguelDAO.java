@@ -3,9 +3,7 @@ package br.inatel.controllers.DAO;
 import br.inatel.models.Aluguel;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "aluguel"

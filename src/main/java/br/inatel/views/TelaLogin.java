@@ -15,7 +15,7 @@ public class TelaLogin extends Tela{
      */
     public boolean render() {
         String id, senha;
-        LoginController l = new LoginController();
+        LoginController controller = new LoginController();
 
         System.out.println("--------------- LOGIN -----------------");
 
@@ -23,7 +23,7 @@ public class TelaLogin extends Tela{
 
         senha = stringInput("Senha: ");
 
-        switch (l.login(id, senha)) {
+        switch (controller.login(id, senha)) {
             case 1:
 //                System.out.println("Gerente");
 //                System.out.println("ID: " + Main.context.getUserId());
