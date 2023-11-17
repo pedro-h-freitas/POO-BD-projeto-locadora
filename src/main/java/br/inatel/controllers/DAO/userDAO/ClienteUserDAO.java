@@ -63,4 +63,5 @@ public class ClienteUserDAO extends UserDAO<Cliente> {
             System.out.println("Erro: " + e.getMessage());
             return null;
         }
-    }}
+    }
+}
