@@ -1,7 +1,7 @@
 package br.inatel.controllers;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.ClienteUserDAO;
+import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.Cliente;
 
 /**

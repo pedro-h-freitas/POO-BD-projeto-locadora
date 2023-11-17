@@ -1,4 +1,6 @@
-package br.inatel.controllers.DAO;
+package br.inatel.controllers.DAO.userDAO;
+
+import br.inatel.controllers.DAO.ConnectionDAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +10,7 @@ import java.sql.Statement;
  * Classe para manipular DAO com ID
  * @param <T> Model usado no DAO
  */
-public abstract class UserDAO<T> extends ConnectionDAO<T>{
+public abstract class UserDAO<T> extends ConnectionDAO<T> {
 
     /**
      * Método abstrato para obter a query de seleção por id para cada tabela

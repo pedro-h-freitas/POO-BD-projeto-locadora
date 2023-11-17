@@ -1,4 +1,4 @@
-package br.inatel.controllers.DAO;
+package br.inatel.controllers.DAO.userDAO;
 
 import br.inatel.models.Cliente;
 

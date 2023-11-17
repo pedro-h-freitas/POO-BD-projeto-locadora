@@ -1,9 +1,9 @@
 package br.inatel.controllers;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.ClienteUserDAO;
-import br.inatel.controllers.DAO.FuncionarioUserDAO;
-import br.inatel.controllers.DAO.GerenteUserDAO;
+import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
+import br.inatel.controllers.DAO.userDAO.FuncionarioUserDAO;
+import br.inatel.controllers.DAO.userDAO.GerenteUserDAO;
 import br.inatel.models.Cliente;
 import br.inatel.models.Funcionario;
 import br.inatel.models.Gerente;
