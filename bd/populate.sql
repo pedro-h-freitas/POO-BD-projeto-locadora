@@ -4,26 +4,26 @@
 -- gerando funcionarios
 -- ------------------------------------------------------------
 INSERT INTO funcionario(nome, telefone, salario, senha)
-VALUES ("Pedro Freitas", "35999999", 100000, "senha123"),
+VALUES ("funcionario", "35999999999", 130000, "funcionario"),
+("gerente", "358888888888", 300000, "gerente"),
+("Pedro Freitas", "35999999", 100000, "senha123"),
 ("Vincius Souza", "3599001234", 150000, "lucasgadgp"),
 ("Lucas Gadben", "35999690569", 100000, "40028922"), 
 ("Alexandre Calazans", "35991819603", 130000, "246971"),
-("Alexandre Ribeiro", "3599190135", 200000, "242424"),
-("funcionario", "35999999999", 130000, "funcionario"),
-("gerente", "358888888888", 300000, "gerente");
+("Alexandre Ribeiro", "3599190135", 200000, "242424");
 
 -- ------------------------------------------------------------
 -- gerando gerentes
 -- ------------------------------------------------------------
 INSERT INTO gerente(id_funcionario)
-VALUES (101), (106);
+VALUES (102), (103);
 
 -- ------------------------------------------------------------
 -- gerando locadoras
 -- ------------------------------------------------------------
 INSERT INTO locadora(nome, endereco, id_gerente) 
-VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 101),
-("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR", 106);
+VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 102),
+("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR", 103);
 
 -- ------------------------------------------------------------
 -- registrando funcionario em uma locadora
@@ -124,3 +124,5 @@ VALUES (1205, 16);
 UPDATE aluguel
 SET status = 'entregue'
 WHERE id = 1205;
+
+select * from aluguel;
