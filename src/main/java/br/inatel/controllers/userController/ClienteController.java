@@ -1,4 +1,4 @@
-package br.inatel.controllers;
+package br.inatel.controllers.userController;
 
 import br.inatel.Main;
 import br.inatel.controllers.DAO.LocadoraDAO;

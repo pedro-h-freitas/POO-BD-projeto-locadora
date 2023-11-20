@@ -12,7 +12,7 @@ public abstract class Tela extends ColorPrinter {
      * Método abstrado para exibir uma Tela
      * @return (true: renderizar novamente | false: encerrar execução)
      */
-    protected abstract boolean render();
+    public abstract boolean render();
 
     /**
      * Mostra um Input de string

@@ -1,7 +1,7 @@
 package br.inatel.views;
 
 import br.inatel.Main;
-import br.inatel.controllers.ClienteController;
+import br.inatel.controllers.userController.ClienteController;
 import br.inatel.models.Locadora;
 
 import java.util.ArrayList;
@@ -63,10 +63,10 @@ public class MenuCliente extends Menu{
             case 2:
                 System.out.println("Mostrando os alugueis aqui mano");
                 break;
-            case 4:
+            case 3:
                 Main.context.setLocadoraId(-1);
                 break;
-            case 3:
+            case 4:
                 System.out.println("voce tem crtz??");
                 return false;
             case 0:

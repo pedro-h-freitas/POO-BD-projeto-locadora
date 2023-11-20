@@ -1,7 +1,5 @@
 package br.inatel.views;
 
-import br.inatel.Main;
-
 /**
  * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa
  */
