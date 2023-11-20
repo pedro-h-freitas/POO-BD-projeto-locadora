@@ -17,6 +17,9 @@ public class TelaLogin extends Tela{
         String id, senha;
         LoginController controller = new LoginController();
 
+        Menu menu = null;
+        boolean run = true;
+
         System.out.println("--------------- LOGIN -----------------");
 
         id = stringInput("Id: ");
@@ -27,20 +30,17 @@ public class TelaLogin extends Tela{
             case 1:
 //                System.out.println("Gerente");
 //                System.out.println("ID: " + Main.context.getUserId());
-                TelaGerente telaGerente = new TelaGerente();
-                telaGerente.render();
+                menu = new MenuGerente();
                 break;
             case 2:
 //                System.out.println("Funcionário");
 //                System.out.println("ID: " + Main.context.getUserId());
-                TelaFuncionario telaFuncionario = new TelaFuncionario();
-                telaFuncionario.render();
+                menu = new MenuFuncionario();
                 break;
             case 3:
 //                System.out.println("Funcionário");
 //                System.out.println("ID: " + Main.context.getUserId());
-                TelaCliente telaCliente = new TelaCliente();
-                telaCliente.render();
+                menu = new MenuCliente();
                 break;
             case -1:
                 printVermelho("""
@@ -56,6 +56,12 @@ public class TelaLogin extends Tela{
                         """);
                 Main.sc.nextLine();
                 break;
+        }
+
+        if (menu != null) {
+            while (run) {
+                run = menu.render();
+            }
         }
 
         System.out.println("---------------------------------------");

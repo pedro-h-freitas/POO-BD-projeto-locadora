@@ -3,15 +3,15 @@ package br.inatel.views;
 import br.inatel.Main;
 
 /**
- * Tela do Funcionario
+ * Tela do Gerente
  */
-public class TelaFuncionario extends Tela {
+public class MenuGerente extends Menu {
     /**
-     * Mostra Tela do Funcionario
+     * Mostra Tela do Gerente
      */
     public boolean render() {
         //TODO
-        System.out.println("Funcionario Logado");
+        System.out.println("Gerente Logado");
         System.out.println("ID: " + Main.context.getUserId());
         Main.sc.nextLine();
 

@@ -7,6 +7,7 @@ import br.inatel.views.utils.ColorPrinter;
  * Classe abstrata para toda Tela
  */
 public abstract class Tela extends ColorPrinter {
+
     /**
      * Método abstrado para exibir uma Tela
      * @return (true: renderizar novamente | false: encerrar execução)

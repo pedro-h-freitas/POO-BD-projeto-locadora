@@ -15,6 +15,9 @@ public class TelaCadastro extends Tela{
         String nome, cpf, senha, endereco, telefone, email;
         CadastroController controller = new CadastroController();
 
+        Menu menu;
+        boolean run = true;
+
         System.out.println("-------------- CADASTRO ---------------");
 
         nome = inputCampoObrigatorio("Nome");
@@ -32,12 +35,14 @@ public class TelaCadastro extends Tela{
             printAmarelo("Insira pelo menos uma forma de contato\n");
         }
 
-        if (controller.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
-            TelaCliente telaCliente = new TelaCliente();
-            telaCliente.render();
-        } else {
+        if (!controller.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
             printVermelho("Cadastro falhou\n");
             return false;
+        }
+
+        menu = new MenuCliente();
+        while (run) {
+            run = menu.render();
         }
 
         return true;

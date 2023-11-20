@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Tela do Cliente
  */
-public class TelaCliente extends Tela implements Menu{
+public class MenuCliente extends Menu{
 
     /**
      * Mostra Tela do Cliente
@@ -47,16 +47,34 @@ public class TelaCliente extends Tela implements Menu{
         printCiano("Locadora: " + nomeLocadora);
         System.out.println("\n=======================================");
         System.out.println("------------ Menu Cliente -------------");
-        printOpcao("1", "Mostrar catalogo");
+        printOpcao("1", "Alugar filmes");
         printOpcao("2", "Mostrar alugueis ativos");
-        printOpcao("3", "Deletar conta");
+        printOpcao("3", "Trocar locadora");
+        printOpcao("4", "Deletar conta");
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
 
         op = intInput("Opção: ");
 
         switch (op) {
-            case 1
+            case 1:
+                System.out.println("Alugar Filmes");
+                break;
+            case 2:
+                System.out.println("Mostrando os alugueis aqui mano");
+                break;
+            case 4:
+                Main.context.setLocadoraId(-1);
+                break;
+            case 3:
+                System.out.println("voce tem crtz??");
+                return false;
+            case 0:
+                System.out.println("logout");
+                return false;
+            default:
+                printOpcaoInvalida();
+                break;
         }
 
         return true;

@@ -5,7 +5,7 @@ import br.inatel.Main;
 /**
  * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa
  */
-public class TelaInicial extends Tela implements Menu{
+public class MenuInicial extends Menu{
     /**
      * Exibe o Menu Principal
      * Chama Tela de Login
@@ -14,6 +14,8 @@ public class TelaInicial extends Tela implements Menu{
      */
     public boolean render() {
         int opcao;
+
+        Tela tela = null;
 
         System.out.println("------------ Menu Inicial -------------");
         printOpcao("1", "Fazer Login");
@@ -25,23 +27,19 @@ public class TelaInicial extends Tela implements Menu{
 
         switch (opcao){
             case 1:
-                TelaLogin telaLogin = new TelaLogin();
-                telaLogin.render();
+                tela = new TelaLogin();
                 break;
             case 2:
-                TelaCadastro telaCadastro = new TelaCadastro();
-                telaCadastro.render();
+                tela = new TelaCadastro();
                 break;
             case 0:
                 return false;
             default:
-                printVermelho("""
-                        Opção Inválida
-                        Aperte [ENTER] para continuar
-                        """);
-                Main.sc.nextLine();
+                printOpcaoInvalida();
                 break;
         }
+
+        if (tela != null) tela.render();
 
         return true;
     }
