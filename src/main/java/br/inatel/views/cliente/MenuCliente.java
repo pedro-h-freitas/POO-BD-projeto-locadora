@@ -19,7 +19,6 @@ public class MenuCliente extends Menu {
     public boolean render() {
         //TODO
         ClienteController controller = new ClienteController();
-        String nomeLocadora;
         int op;
 
         Tela tela;
@@ -44,20 +43,18 @@ public class MenuCliente extends Menu {
             Main.context.setLocadoraId(idLocadora);
         }
 
-        nomeLocadora = controller.getNomeLocadora();
-
-        printMenu(nomeLocadora);
+        printMenu();
 
         op = intInput("Opção: ");
 
         tela = null;
         switch (op) {
             case 1:
-                if (controller.hasAluguel()) printVermelho("Você possui alguel ativo");
+                if (controller.hasAluguel()) printVermelho("Você possui alguel ativo\n");
                 else tela = new MenuAluguel();
                 break;
             case 2:
-                if (!controller.hasAluguel()) printVermelho("Você não possui alguel ativo");
+                if (!controller.hasAluguel()) printVermelho("Você não possui alguel ativo\n");
                 else tela = new MenuFilmesAlugados();
                 break;
             case 3:
@@ -67,7 +64,6 @@ public class MenuCliente extends Menu {
                 deleteUser(controller);
                 return false;
             case 0:
-                System.out.println("logout");
                 return false;
             default:
                 printOpcaoInvalida();
@@ -96,12 +92,7 @@ public class MenuCliente extends Menu {
         return id;
     }
 
-    private void printMenu(String nomeLocadora) {
-        System.out.println("\n=======================================");
-        printCiano("ID Cliente Logado: " + Main.context.getUserId());
-        System.out.println("\n=======================================");
-        printCiano("Locadora: " + nomeLocadora);
-        System.out.println("\n=======================================");
+    private void printMenu() {
         System.out.println("------------ Menu Cliente -------------");
         printOpcao("1", "Alugar filmes");
         printOpcao("2", "Mostrar filmes alugados");

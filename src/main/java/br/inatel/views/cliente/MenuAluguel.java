@@ -98,7 +98,9 @@ public class MenuAluguel extends Menu {
         if (filmes.isEmpty())
             return false;
 
-        controller.alugar(filmes);
+        controller.alugar(carrinho);
+        printVerde("Filmes alugados: \n");
+        printCarrinho();
         return true;
     }
 
@@ -112,7 +114,7 @@ public class MenuAluguel extends Menu {
             printVerde(id);
             System.out.print(" - ");
             printAmarelo(filme.getNome() + " (" + ano + ")");
-            System.out.print("\n\tGeneros: " + filme.getGeneros());
+            printCiano("\nGeneros: " + filme.getGeneros() + "\n");
             System.out.println();
         }
         System.out.println("---------------------------------------");
