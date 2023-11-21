@@ -32,7 +32,7 @@ public class ClienteController {
         return filmeDAO.selectByAluguel(idAluguel);
     }
 
-    public int getAluguelId() {
+    public int getIdAluguel() {
         AluguelDAO aluguelDAO = new AluguelDAO();
         int userId = Main.context.getUserId();
 
@@ -41,7 +41,7 @@ public class ClienteController {
 
     public boolean hasAluguel() {
 
-        return getAluguelId() != -1;
+        return getIdAluguel() != -1;
     }
 
     public void deleteUser() {
