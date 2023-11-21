@@ -27,6 +27,11 @@ public class ClienteController {
         return filmeDAO.selectByLocadora(Main.context.getLocadoraId());
     }
 
+    public ArrayList<FilmeDisplay> getFilmesByAluguel(int idAluguel) {
+        FilmeDisplayDAO filmeDAO = new FilmeDisplayDAO();
+        return filmeDAO.selectByAluguel(idAluguel);
+    }
+
     public int getAluguelId() {
         AluguelDAO aluguelDAO = new AluguelDAO();
         int userId = Main.context.getUserId();
