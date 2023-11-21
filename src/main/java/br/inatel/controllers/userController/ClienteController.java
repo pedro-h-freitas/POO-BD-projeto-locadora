@@ -8,7 +8,7 @@ import br.inatel.controllers.DAO.LocadoraDAO;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.Aluguel;
 import br.inatel.models.FilmeAlugado;
-import br.inatel.models.FilmeAlugar;
+import br.inatel.models.FilmeDisplay;
 import br.inatel.models.Locadora;
 import br.inatel.views.utils.ColorPrinter;
 
@@ -25,9 +25,9 @@ public class ClienteController {
         return locadoraDAO.selectNome(Main.context.getLocadoraId());
     }
 
-    public ArrayList<FilmeAlugar> getFilmes() {
+    public ArrayList<FilmeDisplay> getFilmes() {
         FilmeDAO filmeDAO = new FilmeDAO();
-        return filmeDAO.selectFilmeAlugar(Main.context.getLocadoraId());
+        return filmeDAO.selectFilmeDisplay(Main.context.getLocadoraId());
     }
 
     public boolean hasAluguel() {
@@ -47,14 +47,14 @@ public class ClienteController {
         Main.context.setLocadoraId(-1);
     }
 
-    public void alugar(ArrayList<FilmeAlugar> filmes) {
+    public void alugar(ArrayList<FilmeDisplay> filmes) {
         AluguelDAO aluguelDAO = new AluguelDAO();
         FilmeAlugadoDAO filmeAlugadoDAO = new FilmeAlugadoDAO();
 
         Aluguel aluguel = new Aluguel(Main.context.getUserId(), Main.context.getLocadoraId());
         int aluguelId = aluguelDAO.insert(aluguel);
 
-        for (FilmeAlugar filme :
+        for (FilmeDisplay filme :
                 filmes) {
             FilmeAlugado filmeAlugado = new FilmeAlugado(aluguelId, filme.getId());
             filmeAlugadoDAO.insert(filmeAlugado);

@@ -1,14 +1,14 @@
 package br.inatel.views.cliente;
 
 import br.inatel.controllers.userController.ClienteController;
-import br.inatel.models.FilmeAlugar;
+import br.inatel.models.FilmeDisplay;
 import br.inatel.views.Menu;
 
 import java.util.ArrayList;
 
 public class MenuAlugar extends Menu {
-    private ArrayList<FilmeAlugar> filmes;
-    private ArrayList<FilmeAlugar> carrinho;
+    private ArrayList<FilmeDisplay> filmes;
+    private ArrayList<FilmeDisplay> carrinho;
 
     @Override
     public boolean render() {
@@ -104,7 +104,7 @@ public class MenuAlugar extends Menu {
 
     private void printFilmes() {
         System.out.println("--------------- Filmes ----------------");
-        for (FilmeAlugar filme :
+        for (FilmeDisplay filme :
                 filmes) {
             String id = Integer.toString(filme.getId());
             String ano = Integer.toString(filme.getAno());
@@ -120,7 +120,7 @@ public class MenuAlugar extends Menu {
 
     private void printCarrinho() {
         System.out.println("-------------- Carrinho ---------------");
-        for (FilmeAlugar filme :
+        for (FilmeDisplay filme :
                 carrinho) {
             String id = Integer.toString(filme.getId());
             String ano = Integer.toString(filme.getAno());
@@ -131,7 +131,7 @@ public class MenuAlugar extends Menu {
     }
 
     private int adicionaFilme(int op) {
-        for (FilmeAlugar filme :
+        for (FilmeDisplay filme :
                 filmes) {
             if (filme.getId() == op) {
                 carrinho.add(filme);

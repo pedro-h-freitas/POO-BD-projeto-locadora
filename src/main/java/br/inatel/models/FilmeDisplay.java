@@ -2,14 +2,14 @@ package br.inatel.models;
 
 import java.time.Year;
 
-public class FilmeAlugar {
+public class FilmeDisplay {
     private int id;
     private String nome;
     private int ano;
     private String generos;
     private int preco;
 
-    public FilmeAlugar(int id, String nome, int ano, String generos) {
+    public FilmeDisplay(int id, String nome, int ano, String generos) {
         this.id = id;
         this.nome = nome;
         this.ano = ano;

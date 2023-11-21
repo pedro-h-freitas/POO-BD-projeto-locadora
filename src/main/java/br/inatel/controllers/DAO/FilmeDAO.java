@@ -1,7 +1,7 @@
 package br.inatel.controllers.DAO;
 
 import br.inatel.models.Filme;
-import br.inatel.models.FilmeAlugar;
+import br.inatel.models.FilmeDisplay;
 import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
@@ -35,8 +35,8 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
         pst.setInt(3, filme.getIdInfoFilme());
     }
 
-    public ArrayList<FilmeAlugar> selectFilmeAlugar(int idLocadora) {
-        ArrayList<FilmeAlugar> filmes = new ArrayList<>();
+    public ArrayList<FilmeDisplay> selectFilmeDisplay(int idLocadora) {
+        ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
         connectToDB();
 
@@ -53,7 +53,7 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                FilmeAlugar filme = new FilmeAlugar(
+                FilmeDisplay filme = new FilmeDisplay(
                         rs.getInt("id"),
                         rs.getString("nome"),
                         rs.getInt("ano"),
