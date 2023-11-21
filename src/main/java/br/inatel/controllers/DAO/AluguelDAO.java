@@ -74,18 +74,20 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
         return id;
     }
 
-    public boolean hasAluguel(int id) {
+    public int selectAluguelIdByCliente(int idCliente) {
+        int idAluguel = -1;
+
         connectToDB();
 
-        String sql = "select count(*) as count from aluguel where id_cliente=? and status!='entregue';";
+        String sql = "select id from aluguel where id_cliente=? and status!='entregue';";
         try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1, id);
+            pst.setInt(1, idCliente);
             rs = pst.executeQuery();
 
             if (rs != null && rs.next()) {
                 sucesso = true;
-                return rs.getInt("count") == 1;
+                idAluguel = rs.getInt("id");
             }
 
         } catch (SQLException e) {
@@ -99,7 +101,7 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
                 ColorPrinter.printErro(e);
             }
         }
-        return false;
+        return idAluguel;
     }
 
     public Aluguel selectByCliente(int id) {

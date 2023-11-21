@@ -27,9 +27,16 @@ public class ClienteController {
         return filmeDAO.selectByIdLocadora(Main.context.getLocadoraId());
     }
 
-    public boolean hasAluguel() {
+    public int getAluguelId() {
         AluguelDAO aluguelDAO = new AluguelDAO();
-        return aluguelDAO.hasAluguel(Main.context.getUserId());
+        int userId = Main.context.getUserId();
+
+        return aluguelDAO.selectAluguelIdByCliente(userId);
+    }
+
+    public boolean hasAluguel() {
+
+        return getAluguelId() != -1;
     }
 
     public void deleteUser() {
