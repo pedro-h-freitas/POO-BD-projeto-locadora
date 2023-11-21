@@ -65,4 +65,14 @@ public class ClienteUserDAO extends UserDAO<Cliente> {
             return null;
         }
     }
+
+    @Override
+    protected String getDeleteQuery() {
+        return "DELETE FROM cliente WHERE id=?";
+    }
+
+    @Override
+    protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
+        pst.setInt(1, id);
+    }
 }

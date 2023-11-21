@@ -64,4 +64,14 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
             return null;
         }
     }
+
+    @Override
+    protected String getDeleteQuery() {
+        return "DELETE FROM funcionario WHERE id=?";
+    }
+
+    @Override
+    protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
+        pst.setInt(1, id);
+    }
 }

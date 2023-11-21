@@ -55,4 +55,14 @@ public class GerenteUserDAO extends UserDAO<Gerente> {
             return null;
         }
     }
+
+    @Override
+    protected String getDeleteQuery() {
+        return "DELETE FROM gerente WHERE id_funcionario=?";
+    }
+
+    @Override
+    protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
+        pst.setInt(1, id);
+    }
 }

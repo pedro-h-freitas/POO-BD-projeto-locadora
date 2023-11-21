@@ -3,6 +3,7 @@ package br.inatel.controllers.DAO.userDAO;
 import br.inatel.controllers.DAO.ConnectionDAO;
 import br.inatel.views.utils.ColorPrinter;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -101,5 +102,43 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
         }
 
         return id;
+    }
+
+    /**
+     * Método abstrato para obter a query de deleção específica para cada tabela
+     * @return query de inserção
+     */
+    protected abstract String getDeleteQuery();
+
+    /**
+     * Método abstrato para definir os valores específicos para cada tabela
+     * @param pst PreparedStatement
+     * @param id id a ser excluido
+     * @throws SQLException Exceção de SQL
+     */
+    protected abstract void setDeleteValues(PreparedStatement pst, int id) throws SQLException;
+
+    public boolean delete(int id) {
+        connectToDB();
+
+        String sql = getDeleteQuery();
+        try {
+            pst = con.prepareStatement(sql);
+            setDeleteValues(pst, id);
+            pst.execute();
+
+            sucesso = true;
+        } catch (SQLException e) {
+            System.out.println("Erro = " + e.getMessage());
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
+        return sucesso;
     }
 }
