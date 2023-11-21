@@ -43,7 +43,8 @@ public class ColorPrinter {
     }
 
     public static void printErro(Exception e) {
-        printVermelho("Erro: " + e.getMessage());
+        printVermelho("Erro: " + e.getMessage() + '\n');
+        e.getStackTrace();
     }
 
 }

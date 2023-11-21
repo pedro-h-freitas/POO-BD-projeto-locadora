@@ -16,10 +16,6 @@ public abstract class Menu extends Tela{
     }
 
     protected void printOpcaoInvalida() {
-        printVermelho("""
-                        Opção Inválida
-                        Aperte [ENTER] para continuar
-                        """);
-        Main.sc.nextLine();
+        printVermelho("Opção Inválida\n");
     }
 }

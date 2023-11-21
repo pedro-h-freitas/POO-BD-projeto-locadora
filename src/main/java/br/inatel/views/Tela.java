@@ -28,13 +28,13 @@ public abstract class Tela extends ColorPrinter {
      * @param label texto a ser exibido
      */
     protected Integer intInput(String label) {
-        Integer i = null;
-        try{
-            i = Integer.parseInt(stringInput(label));
-        } catch (Exception e) {
-            printVermelho("Insira um número");
+        while (true) {
+            try {
+                return Integer.parseInt(stringInput(label));
+            } catch (Exception e) {
+                printVermelho("Insira um número\n");
+            }
         }
-        return i;
     }
 
 }

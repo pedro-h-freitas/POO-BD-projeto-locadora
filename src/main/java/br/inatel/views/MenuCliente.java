@@ -41,18 +41,7 @@ public class MenuCliente extends Menu{
 
         nomeLocadora = controller.getNomeLocadora();
 
-        System.out.println("=======================================");
-        printCiano("ID Cliente Logado: " + Main.context.getUserId());
-        System.out.println("\n=======================================");
-        printCiano("Locadora: " + nomeLocadora);
-        System.out.println("\n=======================================");
-        System.out.println("------------ Menu Cliente -------------");
-        printOpcao("1", "Alugar filmes");
-        printOpcao("2", "Mostrar alugueis ativos");
-        printOpcao("3", "Trocar locadora");
-        printOpcao("4", "Deletar conta");
-        printOpcao("0", "Logout");
-        System.out.println("---------------------------------------");
+        printMenu(nomeLocadora);
 
         op = intInput("Opção: ");
 
@@ -95,5 +84,20 @@ public class MenuCliente extends Menu{
         }
 
         return id;
+    }
+
+    private void printMenu(String nomeLocadora) {
+        System.out.println("\n=======================================");
+        printCiano("ID Cliente Logado: " + Main.context.getUserId());
+        System.out.println("\n=======================================");
+        printCiano("Locadora: " + nomeLocadora);
+        System.out.println("\n=======================================");
+        System.out.println("------------ Menu Cliente -------------");
+        printOpcao("1", "Alugar filmes");
+        printOpcao("2", "Mostrar alugueis ativos");
+        printOpcao("3", "Trocar locadora");
+        printOpcao("4", "Deletar conta");
+        printOpcao("0", "Logout");
+        System.out.println("---------------------------------------");
     }
 }

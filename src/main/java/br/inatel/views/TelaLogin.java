@@ -43,18 +43,10 @@ public class TelaLogin extends Tela{
                 menu = new MenuCliente();
                 break;
             case -1:
-                printVermelho("""
-                        !!!!! ID INVÁLIDO !!!!!
-                        Aperte [ENTER] para continuar
-                        """);
-                Main.sc.nextLine();
+                printVermelho("ID inválido");
                 break;
             case -2:
-                printVermelho("""
-                        !!!!! SENHA INVÁLIDA !!!!!
-                        Aperte [ENTER] para continuar
-                        """);
-                Main.sc.nextLine();
+                printVermelho("Senha inválida");
                 break;
         }
 
