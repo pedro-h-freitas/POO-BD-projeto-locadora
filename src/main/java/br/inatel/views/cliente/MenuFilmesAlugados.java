@@ -18,9 +18,10 @@ public class MenuFilmesAlugados extends Menu {
         ArrayList<FilmeDisplay> filmes = controller.getFilmesByAluguel(idAluguel);
 
         System.out.println("------------ Filmes Alugados ----------");
-        for (FilmeDisplay filme :
-                filmes) {
-            String id = Integer.toString(filme.getId());
+        for (int i = 0; i < filmes.size(); i++) {
+            FilmeDisplay filme = filmes.get(i);
+
+            String id = Integer.toString(i);
             String ano = Integer.toString(filme.getAno());
 
             printVerde(id);

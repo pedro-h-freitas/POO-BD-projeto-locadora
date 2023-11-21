@@ -27,7 +27,8 @@ public class MenuCliente extends Menu {
             ArrayList<Locadora> locadoras = controller.selectAllLocadoras();
             ArrayList<Integer> idList = new ArrayList<>();
 
-            printAzul("\nQual locadora você está?\n");
+            System.out.println("---------------------------------------");
+            printAzul("Qual locadora você está?\n");
             System.out.println("---------------------------------------");
 
             for (Locadora l :
