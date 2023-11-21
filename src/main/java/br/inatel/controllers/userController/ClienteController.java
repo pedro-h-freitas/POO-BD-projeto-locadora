@@ -5,10 +5,12 @@ import br.inatel.controllers.DAO.AluguelDAO;
 import br.inatel.controllers.DAO.FilmeAlugadoDAO;
 import br.inatel.controllers.DAO.FilmeDAO;
 import br.inatel.controllers.DAO.LocadoraDAO;
+import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.Aluguel;
 import br.inatel.models.FilmeAlugado;
 import br.inatel.models.FilmeAlugar;
 import br.inatel.models.Locadora;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,18 @@ public class ClienteController {
     public boolean hasAluguel() {
         AluguelDAO aluguelDAO = new AluguelDAO();
         return aluguelDAO.hasAluguel(Main.context.getUserId());
+    }
+
+    public void deleteUser() {
+        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
+        int userId = Main.context.getUserId();
+
+        clienteUserDAO.delete(userId);
+        ColorPrinter.printAzul("Usuario: " + userId + " deletado");
+
+        Main.context.setUserId(-1);
+        Main.context.setUserType(null);
+        Main.context.setLocadoraId(-1);
     }
 
     public void alugar(ArrayList<FilmeAlugar> filmes) {

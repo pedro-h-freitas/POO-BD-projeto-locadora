@@ -63,7 +63,7 @@ public class MenuCliente extends Menu {
                 Main.context.setLocadoraId(-1);
                 break;
             case 4:
-                System.out.println("voce tem crtz??");
+                deleteUser(controller);
                 return false;
             case 0:
                 System.out.println("logout");
@@ -108,5 +108,17 @@ public class MenuCliente extends Menu {
         printOpcao("4", "Deletar conta");
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
+    }
+
+    private void deleteUser(ClienteController controller) {
+        if (controller.hasAluguel()) printVermelho("Há aluguéis pendentes");
+        else {
+            printAmarelo("Você tem crtz??");
+            String s;
+            do {
+                s = stringInput("(S/N) ").toLowerCase();
+            } while (!(s.equals("s") || s.equals("n")));
+            if (s.equals("s")) controller.deleteUser();
+        }
     }
 }
