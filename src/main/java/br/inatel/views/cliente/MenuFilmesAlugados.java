@@ -1,7 +1,7 @@
 package br.inatel.views.cliente;
 
 import br.inatel.controllers.userController.ClienteController;
-import br.inatel.models.Aluguel;
+import br.inatel.models.FilmeDisplay;
 import br.inatel.views.Menu;
 
 public class MenuFilmesAlugados extends Menu {
