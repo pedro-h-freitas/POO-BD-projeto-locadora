@@ -104,7 +104,7 @@ public class MenuCliente extends Menu {
         System.out.println("\n=======================================");
         System.out.println("------------ Menu Cliente -------------");
         printOpcao("1", "Alugar filmes");
-        printOpcao("2", "Mostrar aluguel ativo");
+        printOpcao("2", "Mostrar filmes alugados");
         printOpcao("3", "Trocar locadora");
         printOpcao("4", "Deletar conta");
         printOpcao("0", "Logout");
