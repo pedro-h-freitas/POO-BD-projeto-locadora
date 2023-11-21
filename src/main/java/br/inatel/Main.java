@@ -2,6 +2,7 @@ package br.inatel;
 
 import br.inatel.controllers.Context;
 import br.inatel.views.*;
+import br.inatel.views.cliente.MenuCliente;
 
 import java.util.Scanner;
 
@@ -13,26 +14,27 @@ public class Main {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        MenuInicial menuInicial = new MenuInicial();
+        Menu menu;
         boolean run = true;
-/*
         // loop de execução
-        System.out.println("----- Bem vindo à POO-BD locadora -----");
+        menu = new MenuInicial();
+        System.out.println("----- Bem vindo à locadora POO-BD -----");
         while (run) {
-            run = menuInicial.render();
+            run = menu.render();
         }
         System.out.println("--------- Programa Finalizado ---------");
-        */
+/*
 
-        Menu menu = new MenuCliente();
+        menu = new MenuCliente();
 
-        context.setUserId(205);
+        context.setUserId(201);
         context.setUserType(Context.CLIENTE);
-        context.setLocadoraId(-1);
+        context.setLocadoraId(1);
 
         while (run) {
             run = menu.render();
         }
+*/
 
         sc.close();
     }
