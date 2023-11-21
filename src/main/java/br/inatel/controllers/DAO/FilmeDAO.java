@@ -1,9 +1,12 @@
 package br.inatel.controllers.DAO;
 
 import br.inatel.models.Filme;
+import br.inatel.models.FilmeAlugar;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "filme"
@@ -31,4 +34,48 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
         pst.setInt(2, filme.getIdLocadora());
         pst.setInt(3, filme.getIdInfoFilme());
     }
+
+    public ArrayList<FilmeAlugar> selectFilmeAlugar(int idLocadora) {
+        ArrayList<FilmeAlugar> filmes = new ArrayList<>();
+
+        connectToDB();
+
+        String sql = "select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,\n" +
+                "GROUP_CONCAT(generos.nome) as generos\n" +
+                "from filme \n" +
+                "join info_filme on info_filme.id = filme.id_info_filme\n" +
+                "join generos on info_filme.id = generos.id_info_filme\n" +
+                "where id_locadora=? and n_disponiveis > 0\n" +
+                "GROUP BY filme.id;";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, idLocadora);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                FilmeAlugar filme = new FilmeAlugar(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getInt("ano"),
+                        rs.getString("generos")
+                );
+                filmes.add(filme);
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                // st.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+
+        return filmes;
+    }
+
 }
