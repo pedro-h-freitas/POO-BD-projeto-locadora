@@ -129,3 +129,22 @@ INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-05-10', 205, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
 VALUES (1205, 16);
+/*
+select * from aluguel where id_cliente=205 and status!="entregue";
+
+select aluguel.id, aluguel.data_locacao, aluguel.status, aluguel.id_locadora
+from aluguel
+where id_cliente=201;
+
+select * from filme_alugado;
+select * from filme where id in (12, 13);
+
+select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
+GROUP_CONCAT(generos.nome) as generos
+from filme_alugado 
+join filme on filme.id = filme_alugado.id_filme
+join info_filme on info_filme.id = filme.id_info_filme
+join generos on info_filme.id = generos.id_info_filme
+where id_aluguel=1201 and n_disponiveis > 0
+GROUP BY filme.id;
+*/

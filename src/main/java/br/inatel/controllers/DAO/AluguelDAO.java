@@ -107,7 +107,7 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
 
         connectToDB();
 
-        String sql = "select * from aluguel where id_cliente=? and status!='entregue'';";
+        String sql = "select * from aluguel where id_cliente=? and status!='entregue';";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);
@@ -124,7 +124,6 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
         } finally {
             try {
                 con.close();
-                st.close();
             } catch (SQLException e) {
                 System.out.println("Erro: " + e.getMessage());
             }
@@ -139,7 +138,6 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
                     rs.getString("data_locacao"),
                     rs.getString("data_devolucao"),
                     rs.getString("status"),
-                    rs.getInt("multa"),
                     rs.getInt("id_cliente"),
                     rs.getInt("id_cliente")
             );

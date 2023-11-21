@@ -58,4 +58,9 @@ public class ClienteController {
         }
     }
 
+    public Aluguel getAluguel() {
+        AluguelDAO aluguelDAO = new AluguelDAO();
+        return aluguelDAO.selectByCliente(Main.context.getUserId());
+    }
+
 }
