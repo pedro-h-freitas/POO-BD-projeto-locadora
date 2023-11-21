@@ -104,33 +104,30 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
         return idAluguel;
     }
 
-    public Aluguel selectByCliente(int id) {
-        Aluguel aluguel = null;
-
+    public void devolver(int id) {
         connectToDB();
 
-        String sql = "select * from aluguel where id_cliente=? and status!='entregue';";
+        String sql = """
+                UPDATE aluguel
+                SET status = 'entregue'
+                WHERE id=?;
+                """;
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);
-            rs = pst.executeQuery();
-
-            if (rs != null && rs.next()) {
-                sucesso = true;
-                aluguel = getMapper();
-            }
+            pst.execute();
             sucesso = true;
-        } catch (SQLException e) {
-            System.out.println("Erro: " + e.getMessage());
+        } catch (SQLException ex) {
+            System.out.println("Erro = " + ex.getMessage());
             sucesso = false;
         } finally {
             try {
                 con.close();
-            } catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+                pst.close();
+            } catch (SQLException exc) {
+                System.out.println("Erro: " + exc.getMessage());
             }
         }
-        return aluguel;
     }
 
     public Aluguel getMapper() {

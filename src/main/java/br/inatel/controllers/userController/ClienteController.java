@@ -40,7 +40,6 @@ public class ClienteController {
     }
 
     public boolean hasAluguel() {
-
         return getIdAluguel() != -1;
     }
 
@@ -70,9 +69,9 @@ public class ClienteController {
         }
     }
 
-    public Aluguel getAluguel() {
+    public void devolverFilmes(int idAluguel) {
         AluguelDAO aluguelDAO = new AluguelDAO();
-        return aluguelDAO.selectByCliente(Main.context.getUserId());
+        aluguelDAO.devolver(idAluguel);
     }
 
 }
