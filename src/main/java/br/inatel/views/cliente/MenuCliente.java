@@ -57,7 +57,7 @@ public class MenuCliente extends Menu {
                 else tela = new MenuAlugar();
                 break;
             case 2:
-                System.out.println("Mostrando os alugueis aqui mano");
+                tela = new MenuAluguel();
                 break;
             case 3:
                 Main.context.setLocadoraId(-1);
