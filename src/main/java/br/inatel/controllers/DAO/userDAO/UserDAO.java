@@ -40,10 +40,10 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
             rs = pst.executeQuery();
 
             if (rs != null && rs.next()) {
+                sucesso = true;
                 return getMapper();
             }
 
-            sucesso = true;
         } catch (SQLException e) {
             ColorPrinter.printErro(e);
             sucesso = false;
@@ -80,7 +80,7 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
                     if(generatedKeys.next()) {
                         id = generatedKeys.getInt(1);
                     } else {
-                        System.out.println("Erro ao recupera o ID gerado");
+                        System.out.println("Erro ao recuperar o ID gerado");
                     }
                 }
             } else {

@@ -1,7 +1,8 @@
-package br.inatel.views;
+package br.inatel.views.funcionario;
 
 import br.inatel.Main;
 import br.inatel.controllers.userController.FuncionarioController;
+import br.inatel.views.Menu;
 
 /**
  * Tela do Funcionario

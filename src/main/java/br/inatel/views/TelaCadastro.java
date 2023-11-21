@@ -1,6 +1,7 @@
 package br.inatel.views;
 
 import br.inatel.controllers.CadastroController;
+import br.inatel.views.cliente.MenuCliente;
 
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente

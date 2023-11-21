@@ -10,8 +10,9 @@ public abstract class Menu extends Tela{
      * @param opcao descrição da opção
      */
     protected void printOpcao(String id, String opcao){
-        ColorPrinter.printVerde(id);
-        System.out.print(" - " + opcao);
+        printVerde(id);
+        System.out.print(" - ");
+        printAmarelo(opcao);
         System.out.println();
     }
 

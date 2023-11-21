@@ -1,8 +1,10 @@
-package br.inatel.views;
+package br.inatel.views.cliente;
 
 import br.inatel.Main;
 import br.inatel.controllers.userController.ClienteController;
 import br.inatel.models.Locadora;
+import br.inatel.views.Menu;
+import br.inatel.views.Tela;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,9 @@ public class MenuCliente extends Menu{
                 idList.add(l.getId());
 
                 System.out.println(l);
-                System.out.println("---------------------------------------");
+                System.out.println();
             }
+            System.out.println("---------------------------------------");
 
             int idLocadora = inputIdLocadora(idList);
             Main.context.setLocadoraId(idLocadora);

@@ -42,12 +42,10 @@ public class Aluguel {
 
     /**
      * Construtor da Classe Aluguel para inserção de um novo (INSERT)
-     * @param dataLocacao data que a locação foi feita
      * @param idCliente id do cliente que realizou a locação
      * @param idLocadora id da locadora onde se realizou a locação
      */
-    public Aluguel(String dataLocacao, int idCliente, int idLocadora) {
-        this.dataLocacao = dataLocacao;
+    public Aluguel(int idCliente, int idLocadora) {
         this.idCliente = idCliente;
         this.idLocadora = idLocadora;
     }
