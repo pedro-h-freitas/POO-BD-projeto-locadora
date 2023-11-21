@@ -53,11 +53,12 @@ public class MenuCliente extends Menu {
         tela = null;
         switch (op) {
             case 1:
-                if (controller.hasAluguel()) printVermelho("Usuário já possui alguel ativo");
+                if (controller.hasAluguel()) printVermelho("Você possui alguel ativo");
                 else tela = new MenuAlugar();
                 break;
             case 2:
-                tela = new MenuAluguel();
+                if (!controller.hasAluguel()) printVermelho("Você não possui alguel ativo");
+                else tela = new MenuAluguel();
                 break;
             case 3:
                 Main.context.setLocadoraId(-1);
@@ -103,7 +104,7 @@ public class MenuCliente extends Menu {
         System.out.println("\n=======================================");
         System.out.println("------------ Menu Cliente -------------");
         printOpcao("1", "Alugar filmes");
-        printOpcao("2", "Mostrar alugueis ativos");
+        printOpcao("2", "Mostrar aluguel ativo");
         printOpcao("3", "Trocar locadora");
         printOpcao("4", "Deletar conta");
         printOpcao("0", "Logout");
