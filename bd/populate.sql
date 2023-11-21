@@ -7,10 +7,10 @@ INSERT INTO funcionario(nome, telefone, salario, senha)
 VALUES ("funcionario", "35999999999", 130000, "funcionario"),
 ("gerente", "358888888888", 300000, "gerente"),
 ("Pedro Freitas", "35999999", 100000, "senha123"),
-("Vincius Souza", "3599001234", 150000, "lucasgadgp"),
-("Lucas Gadben", "35999690569", 100000, "40028922"), 
-("Alexandre Calazans", "35991819603", 130000, "246971"),
-("Alexandre Ribeiro", "3599190135", 200000, "242424");
+("Vincius Souza", "3599991234", 150000, "lucasgadgp"),
+("Lucas Gadben", "35999690679", 100000, "40028922"), 
+("Alexandre Calazans", "35991819713", 130000, "246971"),
+("Alexandre Ribeiro", "3599190146", 200000, "242424");
 
 -- ------------------------------------------------------------
 -- gerando gerentes
@@ -22,8 +22,8 @@ VALUES (102), (103);
 -- gerando locadoras
 -- ------------------------------------------------------------
 INSERT INTO locadora(nome, endereco, id_gerente) 
-VALUES ("filial_1", "Rua José Benedito Coelho, n71, Monte Belo, Santa Rita, MG, BR", 102),
-("filial_2", "Rua Vicente Manoel dos Santo, n40, Vila Industrial, Conceição dos Ouros, MG, BR", 103);
+VALUES ("filial_1", "Santa Rita", 102),
+("filial_2", "Conceição dos Ouros", 103);
 
 -- ------------------------------------------------------------
 -- registrando funcionario em uma locadora
@@ -87,10 +87,10 @@ VALUES (1, 2, 6), (2, 2, 2), (3, 2, 5), (4, 2, 4), (5, 2, 2), (7, 2, 6);
 -- gerando clientes
 -- ------------------------------------------------------------
 INSERT INTO cliente(nome, cpf, senha, telefone)
-VALUES ('Yasmin', '00145720258', 'yasminlinda', '(35)99271-2929'),
+VALUES ('Yasmin', '00145721358', 'yasminlinda', '(35)99271-2929'),
 ('Julia Helena', '12345678910', 'pedroehumlindo', '(35)90000-0000'),
-('Jose Alfredo', '10784381734', 'alfanumerica', '(35)9999-9999'),
-('Silvana Almeida de Freitas', '79865412385', 'senha', '(35)91234-3214'),
+('Jose Alfredo', '11884392734', 'alfanumerica', '(35)9999-9999'),
+('Silvana Almeida', '79876423396', 'senha', '(35)91234-3214'),
 ('cliente', '00000000001', 'cliente', '358888888888');
 
 -- ------------------------------------------------------------
@@ -129,22 +129,3 @@ INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
 VALUES ('2023-05-10', 205, 1);
 INSERT INTO filme_alugado(id_aluguel, id_filme)
 VALUES (1205, 16);
-/*
-select * from aluguel where id_cliente=205 and status!="entregue";
-
-select aluguel.id, aluguel.data_locacao, aluguel.status, aluguel.id_locadora
-from aluguel
-where id_cliente=201;
-
-select * from filme_alugado;
-select * from filme where id in (12, 13);
-
-select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
-GROUP_CONCAT(generos.nome) as generos
-from filme_alugado 
-join filme on filme.id = filme_alugado.id_filme
-join info_filme on info_filme.id = filme.id_info_filme
-join generos on info_filme.id = generos.id_info_filme
-where id_aluguel=1201 and n_disponiveis > 0
-GROUP BY filme.id;
-*/
