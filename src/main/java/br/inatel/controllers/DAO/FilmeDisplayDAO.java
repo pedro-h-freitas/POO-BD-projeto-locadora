@@ -41,13 +41,14 @@ public class FilmeDisplayDAO {
 
         connectToDB();
 
-        String sql = "select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,\n" +
-                "GROUP_CONCAT(generos.nome) as generos\n" +
-                "from filme \n" +
-                "join info_filme on info_filme.id = filme.id_info_filme\n" +
-                "join generos on info_filme.id = generos.id_info_filme\n" +
-                "where id_locadora=? and n_disponiveis > 0\n" +
-                "GROUP BY filme.id;";
+        String sql = """
+                select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
+                GROUP_CONCAT(generos.nome) as generos
+                from filme\s
+                join info_filme on info_filme.id = filme.id_info_filme
+                join generos on info_filme.id = generos.id_info_filme
+                where id_locadora=? and n_disponiveis > 0
+                GROUP BY filme.id;""";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, idLocadora);
@@ -84,14 +85,15 @@ public class FilmeDisplayDAO {
 
         connectToDB();
 
-        String sql = "select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,\n" +
-                "GROUP_CONCAT(generos.nome) as generos\n" +
-                "from filme_alugado \n" +
-                "join filme on filme.id = filme_alugado.id_filme\n" +
-                "join info_filme on info_filme.id = filme.id_info_filme\n" +
-                "join generos on info_filme.id = generos.id_info_filme\n" +
-                "where id_aluguel=? and n_disponiveis > 0\n" +
-                "GROUP BY filme.id;";
+        String sql = """
+                select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
+                GROUP_CONCAT(generos.nome) as generos
+                from filme_alugado\s
+                join filme on filme.id = filme_alugado.id_filme
+                join info_filme on info_filme.id = filme.id_info_filme
+                join generos on info_filme.id = generos.id_info_filme
+                where id_aluguel=? and n_disponiveis > 0
+                GROUP BY filme.id;""";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, idAluguel);

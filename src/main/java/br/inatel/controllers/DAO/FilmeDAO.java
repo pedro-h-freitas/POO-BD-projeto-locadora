@@ -1,12 +1,9 @@
 package br.inatel.controllers.DAO;
 
 import br.inatel.models.Filme;
-import br.inatel.models.FilmeDisplay;
-import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "filme"
