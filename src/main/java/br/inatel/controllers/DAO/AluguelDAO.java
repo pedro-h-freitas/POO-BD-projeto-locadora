@@ -77,7 +77,7 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
     public boolean hasAluguel(int id) {
         connectToDB();
 
-        String sql = "select count(*) as count from aluguel where id=?;";
+        String sql = "select count(*) as count from aluguel where id_cliente=? and status!='entregue';";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);

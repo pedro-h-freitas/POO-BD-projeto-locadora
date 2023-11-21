@@ -30,13 +30,7 @@ public class ClienteController {
 
     public boolean hasAluguel() {
         AluguelDAO aluguelDAO = new AluguelDAO();
-
-        String locadoraId = Integer.toString(Main.context.getLocadoraId());
-        String clienteId = Integer.toString(Main.context.getUserId());
-
-        int id = Integer.parseInt(locadoraId + clienteId);
-
-        return aluguelDAO.hasAluguel(id);
+        return aluguelDAO.hasAluguel(Main.context.getUserId());
     }
 
     public void alugar(ArrayList<FilmeAlugar> filmes) {
