@@ -24,7 +24,7 @@ public class ClienteController {
 
     public ArrayList<FilmeDisplay> getFilmes() {
         FilmeDisplayDAO filmeDAO = new FilmeDisplayDAO();
-        return filmeDAO.selectByIdLocadora(Main.context.getLocadoraId());
+        return filmeDAO.selectByLocadora(Main.context.getLocadoraId());
     }
 
     public int getAluguelId() {

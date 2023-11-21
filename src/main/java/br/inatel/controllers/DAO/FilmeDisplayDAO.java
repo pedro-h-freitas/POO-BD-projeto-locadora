@@ -36,7 +36,7 @@ public class FilmeDisplayDAO {
         }
     }
 
-    public ArrayList<FilmeDisplay> selectByIdLocadora(int idLocadora) {
+    public ArrayList<FilmeDisplay> selectByLocadora(int idLocadora) {
         ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
         connectToDB();
