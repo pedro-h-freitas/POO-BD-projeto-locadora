@@ -35,7 +35,7 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
         pst.setInt(3, filme.getIdInfoFilme());
     }
 
-    public ArrayList<FilmeDisplay> selectFilmeDisplay(int idLocadora) {
+    public ArrayList<FilmeDisplay> selectFilmeDisplayByIdLocadora(int idLocadora) {
         ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
         connectToDB();
