@@ -45,10 +45,10 @@ public class TelaLogin extends Tela{
                 menu = new MenuCliente();
                 break;
             case -1:
-                printVermelho("ID inválido");
+                printVermelho("ID inválido\n");
                 break;
             case -2:
-                printVermelho("Senha inválida");
+                printVermelho("Senha inválida\n");
                 break;
         }
 
