@@ -22,7 +22,7 @@ public class ClienteController {
         return locadoraDAO.selectNome(Main.context.getLocadoraId());
     }
 
-    public ArrayList<FilmeDisplay> getFilmes() {
+    public ArrayList<FilmeDisplay> getFilmesByLocadora() {
         FilmeDisplayDAO filmeDAO = new FilmeDisplayDAO();
         return filmeDAO.selectByLocadora(Main.context.getLocadoraId());
     }

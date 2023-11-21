@@ -14,7 +14,7 @@ public class MenuAluguel extends Menu {
     public boolean render() {
         ClienteController controller = new ClienteController();
 
-        filmes = controller.getFilmes();
+        filmes = controller.getFilmesByLocadora();
         carrinho = new ArrayList<>();
 
         boolean run = true;
