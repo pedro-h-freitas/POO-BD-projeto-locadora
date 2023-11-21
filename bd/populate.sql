@@ -57,7 +57,7 @@ VALUES (3, "Terror");
 INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Homem-Aranha: Através do Aranhaverso", 2023);
 INSERT INTO generos(id_info_filme, nome)
-VALUES (4, "Animação"), (4, " Ação"), (4, " Fantasia"), (4, " Aventura");
+VALUES (4, "Animação"), (4, "Ação"), (4, "Fantasia"), (4, "Aventura");
 
 INSERT INTO info_filme(nome, ano_lancamento) 
 VALUES ("Sonic 2", 2022);
@@ -125,4 +125,7 @@ UPDATE aluguel
 SET status = 'entregue'
 WHERE id = 1205;
 
-select * from aluguel;
+INSERT INTO aluguel(data_locacao, id_cliente, id_locadora)
+VALUES ('2023-05-10', 205, 1);
+INSERT INTO filme_alugado(id_aluguel, id_filme)
+VALUES (1205, 16);
