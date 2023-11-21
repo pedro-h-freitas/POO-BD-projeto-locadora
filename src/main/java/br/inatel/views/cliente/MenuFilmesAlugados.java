@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class MenuFilmesAlugados extends Menu {
     @Override
     public boolean render() {
+        // TODO ver data de locacao e calcular atraso caso haja
+
         int op;
 
         ClienteController controller = new ClienteController();
