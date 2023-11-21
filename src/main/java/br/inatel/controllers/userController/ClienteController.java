@@ -1,10 +1,7 @@
 package br.inatel.controllers.userController;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.AluguelDAO;
-import br.inatel.controllers.DAO.FilmeAlugadoDAO;
-import br.inatel.controllers.DAO.FilmeDAO;
-import br.inatel.controllers.DAO.LocadoraDAO;
+import br.inatel.controllers.DAO.*;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.Aluguel;
 import br.inatel.models.FilmeAlugado;
@@ -26,8 +23,8 @@ public class ClienteController {
     }
 
     public ArrayList<FilmeDisplay> getFilmes() {
-        FilmeDAO filmeDAO = new FilmeDAO();
-        return filmeDAO.selectFilmeDisplayByIdLocadora(Main.context.getLocadoraId());
+        FilmeDisplayDAO filmeDAO = new FilmeDisplayDAO();
+        return filmeDAO.selectByIdLocadora(Main.context.getLocadoraId());
     }
 
     public boolean hasAluguel() {
