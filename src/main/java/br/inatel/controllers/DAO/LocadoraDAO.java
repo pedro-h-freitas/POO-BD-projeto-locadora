@@ -96,10 +96,9 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
             rs = pst.executeQuery();
 
             if (rs != null && rs.next()) {
+                sucesso = true;
                 return rs.getString("nome");
             }
-
-            sucesso = true;
         } catch (SQLException e) {
             ColorPrinter.printErro(e);
             sucesso = false;
