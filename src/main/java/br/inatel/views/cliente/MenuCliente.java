@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Tela do Cliente
  */
-public class MenuCliente extends Menu{
+public class MenuCliente extends Menu {
 
     /**
      * Mostra Tela do Cliente
@@ -21,6 +21,8 @@ public class MenuCliente extends Menu{
         ClienteController controller = new ClienteController();
         String nomeLocadora;
         int op;
+
+        Tela tela;
 
         if (Main.context.getLocadoraId() == -1) {
             ArrayList<Locadora> locadoras = controller.selectAllLocadoras();
@@ -48,9 +50,11 @@ public class MenuCliente extends Menu{
 
         op = intInput("Opção: ");
 
+        tela = null;
         switch (op) {
             case 1:
-                System.out.println("Alugar Filmes");
+                if (controller.hasAluguel()) printVermelho("Usuário já possui alguel ativo");
+                else tela = new MenuAlugar();
                 break;
             case 2:
                 System.out.println("Mostrando os alugueis aqui mano");
@@ -68,6 +72,8 @@ public class MenuCliente extends Menu{
                 printOpcaoInvalida();
                 break;
         }
+
+        if (tela != null) tela.render();
 
         return true;
     }
