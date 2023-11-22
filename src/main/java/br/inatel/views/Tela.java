@@ -23,6 +23,10 @@ public abstract class Tela extends ColorPrinter {
         return Main.sc.nextLine();
     }
 
+    protected Integer intInput() {
+        return intInput("Opção: ");
+    }
+
     /**
      * Mostra um Input de int
      * @param label texto a ser exibido

@@ -50,7 +50,7 @@ public class MenuCliente extends Menu {
 
         printMenu(controller);
 
-        op = intInput("Opção: ");
+        op = intInput();
 
         tela = null;
         switch (op) {

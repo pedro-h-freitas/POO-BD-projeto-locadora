@@ -13,7 +13,7 @@ public class MenuFuncionarioFilme extends Menu {
         printOpcao("0", "Sair");
         System.out.println("---------------------------------------");
 
-        op = intInput("Opção ");
+        op = intInput();
 
         return false;
     }

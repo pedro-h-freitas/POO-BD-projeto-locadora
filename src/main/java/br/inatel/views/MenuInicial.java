@@ -21,7 +21,7 @@ public class MenuInicial extends Menu{
         printOpcao("0", "Finalizar o programa");
         System.out.println("---------------------------------------");
 
-        opcao = intInput("Opção: ");
+        opcao = intInput();
 
         switch (opcao){
             case 1:

@@ -75,7 +75,7 @@ public class MenuClienteAluguel extends Menu {
                 showMenu = false;
             }
 
-            op = intInput("Opção: ");
+            op = intInput();
 
             switch (op) {
                 case 1:

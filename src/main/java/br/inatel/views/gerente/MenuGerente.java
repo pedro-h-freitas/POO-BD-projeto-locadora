@@ -35,7 +35,7 @@ public class MenuGerente extends Menu {
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
 
-        op = intInput("Opção: ");
+        op = intInput();
 
         switch (op) {
             case 1:

@@ -35,7 +35,7 @@ public class MenuClienteFilmesAlugados extends Menu {
         System.out.println("---------------------------------------");
 
         while (true){
-            op = intInput("Opção: ");
+            op = intInput();
 
             switch (op){
                 case 1:

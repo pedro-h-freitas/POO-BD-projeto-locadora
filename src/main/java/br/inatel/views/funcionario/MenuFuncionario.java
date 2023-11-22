@@ -36,7 +36,7 @@ public class MenuFuncionario extends Menu {
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
 
-        op = intInput("Opção: ");
+        op = intInput();
 
         tela = null;
         switch (op) {
