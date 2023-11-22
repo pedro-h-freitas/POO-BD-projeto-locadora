@@ -1,9 +1,10 @@
 package br.inatel.views;
 
 import br.inatel.controllers.LoginController;
-import br.inatel.views.cliente.MenuCliente;
-import br.inatel.views.funcionario.MenuFuncionario;
-import br.inatel.views.gerente.MenuGerente;
+import br.inatel.views.menus.cliente.MenuCliente;
+import br.inatel.views.menus.funcionario.MenuFuncionario;
+import br.inatel.views.menus.gerente.MenuGerente;
+import br.inatel.views.menus.Menu;
 
 /**
  * Tela de login, loga um cliente, funcionario ou gerente

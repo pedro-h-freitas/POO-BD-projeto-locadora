@@ -1,11 +1,14 @@
-package br.inatel.views;
+package br.inatel.views.menus;
 
+import br.inatel.views.Tela;
+import br.inatel.views.TelaLogin;
 import br.inatel.views.forms.FormCadastroCliente;
+import br.inatel.views.menus.Menu;
 
 /**
  * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa
  */
-public class MenuInicial extends Menu{
+public class MenuInicial extends Menu {
     /**
      * Exibe o Menu Principal
      * Chama Tela de Login

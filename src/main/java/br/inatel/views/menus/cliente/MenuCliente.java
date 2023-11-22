@@ -1,9 +1,9 @@
-package br.inatel.views.cliente;
+package br.inatel.views.menus.cliente;
 
 import br.inatel.Main;
 import br.inatel.controllers.userController.ClienteController;
 import br.inatel.models.Locadora;
-import br.inatel.views.Menu;
+import br.inatel.views.menus.Menu;
 import br.inatel.views.Tela;
 
 import java.util.ArrayList;

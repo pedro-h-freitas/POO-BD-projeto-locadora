@@ -1,8 +1,8 @@
-package br.inatel.views.funcionario;
+package br.inatel.views.menus.funcionario;
 
 import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.models.Cliente;
-import br.inatel.views.Menu;
+import br.inatel.views.menus.Menu;
 import br.inatel.views.Tela;
 import br.inatel.views.forms.FormCadastroCliente;
 import br.inatel.views.forms.FormEditarCliente;

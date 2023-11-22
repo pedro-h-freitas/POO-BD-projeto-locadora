@@ -1,6 +1,6 @@
-package br.inatel.views.funcionario;
+package br.inatel.views.menus.funcionario;
 
-import br.inatel.views.Menu;
+import br.inatel.views.menus.Menu;
 
 public class MenuFuncionarioFilme extends Menu {
     @Override

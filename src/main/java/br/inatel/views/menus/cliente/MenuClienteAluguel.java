@@ -1,8 +1,8 @@
-package br.inatel.views.cliente;
+package br.inatel.views.menus.cliente;
 
 import br.inatel.controllers.userController.ClienteController;
 import br.inatel.models.FilmeDisplay;
-import br.inatel.views.Menu;
+import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
 

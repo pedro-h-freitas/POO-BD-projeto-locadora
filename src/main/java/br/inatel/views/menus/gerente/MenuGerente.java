@@ -1,8 +1,8 @@
-package br.inatel.views.gerente;
+package br.inatel.views.menus.gerente;
 
 import br.inatel.Main;
 import br.inatel.controllers.userController.GerenteController;
-import br.inatel.views.Menu;
+import br.inatel.views.menus.Menu;
 
 /**
  * Tela do Gerente

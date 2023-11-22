@@ -1,9 +1,10 @@
-package br.inatel.views;
+package br.inatel.views.menus;
 
 import br.inatel.Main;
+import br.inatel.views.Tela;
 import br.inatel.views.utils.ColorPrinter;
 
-public abstract class Menu extends Tela{
+public abstract class Menu extends Tela {
     /**
      * Método auxiliar mostrar as opções do menu
      * @param id número da opção
