@@ -41,8 +41,10 @@ public class MenuFuncionarioCliente extends Menu {
                 idCliente = escolherCliente(controller);
                 if (idCliente == 0) break;
 
-                tela = new FormDeletarCliente(idCliente);
+                deleteUser(controller, idCliente);
                 break;
+            case 0:
+                return false;
             default:
                 printOpcaoInvalida();
                 break;
@@ -50,7 +52,7 @@ public class MenuFuncionarioCliente extends Menu {
 
         if (tela != null) tela.render();
 
-        return false;
+        return true;
     }
 
     private int escolherCliente(FuncionarioController controller) {
@@ -77,5 +79,22 @@ public class MenuFuncionarioCliente extends Menu {
         }
 
         return idCliente;
+    }
+
+    private void deleteUser(FuncionarioController controller, int idCliente) {
+        if (controller.hasAluguel(idCliente)) {
+            printVermelho("Há aluguéis pendentes\n");
+            return;
+        }
+
+        printAzul("Você tem crtz??");
+        printVerde(" (S/N) ");
+        String s;
+        do {
+            s = stringInput("").toLowerCase();
+        } while (!(s.equals("s") || s.equals("n")));
+        if (s.equals("s")) {
+            controller.deleteUser(idCliente);
+        }
     }
 }
