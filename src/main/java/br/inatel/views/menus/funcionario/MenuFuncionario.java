@@ -37,7 +37,6 @@ public class MenuFuncionario extends Menu {
         System.out.println("---------- Menu Funcionario -----------");
         printOpcao("1", "Clientes \n\t(Criar, Editar, Deletar)");
         printOpcao("2", "Filmes \n\t(Adicionar, Remover)");
-        printOpcao("3", "Alugueis \n\t(Criar, Dar Baixa)");
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
 
@@ -50,9 +49,6 @@ public class MenuFuncionario extends Menu {
                 break;
             case 2:
                 tela = new MenuFuncionarioFilme();
-                break;
-            case 3:
-                tela = new MenuFuncionarioAluguel();
                 break;
             case 0:
                 System.out.println("logout");
