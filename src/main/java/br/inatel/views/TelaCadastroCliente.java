@@ -1,12 +1,11 @@
 package br.inatel.views;
 
 import br.inatel.controllers.CadastroController;
-import br.inatel.views.cliente.MenuCliente;
 
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente
  */
-public class TelaCadastro extends Tela{
+public class TelaCadastroCliente extends Tela{
     /**
      * Exibe a tela de Cadastro
      */

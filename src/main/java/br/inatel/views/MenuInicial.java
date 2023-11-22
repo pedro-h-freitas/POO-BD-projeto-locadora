@@ -28,7 +28,7 @@ public class MenuInicial extends Menu{
                 tela = new TelaLogin();
                 break;
             case 2:
-                tela = new TelaCadastro();
+                tela = new TelaCadastroCliente();
                 break;
             case 0:
                 return false;
