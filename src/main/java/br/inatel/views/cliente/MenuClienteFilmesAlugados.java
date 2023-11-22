@@ -6,7 +6,7 @@ import br.inatel.views.Menu;
 
 import java.util.ArrayList;
 
-public class MenuFilmesAlugados extends Menu {
+public class MenuClienteFilmesAlugados extends Menu {
     @Override
     public boolean render() {
         // TODO ver data de locacao e calcular atraso caso haja

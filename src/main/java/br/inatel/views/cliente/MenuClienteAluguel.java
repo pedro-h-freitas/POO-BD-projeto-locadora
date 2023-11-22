@@ -6,7 +6,7 @@ import br.inatel.views.Menu;
 
 import java.util.ArrayList;
 
-public class MenuAluguel extends Menu {
+public class MenuClienteAluguel extends Menu {
     private ArrayList<FilmeDisplay> filmes;
     private ArrayList<FilmeDisplay> carrinho;
 

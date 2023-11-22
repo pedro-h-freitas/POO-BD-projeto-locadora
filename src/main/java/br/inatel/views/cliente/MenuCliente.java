@@ -56,11 +56,11 @@ public class MenuCliente extends Menu {
         switch (op) {
             case 1:
                 if (controller.hasAluguel()) printVermelho("Você já possui filmes alugados\n");
-                else tela = new MenuAluguel();
+                else tela = new MenuClienteAluguel();
                 break;
             case 2:
                 if (!controller.hasAluguel()) printVermelho("Você não possui filmes alugados\n");
-                else tela = new MenuFilmesAlugados();
+                else tela = new MenuClienteFilmesAlugados();
                 break;
             case 3:
                 Main.context.setLocadoraId(-1);
