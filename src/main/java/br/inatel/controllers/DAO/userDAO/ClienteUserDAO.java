@@ -75,4 +75,9 @@ public class ClienteUserDAO extends UserDAO<Cliente> {
     protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
         pst.setInt(1, id);
     }
+
+    @Override
+    protected String getSelectNomeQuery() {
+        return "SELECT nome FROM cliente WHERE id=?";
+    }
 }

@@ -141,4 +141,32 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
         }
         return sucesso;
     }
+
+    protected abstract String getSelectNomeQuery();
+
+    public String selectNome(int id) {
+        connectToDB();
+
+        String sql = getSelectNomeQuery();
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                sucesso = true;
+                return rs.getString("nome");
+            }
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+        return null;
+    }
 }

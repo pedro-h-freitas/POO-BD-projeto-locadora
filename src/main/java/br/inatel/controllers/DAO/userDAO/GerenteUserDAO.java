@@ -65,4 +65,12 @@ public class GerenteUserDAO extends UserDAO<Gerente> {
     protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
         pst.setInt(1, id);
     }
+
+    @Override
+    protected String getSelectNomeQuery() {
+        return  "SELECT funcionario.nome as nome " +
+                "FROM gerente " +
+                "JOIN funcionario ON funcionario.id=gerente.id_funcionario" +
+                "WHERE id=?";
+    }
 }
