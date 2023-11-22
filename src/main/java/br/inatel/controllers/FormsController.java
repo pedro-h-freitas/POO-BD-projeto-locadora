@@ -6,7 +6,7 @@ import br.inatel.models.Cliente;
 /**
  * Classe para manipular as ações na tela de Cadastro
  */
-public class FormsController extends Controller {
+public class FormsController {
     /**
      * Realiza o cadastro de um cliente
      * @param cliente cliente a ser inserido

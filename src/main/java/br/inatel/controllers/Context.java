@@ -3,7 +3,7 @@ package br.inatel.controllers;
 /**
  * Classe para criar o contexto da sessão
  */
-public class Context extends Controller {
+public class Context {
     // Constantes
     public static final String CLIENTE = "CLIENTE";
     public static final String FUNCIONARIO = "FUNCIONARIO";
