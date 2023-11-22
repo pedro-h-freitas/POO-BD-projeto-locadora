@@ -36,15 +36,15 @@ public class TelaCadastro extends Tela{
             printAmarelo("Insira pelo menos uma forma de contato\n");
         }
 
-        if (!controller.cadastroCliente(nome, cpf, senha, endereco, telefone, email)) {
+        int idClienteNovo = controller.cadastroCliente(nome, cpf, senha, endereco, telefone, email);
+
+        if (idClienteNovo == -1) {
             printVermelho("Cadastro falhou\n");
             return false;
         }
 
-        menu = new MenuCliente();
-        while (run) {
-            run = menu.render();
-        }
+        printVerde("Usuario Cadastrado com sucesso\nID:");
+        printAzul(idClienteNovo + "\n");
 
         return true;
     }

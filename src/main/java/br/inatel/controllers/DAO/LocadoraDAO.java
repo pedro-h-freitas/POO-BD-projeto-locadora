@@ -30,7 +30,7 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
     @Override
     protected void setInsertValues(PreparedStatement pst, Locadora locadora) throws SQLException {
         pst.setString(1, locadora.getNome());
-        pst.setString(2, locadora.getEndereco());
+        pst.setString(2, locadora.getCidade());
         pst.setInt(3, locadora.getIdGerente());
     }
 

@@ -51,19 +51,18 @@ public class MenuCliente extends Menu {
         tela = null;
         switch (op) {
             case 1:
-                if (controller.hasAluguel()) printVermelho("Você possui alguel ativo\n");
+                if (controller.hasAluguel()) printVermelho("Você já possui filmes alugados\n");
                 else tela = new MenuAluguel();
                 break;
             case 2:
-                if (!controller.hasAluguel()) printVermelho("Você não possui alguel ativo\n");
+                if (!controller.hasAluguel()) printVermelho("Você não possui filmes alugados\n");
                 else tela = new MenuFilmesAlugados();
                 break;
             case 3:
                 Main.context.setLocadoraId(-1);
                 break;
             case 4:
-                deleteUser(controller);
-                return false;
+                return !deleteUser(controller);
             case 0:
                 return false;
             default:
@@ -103,15 +102,22 @@ public class MenuCliente extends Menu {
         System.out.println("---------------------------------------");
     }
 
-    private void deleteUser(ClienteController controller) {
-        if (controller.hasAluguel()) printVermelho("Há aluguéis pendentes");
-        else {
-            printAmarelo("Você tem crtz??");
-            String s;
-            do {
-                s = stringInput("(S/N) ").toLowerCase();
-            } while (!(s.equals("s") || s.equals("n")));
-            if (s.equals("s")) controller.deleteUser();
+    private boolean deleteUser(ClienteController controller) {
+        if (controller.hasAluguel()) {
+            printVermelho("Há aluguéis pendentes\n");
+            return false;
         }
+
+        printAmarelo("Você tem crtz??");
+        String s;
+        do {
+            s = stringInput("(S/N) ").toLowerCase();
+        } while (!(s.equals("s") || s.equals("n")));
+        if (s.equals("s")) {
+            controller.deleteUser();
+            return true;
+        }
+
+        return false;
     }
 }

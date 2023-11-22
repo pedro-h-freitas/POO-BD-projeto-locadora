@@ -21,7 +21,7 @@ VALUES (102), (103);
 -- ------------------------------------------------------------
 -- gerando locadoras
 -- ------------------------------------------------------------
-INSERT INTO locadora(nome, endereco, id_gerente) 
+INSERT INTO locadora(nome, cidade, id_gerente) 
 VALUES ("filial_1", "Santa Rita", 102),
 ("filial_2", "Conceição dos Ouros", 103);
 

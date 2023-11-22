@@ -18,7 +18,7 @@ public class CadastroController {
      * @param email email do cliente
      * @return boolean var (true: cadastrou | false: falhou)
      */
-    public boolean cadastroCliente(
+    public int cadastroCliente(
             String nome,
             String cpf,
             String senha,
@@ -36,15 +36,13 @@ public class CadastroController {
                 email
         ));
 
-        if (id == -1) {
-            return false;
+        if (id != -1) {
+            Main.context.setUserId(id);
+            Main.context.setUserType(Context.CLIENTE);
+            Main.context.setLocadoraId(-1);
         }
 
-        Main.context.setUserId(id);
-        Main.context.setUserType(Context.CLIENTE);
-        Main.context.setLocadoraId(-1);
-
-        return true;
+        return id;
     }
 
 }

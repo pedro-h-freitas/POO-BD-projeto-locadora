@@ -48,7 +48,9 @@ public class ClienteController {
         int userId = Main.context.getUserId();
 
         clienteUserDAO.delete(userId);
-        ColorPrinter.printAzul("Usuario: " + userId + " deletado");
+        ColorPrinter.printAzul("Usuario: ");
+        ColorPrinter.printVermelho(userId + "");
+        ColorPrinter.printAzul(" deletado\n");
 
         Main.context.setUserId(-1);
         Main.context.setUserType(null);
