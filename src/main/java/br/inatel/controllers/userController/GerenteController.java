@@ -1,4 +1,4 @@
 package br.inatel.controllers.userController;
 
-public class GerenteController extends FuncionarioController{
+public class GerenteController extends FuncionarioController {
 }

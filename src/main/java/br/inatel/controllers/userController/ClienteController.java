@@ -1,6 +1,7 @@
 package br.inatel.controllers.userController;
 
 import br.inatel.Main;
+import br.inatel.controllers.Controller;
 import br.inatel.controllers.DAO.*;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.Aluguel;
@@ -11,7 +12,7 @@ import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
 
-public class ClienteController {
+public class ClienteController extends Controller {
     public ArrayList<Locadora> selectAllLocadoras() {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectAll();

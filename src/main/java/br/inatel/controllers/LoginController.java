@@ -11,7 +11,7 @@ import br.inatel.models.Gerente;
 /**
  * Classe para manipular as ações na tela de Login
  */
-public class LoginController {
+public class LoginController extends Controller {
     /**
      * Realiza um login
      * @param id id do usuario
