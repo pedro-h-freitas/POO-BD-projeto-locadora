@@ -9,11 +9,14 @@ import java.util.ArrayList;
 public class MenuClienteAluguel extends Menu {
     private ArrayList<FilmeDisplay> filmes;
     private ArrayList<FilmeDisplay> carrinho;
+    private final ClienteController controller;
+
+    public MenuClienteAluguel() {
+        this.controller = new ClienteController();
+    }
 
     @Override
     public boolean render() {
-        ClienteController controller = new ClienteController();
-
         filmes = controller.getFilmesByLocadora();
         carrinho = new ArrayList<>();
 

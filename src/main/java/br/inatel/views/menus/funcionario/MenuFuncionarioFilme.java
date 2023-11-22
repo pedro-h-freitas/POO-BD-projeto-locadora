@@ -1,8 +1,15 @@
 package br.inatel.views.menus.funcionario;
 
+import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.views.menus.Menu;
 
 public class MenuFuncionarioFilme extends Menu {
+    private final FuncionarioController controller;
+
+    public MenuFuncionarioFilme() {
+        this.controller = new FuncionarioController();
+    }
+
     @Override
     public boolean render() {
         int op;

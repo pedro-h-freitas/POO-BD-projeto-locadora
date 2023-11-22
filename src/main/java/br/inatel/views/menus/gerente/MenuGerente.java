@@ -8,12 +8,17 @@ import br.inatel.views.menus.Menu;
  * Tela do Gerente
  */
 public class MenuGerente extends Menu {
+    private final GerenteController controller;
+
+    public MenuGerente() {
+        this.controller = new GerenteController();
+    }
+
     /**
      * Mostra Tela do Gerente
      */
     public boolean render() {
         //TODO
-        GerenteController controller = new GerenteController();
         String nomeLocadora;
         int op;
 

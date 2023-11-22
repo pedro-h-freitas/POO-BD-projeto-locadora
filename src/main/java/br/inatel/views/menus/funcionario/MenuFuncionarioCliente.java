@@ -10,9 +10,14 @@ import br.inatel.views.forms.FormEditarCliente;
 import java.util.ArrayList;
 
 public class MenuFuncionarioCliente extends Menu {
+    private final FuncionarioController controller;
+
+    public MenuFuncionarioCliente() {
+        this.controller = new FuncionarioController();
+    }
+
     @Override
     public boolean render() {
-        FuncionarioController controller = new FuncionarioController();
         Tela tela;
         int op;
 
@@ -30,22 +35,22 @@ public class MenuFuncionarioCliente extends Menu {
         int idCliente;
         switch (op) {
             case 1:
-                listarClientes(controller);
+                listarClientes();
                 break;
             case 2:
                 tela = new FormCadastroCliente();
                 break;
             case 3:
-                idCliente = escolherCliente(controller);
+                idCliente = escolherCliente();
                 if (idCliente == 0) break;
 
                 tela = new FormEditarCliente(idCliente);
                 break;
             case 4:
-                idCliente = escolherCliente(controller);
+                idCliente = escolherCliente();
                 if (idCliente == 0) break;
 
-                deleteUser(controller, idCliente);
+                deleteUser(idCliente);
                 break;
             case 0:
                 return false;
@@ -59,7 +64,7 @@ public class MenuFuncionarioCliente extends Menu {
         return true;
     }
 
-    private ArrayList<Integer> listarClientes(FuncionarioController controller) {
+    private ArrayList<Integer> listarClientes() {
         ArrayList<Cliente> clientes = controller.getAllClientes();
         ArrayList<Integer> listaId = new ArrayList<>();
 
@@ -75,9 +80,9 @@ public class MenuFuncionarioCliente extends Menu {
         return listaId;
     }
 
-    private int escolherCliente(FuncionarioController controller) {
+    private int escolherCliente() {
         int idCliente;
-        ArrayList<Integer> listaId = listarClientes(controller);
+        ArrayList<Integer> listaId = listarClientes();
 
         listaId.add(0);
         System.out.println("---------------------------------------");
@@ -92,7 +97,7 @@ public class MenuFuncionarioCliente extends Menu {
         return idCliente;
     }
 
-    private void deleteUser(FuncionarioController controller, int idCliente) {
+    private void deleteUser(int idCliente) {
         if (controller.hasAluguel(idCliente)) {
             printVermelho("Há aluguéis pendentes\n");
             return;

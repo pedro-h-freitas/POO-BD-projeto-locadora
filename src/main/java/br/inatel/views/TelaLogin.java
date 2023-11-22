@@ -10,6 +10,12 @@ import br.inatel.views.menus.Menu;
  * Tela de login, loga um cliente, funcionario ou gerente
  */
 public class TelaLogin extends Tela{
+    private final LoginController controller;
+
+    public TelaLogin() {
+        controller = new LoginController();
+    }
+
     /**
      * Exibe a Tela de Login
      * Chama Tela do Gerente
@@ -18,7 +24,6 @@ public class TelaLogin extends Tela{
      */
     public boolean render() {
         String id, senha;
-        LoginController controller = new LoginController();
 
         Menu menu = null;
         boolean run = true;

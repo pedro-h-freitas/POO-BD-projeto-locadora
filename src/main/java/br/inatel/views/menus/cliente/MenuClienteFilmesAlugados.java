@@ -7,13 +7,18 @@ import br.inatel.views.menus.Menu;
 import java.util.ArrayList;
 
 public class MenuClienteFilmesAlugados extends Menu {
+    private final ClienteController controller;
+
+    public MenuClienteFilmesAlugados() {
+        this.controller = new ClienteController();
+    }
+
     @Override
     public boolean render() {
         // TODO ver data de locacao e calcular atraso caso haja
 
         int op;
 
-        ClienteController controller = new ClienteController();
         int idAluguel = controller.getIdAluguel();
         ArrayList<FilmeDisplay> filmes = controller.getFilmesByAluguel(idAluguel);
 

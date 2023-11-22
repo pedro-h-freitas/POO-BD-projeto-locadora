@@ -12,13 +12,17 @@ import java.util.ArrayList;
  * Tela do Cliente
  */
 public class MenuCliente extends Menu {
+    private final ClienteController controller;
+
+    public MenuCliente() {
+        this.controller = new ClienteController();
+    }
 
     /**
      * Mostra Tela do Cliente
      */
     public boolean render() {
         //TODO
-        ClienteController controller = new ClienteController();
         int op;
 
         Tela tela;
@@ -48,7 +52,7 @@ public class MenuCliente extends Menu {
             Main.context.setLocadoraId(idLocadora);
         }
 
-        printMenu(controller);
+        printMenu();
 
         op = intInput();
 
@@ -66,7 +70,7 @@ public class MenuCliente extends Menu {
                 Main.context.setLocadoraId(-1);
                 break;
             case 4:
-                return !deleteUser(controller);
+                return !deleteUser();
             case 0:
                 return false;
             default:
@@ -96,7 +100,7 @@ public class MenuCliente extends Menu {
         return id;
     }
 
-    private void printMenu(ClienteController controller) {
+    private void printMenu() {
         String nomeCliente;
         String nomeLocadora;
 
@@ -117,7 +121,7 @@ public class MenuCliente extends Menu {
         System.out.println("---------------------------------------");
     }
 
-    private boolean deleteUser(ClienteController controller) {
+    private boolean deleteUser() {
         if (controller.hasAluguel()) {
             printVermelho("Há aluguéis pendentes\n");
             return false;

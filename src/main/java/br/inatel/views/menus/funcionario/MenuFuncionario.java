@@ -9,12 +9,17 @@ import br.inatel.views.Tela;
  * Tela do Funcionario
  */
 public class MenuFuncionario extends Menu {
+    private final FuncionarioController controller;
+
+    public MenuFuncionario() {
+        this.controller = new FuncionarioController();
+    }
+
     /**
      * Mostra Tela do Funcionario
      */
     public boolean render() {
         //TODO
-        FuncionarioController controller = new FuncionarioController();
         String nomeFuncionario;
         String nomeLocadora;
         int op;

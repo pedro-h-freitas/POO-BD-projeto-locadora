@@ -1,8 +1,15 @@
 package br.inatel.views.forms;
 
+import br.inatel.controllers.FormsController;
 import br.inatel.views.Tela;
 
 public abstract class Form extends Tela {
+    protected final FormsController controller;
+
+    public Form() {
+        this.controller = new FormsController();
+    }
+
     /**
      * Método auxiliar para realizar o input de um campo obrigatório
      * @param nomeCampo Label para o input

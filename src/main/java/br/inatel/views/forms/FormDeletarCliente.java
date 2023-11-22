@@ -3,6 +3,7 @@ package br.inatel.views.forms;
 public class FormDeletarCliente extends Form {
     private final int idCliente;
     public FormDeletarCliente(int idCliente) {
+        super();
         this.idCliente = idCliente;
     }
 

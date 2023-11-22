@@ -1,12 +1,15 @@
 package br.inatel.views.forms;
 
-import br.inatel.controllers.FormsController;
 import br.inatel.models.Cliente;
 
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente
  */
 public class FormCadastroCliente extends Form {
+    public FormCadastroCliente() {
+        super();
+    }
+
     /**
      * Exibe a tela de Cadastro
      */
@@ -14,7 +17,6 @@ public class FormCadastroCliente extends Form {
     public boolean render(){
         // TODO fazer validação dos dados
         String nome, cpf, senha, endereco, telefone, email;
-        FormsController controller = new FormsController();
 
         System.out.println("-------------- CADASTRO ---------------");
 
