@@ -1,5 +1,7 @@
 package br.inatel.views;
 
+import br.inatel.views.forms.FormCadastroCliente;
+
 /**
  * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa
  */
@@ -28,7 +30,7 @@ public class MenuInicial extends Menu{
                 tela = new TelaLogin();
                 break;
             case 2:
-                tela = new TelaCadastroCliente();
+                tela = new FormCadastroCliente();
                 break;
             case 0:
                 return false;
