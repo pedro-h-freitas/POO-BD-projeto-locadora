@@ -3,7 +3,6 @@ package br.inatel.controllers.userController;
 import br.inatel.Main;
 import br.inatel.controllers.DAO.*;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
-import br.inatel.controllers.DAO.userDAO.FuncionarioUserDAO;
 import br.inatel.models.Aluguel;
 import br.inatel.models.FilmeAlugado;
 import br.inatel.models.FilmeDisplay;
@@ -40,9 +39,9 @@ public class ClienteController {
 
     public int getIdAluguel() {
         AluguelDAO aluguelDAO = new AluguelDAO();
-        int userId = Main.context.getUserId();
+        int idCliente = Main.context.getUserId();
 
-        return aluguelDAO.selectAluguelIdByCliente(userId);
+        return aluguelDAO.selectAluguelIdByCliente(idCliente);
     }
 
     public boolean hasAluguel() {
@@ -51,11 +50,11 @@ public class ClienteController {
 
     public void deleteUser() {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
-        int userId = Main.context.getUserId();
+        int idCliente = Main.context.getUserId();
 
-        clienteUserDAO.delete(userId);
+        clienteUserDAO.delete(idCliente);
         ColorPrinter.printAzul("Usuario: ");
-        ColorPrinter.printVermelho(userId + "");
+        ColorPrinter.printVermelho(idCliente + "");
         ColorPrinter.printAzul(" deletado\n");
 
         Main.context.setUserId(-1);
