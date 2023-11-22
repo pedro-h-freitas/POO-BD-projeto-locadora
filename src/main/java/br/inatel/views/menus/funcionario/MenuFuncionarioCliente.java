@@ -17,9 +17,10 @@ public class MenuFuncionarioCliente extends Menu {
         int op;
 
         System.out.println("-------------- Clientes ---------------");
-        printOpcao("1", "Criar");
-        printOpcao("2", "Editar");
-        printOpcao("3", "Deletar");
+        printOpcao("1", "Listar");
+        printOpcao("2", "Criar");
+        printOpcao("3", "Editar");
+        printOpcao("4", "Deletar");
         printOpcao("0", "Sair");
         System.out.println("---------------------------------------");
 
@@ -29,15 +30,18 @@ public class MenuFuncionarioCliente extends Menu {
         int idCliente;
         switch (op) {
             case 1:
-                tela = new FormCadastroCliente();
+                listarClientes(controller);
                 break;
             case 2:
+                tela = new FormCadastroCliente();
+                break;
+            case 3:
                 idCliente = escolherCliente(controller);
                 if (idCliente == 0) break;
 
                 tela = new FormEditarCliente(idCliente);
                 break;
-            case 3:
+            case 4:
                 idCliente = escolherCliente(controller);
                 if (idCliente == 0) break;
 
@@ -55,8 +59,7 @@ public class MenuFuncionarioCliente extends Menu {
         return true;
     }
 
-    private int escolherCliente(FuncionarioController controller) {
-        int idCliente;
+    private ArrayList<Integer> listarClientes(FuncionarioController controller) {
         ArrayList<Cliente> clientes = controller.getAllClientes();
         ArrayList<Integer> listaId = new ArrayList<>();
 
@@ -67,7 +70,15 @@ public class MenuFuncionarioCliente extends Menu {
 
             printOpcao(c.getId() + "", c.getNome() + " (" + c.getCpf() + ")");
         }
-        printOpcao("0", "Cancelar");
+        System.out.println("---------------------------------------");
+
+        return listaId;
+    }
+
+    private int escolherCliente(FuncionarioController controller) {
+        int idCliente;
+        ArrayList<Integer> listaId = listarClientes(controller);
+
         listaId.add(0);
         System.out.println("---------------------------------------");
 
