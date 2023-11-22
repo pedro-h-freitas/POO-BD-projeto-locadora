@@ -5,7 +5,6 @@ import br.inatel.models.Cliente;
 import br.inatel.views.Menu;
 import br.inatel.views.Tela;
 import br.inatel.views.forms.FormCadastroCliente;
-import br.inatel.views.forms.FormDeletarCliente;
 import br.inatel.views.forms.FormEditarCliente;
 
 import java.util.ArrayList;

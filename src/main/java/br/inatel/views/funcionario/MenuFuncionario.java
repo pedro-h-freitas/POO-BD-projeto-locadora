@@ -57,7 +57,12 @@ public class MenuFuncionario extends Menu {
                 break;
         }
 
-        if (tela != null) tela.render();
+        if (tela != null) {
+            boolean run = true;
+            while (run) {
+                run = tela.render();
+            }
+        }
 
         return true;
     }

@@ -123,10 +123,11 @@ public class MenuCliente extends Menu {
             return false;
         }
 
-        printAmarelo("Você tem crtz??");
+        printAzul("Você tem crtz??");
+        printVerde(" (S/N) ");
         String s;
         do {
-            s = stringInput("(S/N) ").toLowerCase();
+            s = stringInput("").toLowerCase();
         } while (!(s.equals("s") || s.equals("n")));
         if (s.equals("s")) {
             controller.deleteUser();
