@@ -48,7 +48,7 @@ public class MenuCliente extends Menu {
             Main.context.setLocadoraId(idLocadora);
         }
 
-        printMenu();
+        printMenu(controller);
 
         op = intInput("Opção: ");
 
@@ -96,7 +96,18 @@ public class MenuCliente extends Menu {
         return id;
     }
 
-    private void printMenu() {
+    private void printMenu(ClienteController controller) {
+        String nomeCliente;
+        String nomeLocadora;
+
+        nomeCliente = controller.getNomeCliente();
+        nomeLocadora = controller.getNomeLocadora();
+
+        System.out.println("------------- Infos Seção -------------");
+        printCiano("ID: " + Main.context.getUserId() + "\n");
+        printCiano("Nome: " + nomeCliente + "\n");
+        printCiano("Locadora: " + nomeLocadora);
+        System.out.println("\n---------------------------------------");
         System.out.println("------------ Menu Cliente -------------");
         printOpcao("1", "Alugar filmes");
         printOpcao("2", "Mostrar filmes alugados");

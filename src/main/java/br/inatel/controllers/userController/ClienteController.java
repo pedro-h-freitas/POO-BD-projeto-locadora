@@ -3,6 +3,7 @@ package br.inatel.controllers.userController;
 import br.inatel.Main;
 import br.inatel.controllers.DAO.*;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
+import br.inatel.controllers.DAO.userDAO.FuncionarioUserDAO;
 import br.inatel.models.Aluguel;
 import br.inatel.models.FilmeAlugado;
 import br.inatel.models.FilmeDisplay;
@@ -20,6 +21,11 @@ public class ClienteController {
     public String getNomeLocadora() {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectNome(Main.context.getLocadoraId());
+    }
+
+    public String getNomeCliente() {
+        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
+        return clienteUserDAO.selectNome(Main.context.getUserId());
     }
 
     public ArrayList<FilmeDisplay> getFilmesByLocadora() {
