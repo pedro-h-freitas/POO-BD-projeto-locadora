@@ -29,13 +29,17 @@ public class MenuCliente extends Menu {
 
             System.out.println("---------------------------------------");
             printAzul("Qual locadora você está?\n");
-            System.out.println("---------------------------------------");
+            System.out.print("---------------------------------------");
 
             for (Locadora l :
                     locadoras) {
                 idList.add(l.getId());
 
-                System.out.println(l);
+                System.out.println();
+                printVerde(l.getId()+"");
+                System.out.print(" - ");
+                printAmarelo(l.getNome() + "\n");
+                printCiano("Cidade: " + l.getCidade());
                 System.out.println();
             }
             System.out.println("---------------------------------------");

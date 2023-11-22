@@ -95,8 +95,10 @@ public class MenuAluguel extends Menu {
             }
         }
 
-        if (filmes.isEmpty())
+        if (carrinho.isEmpty()){
+            printVermelho("Carrinho vazio");
             return false;
+        }
 
         controller.alugar(carrinho);
         printVerde("Filmes alugados: \n");
@@ -105,16 +107,17 @@ public class MenuAluguel extends Menu {
     }
 
     private void printFilmes() {
-        System.out.println("--------------- Filmes ----------------");
+        System.out.print("--------------- Filmes ----------------");
         for (FilmeDisplay filme :
                 filmes) {
             String id = Integer.toString(filme.getId());
             String ano = Integer.toString(filme.getAno());
 
+            System.out.println();
             printVerde(id);
             System.out.print(" - ");
             printAmarelo(filme.getNome() + " (" + ano + ")");
-            printCiano("\nGeneros: " + filme.getGeneros() + "\n");
+            printCiano("\nGeneros: " + filme.getGeneros());
             System.out.println();
         }
         System.out.println("---------------------------------------");

@@ -14,11 +14,11 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
 
     /**
      * Método para obter a query de inserção específica do Locadora
-     * @return "INSERT INTO locadora(nome, endereco, id_gerente) VALUES(?, ?, ?)"
+     * @return "INSERT INTO locadora(nome, cidade, id_gerente) VALUES(?, ?, ?)"
      */
     @Override
     protected String getInsertQuery() {
-        return "INSERT INTO locadora(nome, endereco, id_gerente) VALUES(?, ?, ?)";
+        return "INSERT INTO locadora(nome, cidade, id_gerente) VALUES(?, ?, ?)";
     }
 
     /**
@@ -43,7 +43,7 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
             return new Locadora(
                     rs.getInt("id"),
                     rs.getString("nome"),
-                    rs.getString("endereco"),
+                    rs.getString("cidade"),
                     rs.getInt("id_gerente")
             );
         } catch (SQLException e) {

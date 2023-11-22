@@ -87,11 +87,11 @@ VALUES (1, 2, 6), (2, 2, 2), (3, 2, 5), (4, 2, 4), (5, 2, 2), (7, 2, 6);
 -- gerando clientes
 -- ------------------------------------------------------------
 INSERT INTO cliente(nome, cpf, senha, telefone)
-VALUES ('Yasmin', '00145721358', 'yasminlinda', '(35)99271-2929'),
+VALUES ('cliente', '00000000001', 'cliente', '358888888888'),
+('Yasmin', '00145721358', 'yasminlinda', '(35)99271-2929'),
 ('Julia Helena', '12345678910', 'pedroehumlindo', '(35)90000-0000'),
 ('Jose Alfredo', '11884392734', 'alfanumerica', '(35)9999-9999'),
-('Silvana Almeida', '79876423396', 'senha', '(35)91234-3214'),
-('cliente', '00000000001', 'cliente', '358888888888');
+('Silvana Almeida', '79876423396', 'senha', '(35)91234-3214');
 
 -- ------------------------------------------------------------
 -- gerando alugueis
