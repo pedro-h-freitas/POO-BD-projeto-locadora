@@ -1,11 +1,12 @@
-package br.inatel.views;
+package br.inatel.views.forms;
 
-import br.inatel.controllers.CadastroController;
+import br.inatel.controllers.FormsController;
+import br.inatel.models.Cliente;
 
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente
  */
-public class TelaCadastroCliente extends Tela{
+public class FormCadastroCliente extends Form {
     /**
      * Exibe a tela de Cadastro
      */
@@ -13,10 +14,7 @@ public class TelaCadastroCliente extends Tela{
     public boolean render(){
         // TODO fazer validação dos dados
         String nome, cpf, senha, endereco, telefone, email;
-        CadastroController controller = new CadastroController();
-
-        Menu menu;
-        boolean run = true;
+        FormsController controller = new FormsController();
 
         System.out.println("-------------- CADASTRO ---------------");
 
@@ -48,37 +46,4 @@ public class TelaCadastroCliente extends Tela{
         return true;
     }
 
-    /**
-     * Método auxiliar para realizar o input de um campo obrigatório
-     * @param nomeCampo Label para o input
-     * @return valor inputado
-     */
-    private String inputCampoObrigatorio(String nomeCampo) {
-        String campo;
-
-        campo = stringInput(nomeCampo + ": ");
-        while (campo.isEmpty()) {
-            printVermelho("CAMPO OBRIGATÓRIO\n");
-
-            campo = stringInput(nomeCampo + ": ");
-        }
-
-        return campo;
-    }
-
-    /**
-     * Método auxiliar para realizar o input de um campo obrigatório
-     * @param nomeCampo Label para o input
-     * @return valor inputado
-     */
-    private String inputCampoOpcional(String nomeCampo) {
-        String campo;
-
-        campo = stringInput(nomeCampo + " (opcional): ");
-        if (campo.isEmpty()) {
-            campo = null;
-        }
-
-        return campo;
-    }
 }

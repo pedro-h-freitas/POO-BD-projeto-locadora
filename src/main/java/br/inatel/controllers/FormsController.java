@@ -1,13 +1,12 @@
 package br.inatel.controllers;
 
-import br.inatel.Main;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.Cliente;
 
 /**
  * Classe para manipular as ações na tela de Cadastro
  */
-public class CadastroController {
+public class FormsController {
     /**
      * Realiza o cadastro de um cliente
      * @param nome nome do cliente
