@@ -3,6 +3,7 @@ package br.inatel.views.funcionario;
 import br.inatel.Main;
 import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.views.Menu;
+import br.inatel.views.Tela;
 
 /**
  * Tela do Funcionario
@@ -17,6 +18,8 @@ public class MenuFuncionario extends Menu {
         String nomeFuncionario;
         String nomeLocadora;
         int op;
+
+        Tela tela;
 
         nomeFuncionario = controller.getNomeFuncionario();
         nomeLocadora = controller.getNomeLocadora();
@@ -35,16 +38,17 @@ public class MenuFuncionario extends Menu {
 
         op = intInput("Opção: ");
 
+        tela = null;
         switch (op) {
             case 1:
-                System.out.println("Clientes");
+                tela = new MenuFuncionarioCliente();
                 break;
             case 2:
-                System.out.println("Filmes");
+                tela = new MenuFuncionarioFilme();
                 break;
             case 3:
-                System.out.println("Alugueis");
-                return false;
+                tela = new MenuFuncionarioAluguel();
+                break;
             case 0:
                 System.out.println("logout");
                 return false;
@@ -52,6 +56,8 @@ public class MenuFuncionario extends Menu {
                 printOpcaoInvalida();
                 break;
         }
+
+        if (tela != null) tela.render();
 
         return true;
     }
