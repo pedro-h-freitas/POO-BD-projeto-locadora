@@ -9,39 +9,22 @@ import br.inatel.models.Cliente;
 public class FormsController {
     /**
      * Realiza o cadastro de um cliente
-     * @param nome nome do cliente
-     * @param cpf cpf do cliente
-     * @param senha senha do cliente
-     * @param endereco endereco do cliente
-     * @param telefone telefone do cliente
-     * @param email email do cliente
+     * @param cliente cliente a ser inserido
      * @return boolean var (true: cadastrou | false: falhou)
      */
-    public int cadastroCliente(
-            String nome,
-            String cpf,
-            String senha,
-            String endereco,
-            String telefone,
-            String email
-    ) {
-        ClienteUserDAO clienteDAO = new ClienteUserDAO();
-        int id = clienteDAO.insert(new Cliente(
-                nome,
-                cpf,
-                senha,
-                endereco,
-                telefone,
-                email
-        ));
+    public int cadastroCliente(Cliente cliente) {
+        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
+        return clienteUserDAO.insert(cliente);
+    }
 
-        if (id != -1) {
-            Main.context.setUserId(id);
-            Main.context.setUserType(Context.CLIENTE);
-            Main.context.setLocadoraId(-1);
-        }
+    public boolean updateCliente(Cliente cliente) {
+        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
+        return clienteUserDAO.update(cliente);
+    }
 
-        return id;
+    public Cliente getCliente(int idCliente) {
+        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
+        return clienteUserDAO.selectById(idCliente);
     }
 
 }

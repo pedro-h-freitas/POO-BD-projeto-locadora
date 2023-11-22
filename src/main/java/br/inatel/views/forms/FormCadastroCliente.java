@@ -33,7 +33,14 @@ public class FormCadastroCliente extends Form {
             printAmarelo("Insira pelo menos uma forma de contato\n");
         }
 
-        int idClienteNovo = controller.cadastroCliente(nome, cpf, senha, endereco, telefone, email);
+        int idClienteNovo = controller.cadastroCliente(new Cliente(
+                nome,
+                cpf,
+                senha,
+                endereco,
+                telefone,
+                email
+        ));
 
         if (idClienteNovo == -1) {
             printVermelho("Cadastro falhou\n");
