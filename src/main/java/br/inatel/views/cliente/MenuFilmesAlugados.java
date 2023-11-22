@@ -21,7 +21,7 @@ public class MenuFilmesAlugados extends Menu {
         for (int i = 0; i < filmes.size(); i++) {
             FilmeDisplay filme = filmes.get(i);
 
-            String id = Integer.toString(i);
+            String id = Integer.toString(i + 1);
             String ano = Integer.toString(filme.getAno());
 
             printVerde(id);

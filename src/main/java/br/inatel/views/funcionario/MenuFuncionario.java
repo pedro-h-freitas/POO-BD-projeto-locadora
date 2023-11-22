@@ -14,20 +14,22 @@ public class MenuFuncionario extends Menu {
     public boolean render() {
         //TODO
         FuncionarioController controller = new FuncionarioController();
+        String nomeFuncionario;
         String nomeLocadora;
         int op;
 
+        nomeFuncionario = controller.getNomeFuncionario();
         nomeLocadora = controller.getNomeLocadora();
 
-        System.out.println("=======================================");
-        printCiano("ID Funcionario Logado: " + Main.context.getUserId());
-        System.out.println("\n=======================================");
+        System.out.println("------------- Infos Seção -------------");
+        printCiano("ID: " + Main.context.getUserId() + "\n");
+        printCiano("Nome: " + nomeFuncionario + "\n");
         printCiano("Locadora: " + nomeLocadora);
-        System.out.println("\n=======================================");
+        System.out.println("\n---------------------------------------");
         System.out.println("---------- Menu Funcionario -----------");
-        printOpcao("1", "Clientes \n\t (Criar, Editar, Deletar)");
-        printOpcao("2", "Filmes \n\t (Adicionar, Remover)");
-        printOpcao("3", "Alugueis \n\t (Criar, Dar Baixa)");
+        printOpcao("1", "Clientes \n\t(Criar, Editar, Deletar)");
+        printOpcao("2", "Filmes \n\t(Adicionar, Remover)");
+        printOpcao("3", "Alugueis \n\t(Criar, Dar Baixa)");
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
 

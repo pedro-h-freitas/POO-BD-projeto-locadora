@@ -22,7 +22,7 @@ public class TelaLogin extends Tela{
         Menu menu = null;
         boolean run = true;
 
-        System.out.println("--------------- LOGIN -----------------");
+        System.out.println("---------------- LOGIN ----------------");
 
         id = stringInput("Id: ");
 
@@ -30,18 +30,12 @@ public class TelaLogin extends Tela{
 
         switch (controller.login(id, senha)) {
             case 1:
-//                System.out.println("Gerente");
-//                System.out.println("ID: " + Main.context.getUserId());
                 menu = new MenuGerente();
                 break;
             case 2:
-//                System.out.println("Funcionário");
-//                System.out.println("ID: " + Main.context.getUserId());
                 menu = new MenuFuncionario();
                 break;
             case 3:
-//                System.out.println("Funcionário");
-//                System.out.println("ID: " + Main.context.getUserId());
                 menu = new MenuCliente();
                 break;
             case -1:
