@@ -66,11 +66,4 @@ public class Locadora {
     public int getIdGerente() {
         return idGerente;
     }
-
-    @Override
-    public String toString() {
-        return "Id: " + id + ",\n" +
-                "Nome: " + nome + ",\n" +
-                "Cidade: " + cidade;
-    }
 }
