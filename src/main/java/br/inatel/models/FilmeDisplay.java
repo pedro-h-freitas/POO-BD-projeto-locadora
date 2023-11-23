@@ -35,6 +35,12 @@ public class FilmeDisplay {
         if (preco < 5) preco = 5;
     }
 
+    public FilmeDisplay(String nome, int ano, String generos) {
+        this.nome = nome;
+        this.ano = ano;
+        this.generos = generos;
+    }
+
     public int getId() {
         return id;
     }

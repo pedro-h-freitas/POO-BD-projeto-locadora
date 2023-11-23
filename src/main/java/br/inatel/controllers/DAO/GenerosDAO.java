@@ -16,7 +16,7 @@ public class GenerosDAO extends ConnectionDAO<Generos> {
      */
     @Override
     protected String getInsertQuery() {
-        return "INSERT INTO generos(id_filme, nome) VALUES(?, ?)";
+        return "INSERT INTO generos(id_info_filme, nome) VALUES(?, ?)";
     }
 
     /**

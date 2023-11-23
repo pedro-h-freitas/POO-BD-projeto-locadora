@@ -1,13 +1,9 @@
 package br.inatel.controllers;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.AluguelDAO;
-import br.inatel.controllers.DAO.FilmeDAO;
-import br.inatel.controllers.DAO.FilmeDisplayDAO;
+import br.inatel.controllers.DAO.*;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
-import br.inatel.models.Cliente;
-import br.inatel.models.Filme;
-import br.inatel.models.FilmeDisplay;
+import br.inatel.models.*;
 import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
@@ -92,5 +88,24 @@ public class FormsController {
         Main.context.setLocadoraId(-1);
     }
 
+    public int adicionaFilmeBanco(FilmeDisplay filme) {
+        InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
+        GenerosDAO generosDAO = new GenerosDAO();
 
+        int idInfoFilme = infoFilmeDAO.insert(new InfoFilme(
+                filme.getNome(),
+                filme.getAno()
+        ));
+
+        String[] generos = filme.getGeneros().split(",");
+        for (String genero :
+                generos) {
+            generosDAO.insert(new Generos(
+                    idInfoFilme,
+                    genero
+            ));
+        }
+
+        return idInfoFilme;
+    }
 }

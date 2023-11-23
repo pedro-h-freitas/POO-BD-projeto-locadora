@@ -60,10 +60,7 @@ public class MenuFuncionarioFilme extends Menu {
                 listarFilmesBanco();
                 break;
             case 5:
-                idFilme = escolherFilmeBanco();
-                if (idFilme == 0) break;
-
-                tela = new FormFilmeAddBanco(idFilme);
+                tela = new FormFilmeAddBanco();
                 break;
             case 6:
                 idFilme = escolherFilmeBanco();
