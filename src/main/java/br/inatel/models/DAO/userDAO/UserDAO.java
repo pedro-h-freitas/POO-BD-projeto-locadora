@@ -1,6 +1,6 @@
-package br.inatel.controllers.DAO.userDAO;
+package br.inatel.models.DAO.userDAO;
 
-import br.inatel.controllers.DAO.ConnectionDAO;
+import br.inatel.models.DAO.ConnectionDAO;
 import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;

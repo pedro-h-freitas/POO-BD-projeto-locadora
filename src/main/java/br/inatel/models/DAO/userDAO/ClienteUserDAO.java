@@ -1,4 +1,4 @@
-package br.inatel.controllers.DAO.userDAO;
+package br.inatel.models.DAO.userDAO;
 
 import br.inatel.models.Cliente;
 import br.inatel.views.utils.ColorPrinter;

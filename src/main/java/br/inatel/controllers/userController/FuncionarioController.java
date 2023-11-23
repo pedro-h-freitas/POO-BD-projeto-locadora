@@ -1,10 +1,10 @@
 package br.inatel.controllers.userController;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.FilmeDisplayDAO;
-import br.inatel.controllers.DAO.LocadoraDAO;
-import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
-import br.inatel.controllers.DAO.userDAO.FuncionarioUserDAO;
+import br.inatel.models.DAO.FilmeDisplayDAO;
+import br.inatel.models.DAO.LocadoraDAO;
+import br.inatel.models.DAO.userDAO.ClienteUserDAO;
+import br.inatel.models.DAO.userDAO.FuncionarioUserDAO;
 import br.inatel.models.Cliente;
 import br.inatel.models.FilmeDisplay;
 

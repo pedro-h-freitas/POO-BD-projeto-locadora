@@ -1,8 +1,8 @@
 package br.inatel.controllers;
 
 import br.inatel.Main;
-import br.inatel.controllers.DAO.*;
-import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
+import br.inatel.models.DAO.*;
+import br.inatel.models.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.*;
 import br.inatel.views.utils.ColorPrinter;
 

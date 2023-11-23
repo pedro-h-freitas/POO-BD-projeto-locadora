@@ -1,4 +1,4 @@
-package br.inatel.controllers.DAO;
+package br.inatel.models.DAO;
 
 import br.inatel.models.Locadora;
 import br.inatel.views.utils.ColorPrinter;
@@ -111,5 +111,41 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
             }
         }
         return null;
+    }
+
+    public ArrayList<Integer> selectIdsByInfoFilme(int idInfoFilme) {
+        ArrayList<Integer> idsLocadoras = new ArrayList<>();
+
+        connectToDB();
+
+        String sql = """
+                select locadora.id
+                from locadora
+                join filme on filme.id_locadora=locadora.id
+                join info_filme on info_filme.id=filme.id_info_filme
+                where info_filme.id=?;
+                """;
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, idInfoFilme);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                idsLocadoras.add(rs.getInt("id"));
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+
+        return idsLocadoras;
     }
 }

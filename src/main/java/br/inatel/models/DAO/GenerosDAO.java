@@ -1,4 +1,4 @@
-package br.inatel.controllers.DAO;
+package br.inatel.models.DAO;
 
 import br.inatel.models.Generos;
 
