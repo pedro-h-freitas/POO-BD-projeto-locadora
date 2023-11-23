@@ -41,15 +41,27 @@ public class MenuFuncionarioFilme extends Menu {
                 listarFilmesLocadora();
                 break;
             case 2:
+                idFilme = escolherFilmeLocadora();
+                if (idFilme == 0) break;
+
                 break;
             case 3:
+                idFilme = escolherFilmeLocadora();
+                if (idFilme == 0) break;
+
                 break;
             case 4:
                 listarFilmesBanco();
                 break;
             case 5:
+                idFilme = escolherFilmeBanco();
+                if (idFilme == 0) break;
+
                 break;
             case 6:
+                idFilme = escolherFilmeBanco();
+                if (idFilme == 0) break;
+
                 break;
             case 0:
                 return false;
@@ -93,6 +105,33 @@ public class MenuFuncionarioFilme extends Menu {
     private ArrayList<Integer> listarFilmesBanco() {
         ArrayList<FilmeDisplay> filmes = controller.getFilmesInfos();
         return listaFilmes(filmes);
+    }
+
+    private int escolherFilme(ArrayList<Integer> listaId) {
+        int idFilme;
+
+        listaId.add(0);
+        printOpcao("0", "Cancelar");
+        System.out.println("---------------------------------------");
+
+        while (true) {
+            idFilme = intInput("Id: ");
+            if (listaId.contains(idFilme)) break;
+
+            printVermelho("Id inválido\n");
+        }
+
+        return idFilme;
+    }
+
+    private int escolherFilmeLocadora() {
+        ArrayList<Integer> listaId = listarFilmesLocadora();
+        return escolherFilme(listaId);
+    }
+
+    private int escolherFilmeBanco() {
+        ArrayList<Integer> listaId = listarFilmesBanco();
+        return escolherFilme(listaId);
     }
 
 }
