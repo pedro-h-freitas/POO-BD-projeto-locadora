@@ -85,6 +85,7 @@ public class MenuFuncionarioCliente extends Menu {
         ArrayList<Integer> listaId = listarClientes();
 
         listaId.add(0);
+        printOpcao("0", "Cancelar");
         System.out.println("---------------------------------------");
 
         while (true) {

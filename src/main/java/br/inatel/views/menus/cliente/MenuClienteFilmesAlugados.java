@@ -29,9 +29,7 @@ public class MenuClienteFilmesAlugados extends Menu {
             String id = Integer.toString(i + 1);
             String ano = Integer.toString(filme.getAno());
 
-            printVerde(id);
-            System.out.print(" - ");
-            printAmarelo(filme.getNome() + " (" + ano + ")");
+            printOpcao(id, filme.getNome() + " (" + ano + ")");
             System.out.println();
         }
         System.out.println("---------------------------------------");
