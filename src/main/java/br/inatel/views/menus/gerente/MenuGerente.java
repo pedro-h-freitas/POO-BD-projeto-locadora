@@ -36,7 +36,6 @@ public class MenuGerente extends Menu {
         printOpcao("1", "Clientes \n\t(Criar, Editar, Deletar)");
         printOpcao("2", "Funcionario \n\t(Criar, Editar, Deletar, Dar Aumento, Transferir)");
         printOpcao("3", "Filmes \n\t(Adicionar, Remover)");
-        printOpcao("4", "Alugueis \n\t(Criar, Dar Baixa)");
         printOpcao("0", "Logout");
         System.out.println("---------------------------------------");
 

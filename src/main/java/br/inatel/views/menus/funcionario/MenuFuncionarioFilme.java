@@ -15,7 +15,9 @@ public class MenuFuncionarioFilme extends Menu {
         int op;
 
         System.out.println("--------------- Filmes ----------------");
-        printOpcao("1", "Adicionar");
+        printOpcao("1", "Listar Filmes");
+        printOpcao("2", "Adicionar à locadora");
+        printOpcao("3", "Adicionar ao banco de dados");
         printOpcao("2", "Remover");
         printOpcao("0", "Sair");
         System.out.println("---------------------------------------");
