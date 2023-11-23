@@ -27,16 +27,6 @@ public class FuncionarioController {
         return clienteUserDAO.selectAll();
     }
 
-    public int getIdAluguel(int idCliente) {
-        AluguelDAO aluguelDAO = new AluguelDAO();
-
-        return aluguelDAO.selectAluguelIdByCliente(idCliente);
-    }
-
-    public boolean hasAluguel(int idCliente) {
-        return getIdAluguel(idCliente) != -1;
-    }
-
     public void deleteCliente(int idCliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
 
@@ -50,4 +40,13 @@ public class FuncionarioController {
         Main.context.setLocadoraId(-1);
     }
 
+    public int getIdAluguel(int idCliente) {
+        AluguelDAO aluguelDAO = new AluguelDAO();
+
+        return aluguelDAO.selectAluguelIdByCliente(idCliente);
+    }
+
+    public boolean hasAluguel(int idCliente) {
+        return getIdAluguel(idCliente) != -1;
+    }
 }
