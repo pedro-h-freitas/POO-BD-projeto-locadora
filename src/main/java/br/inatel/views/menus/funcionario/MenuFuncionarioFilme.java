@@ -3,7 +3,9 @@ package br.inatel.views.menus.funcionario;
 import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.models.FilmeDisplay;
 import br.inatel.views.Tela;
+import br.inatel.views.forms.FormFilmeAddBanco;
 import br.inatel.views.forms.FormFilmeAddLocadora;
+import br.inatel.views.forms.FormFilmeRemoveBanco;
 import br.inatel.views.forms.FormFilmeRemoveLocadora;
 import br.inatel.views.menus.Menu;
 
@@ -61,11 +63,13 @@ public class MenuFuncionarioFilme extends Menu {
                 idFilme = escolherFilmeBanco();
                 if (idFilme == 0) break;
 
+                tela = new FormFilmeAddBanco(idFilme);
                 break;
             case 6:
                 idFilme = escolherFilmeBanco();
                 if (idFilme == 0) break;
 
+                tela = new FormFilmeRemoveBanco(idFilme);
                 break;
             case 0:
                 return false;
