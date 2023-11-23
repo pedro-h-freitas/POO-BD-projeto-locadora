@@ -6,9 +6,6 @@ import br.inatel.models.Cliente;
  * Tela de cadastro, cadastra cliente, funcionario ou gerente
  */
 public class FormCadastroCliente extends Form {
-    public FormCadastroCliente() {
-        super();
-    }
 
     /**
      * Exibe a tela de Cadastro
