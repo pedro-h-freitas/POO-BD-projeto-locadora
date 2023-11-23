@@ -42,8 +42,8 @@ public class FilmeDisplayDAO {
         connectToDB();
 
         String sql = """
-                select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
-                GROUP_CONCAT(generos.nome) as generos
+                select filme.id, info_filme.nome, info_filme.ano_lancamento as ano,
+                GROUP_CONCAT(generos.nome) as generos, filme.n_copias, filme.n_disponiveis
                 from filme\s
                 join info_filme on info_filme.id = filme.id_info_filme
                 join generos on info_filme.id = generos.id_info_filme
@@ -59,7 +59,9 @@ public class FilmeDisplayDAO {
                         rs.getInt("id"),
                         rs.getString("nome"),
                         rs.getInt("ano"),
-                        rs.getString("generos")
+                        rs.getString("generos"),
+                        rs.getInt("n_copias"),
+                        rs.getInt("n_disponiveis")
                 );
                 filmes.add(filme);
             }
@@ -87,7 +89,7 @@ public class FilmeDisplayDAO {
 
         String sql = """
                 select filme.id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
-                GROUP_CONCAT(generos.nome) as generos
+                GROUP_CONCAT(generos.nome) as generos, filme.n_copias, filme.n_disponiveis
                 from filme_alugado\s
                 join filme on filme.id = filme_alugado.id_filme
                 join info_filme on info_filme.id = filme.id_info_filme
@@ -104,7 +106,9 @@ public class FilmeDisplayDAO {
                         rs.getInt("id"),
                         rs.getString("nome"),
                         rs.getInt("ano"),
-                        rs.getString("generos")
+                        rs.getString("generos"),
+                        rs.getInt("n_copias"),
+                        rs.getInt("n_disponiveis")
                 );
                 filmes.add(filme);
             }
