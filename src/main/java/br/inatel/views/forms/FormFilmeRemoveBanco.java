@@ -10,7 +10,8 @@ public class FormFilmeRemoveBanco extends FormFilme {
 
     @Override
     public boolean render() {
-        System.out.println("FormFilmeRemoveBanco");
+        System.out.println("--------------- REMOVER ---------------");
+        System.out.println("  ---------- Banco de Dados ---------  ");
         return false;
     }
 }

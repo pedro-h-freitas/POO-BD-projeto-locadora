@@ -13,6 +13,7 @@ public class FormFilmeAddBanco extends FormFilme {
         String generoAux;
 
         System.out.println("-------------- ADICIONAR --------------");
+        System.out.println("  ---------- Banco de Dados ---------  ");
         nome = stringInput("Nome: ");
         ano = intInput("Ano de lançamento: ");
         generoAux = stringInput("Genero: ");
