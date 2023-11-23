@@ -14,7 +14,7 @@ public class FormFilmeRemoveLocadora extends FormFilme {
     public boolean render() {
         FilmeDisplay filme = controller.getFilmeById(idFilme);
 
-        System.out.println("---------------------------------------");
+        System.out.println("--------------- REMOVER ---------------");
         showFilme(filme);
         System.out.println("---------------------------------------");
 

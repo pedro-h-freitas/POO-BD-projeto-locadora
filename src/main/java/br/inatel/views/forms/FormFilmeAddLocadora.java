@@ -18,13 +18,14 @@ public class FormFilmeAddLocadora extends FormFilme {
 
         FilmeDisplay filme = controller.getFilmeById(idFilme);
 
+        System.out.println("-------------- ADICIONAR --------------");
+
         if (filme == null)
-            System.out.println("Nenhuma cópia na locadora.");
-        else {
-            System.out.println("---------------------------------------");
+            printAmarelo("Nenhuma cópia na locadora.\n");
+        else
             showFilme(filme);
-            System.out.println("---------------------------------------");
-        }
+
+        System.out.println("---------------------------------------");
 
         int qnt = intInput("Adicionar quantas cópias? ");
 
