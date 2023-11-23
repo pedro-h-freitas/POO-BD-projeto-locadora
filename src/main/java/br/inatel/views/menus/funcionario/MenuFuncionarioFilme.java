@@ -1,6 +1,7 @@
 package br.inatel.views.menus.funcionario;
 
 import br.inatel.controllers.userController.FuncionarioController;
+import br.inatel.views.Tela;
 import br.inatel.views.menus.Menu;
 
 public class MenuFuncionarioFilme extends Menu {
@@ -12,6 +13,7 @@ public class MenuFuncionarioFilme extends Menu {
 
     @Override
     public boolean render() {
+        Tela tela;
         int op;
 
         System.out.println("--------------- Filmes ----------------");
@@ -29,7 +31,32 @@ public class MenuFuncionarioFilme extends Menu {
 
         op = intInput();
 
-        return false;
+        tela = null;
+        int idFilme;
+        switch (op) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                listarFilmesBanco();
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 0:
+                return false;
+            default:
+                break;
+        }
+
+        if (tela != null) tela.render();
+
+        return true;
+    }
     }
 
 }
