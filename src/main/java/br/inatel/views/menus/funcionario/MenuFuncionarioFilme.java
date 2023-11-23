@@ -49,6 +49,7 @@ public class MenuFuncionarioFilme extends Menu {
                 idFilme = escolherFilmeLocadora();
                 if (idFilme == 0) break;
 
+                deleteFilmeLocadora(idFilme);
                 break;
             case 4:
                 listarFilmesBanco();
@@ -134,4 +135,45 @@ public class MenuFuncionarioFilme extends Menu {
         return escolherFilme(listaId);
     }
 
+    private void deleteFilmeLocadora(int idFilme) {
+        FilmeDisplay filme = controller.getFilmeById(idFilme);
+
+        System.out.println("---------------------------------------");
+        showFilme(filme);
+        System.out.println("---------------------------------------");
+
+        int qnt = intInput("Remover quantas cópias? ");
+
+        if (filme.getnCopias() - qnt < 0) {
+            printVermelho("Numero de copias indisponiveis\n");
+            return;
+        }
+
+        if (filme.getnDisponiveis() - qnt < 0) {
+            printVermelho("Filme está alugado\n");
+            return;
+        }
+
+        printAzul("Você tem crtz??");
+        printVerde(" (S/N) ");
+        String s;
+        do {
+            s = stringInput("").toLowerCase();
+        } while (!(s.equals("s") || s.equals("n")));
+        if (s.equals("s")) {
+            if (filme.getnCopias() - qnt == 0) {
+                controller.deleteFilmeLocadora(idFilme);
+                printVerde("Filme: ");
+                printVermelho(idFilme + "");
+                printVerde(", deletado com sucesso\n");
+            } else {
+                controller.removeFilmeLocadora(idFilme, qnt);
+                printVerde("Removido ");
+                printVermelho(qnt + "");
+                printVerde(" cópias do filme: ");
+                printVermelho(idFilme + "");
+                printVerde(", com sucesso\n");
+            }
+        }
+    }
 }
