@@ -2,10 +2,13 @@ package br.inatel.controllers.userController;
 
 import br.inatel.Main;
 import br.inatel.controllers.DAO.AluguelDAO;
+import br.inatel.controllers.DAO.FilmeDAO;
+import br.inatel.controllers.DAO.FilmeDisplayDAO;
 import br.inatel.controllers.DAO.LocadoraDAO;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.controllers.DAO.userDAO.FuncionarioUserDAO;
 import br.inatel.models.Cliente;
+import br.inatel.models.FilmeDisplay;
 import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
@@ -48,5 +51,33 @@ public class FuncionarioController {
 
     public boolean hasAluguel(int idCliente) {
         return getIdAluguel(idCliente) != -1;
+    }
+
+    public ArrayList<FilmeDisplay> getFilmesLocadora() {
+        FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
+        int locadoraId = Main.context.getLocadoraId();
+
+        return filmeDisplayDAO.selectByLocadora(locadoraId);
+    }
+
+    public FilmeDisplay getFilmeById(int idFilme) {
+        FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
+        return filmeDisplayDAO.selectById(idFilme);
+    }
+
+    public ArrayList<FilmeDisplay> getFilmesInfos() {
+        FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
+
+        return filmeDisplayDAO.selectInfos();
+    }
+
+    public boolean deleteFilmeLocadora(int idFilme) {
+        FilmeDAO filmeDAO = new FilmeDAO();
+        return filmeDAO.deleteById(idFilme);
+    }
+
+    public boolean removeFilmeLocadora(int idFilme, int qnt) {
+        FilmeDAO filmeDAO = new FilmeDAO();
+        return filmeDAO.removeQnt(idFilme, qnt);
     }
 }
