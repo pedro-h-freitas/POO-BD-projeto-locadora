@@ -108,4 +108,14 @@ public class FormsController {
 
         return idInfoFilme;
     }
+    
+    public ArrayList<Integer> getLocadorasIdByInfoFilme(int idInfoFilme) {
+        LocadoraDAO locadoraDAO = new LocadoraDAO();
+        return locadoraDAO.selectIdsByInfoFilme(idInfoFilme);
+    }
+
+    public void deleteInfoFilme(int idInfoFilme) {
+        InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
+        infoFilmeDAO.delete(idInfoFilme);
+    }
 }

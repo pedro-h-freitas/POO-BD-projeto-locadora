@@ -74,4 +74,27 @@ public class InfoFilmeDAO extends ConnectionDAO<InfoFilme> {
         return id;
     }
 
+    public boolean delete(int id) {
+        connectToDB();
+
+        String sql = "DELETE FROM info_filme WHERE id=?;";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.execute();
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+        return sucesso;
+    }
 }
