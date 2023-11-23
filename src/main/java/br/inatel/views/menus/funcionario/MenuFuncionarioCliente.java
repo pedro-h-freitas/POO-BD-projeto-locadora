@@ -2,6 +2,7 @@ package br.inatel.views.menus.funcionario;
 
 import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.models.Cliente;
+import br.inatel.views.forms.FormDeletarCliente;
 import br.inatel.views.menus.Menu;
 import br.inatel.views.Tela;
 import br.inatel.views.forms.FormCadastroCliente;
@@ -50,7 +51,7 @@ public class MenuFuncionarioCliente extends Menu {
                 idCliente = escolherCliente();
                 if (idCliente == 0) break;
 
-                deleteUser(idCliente);
+                tela = new FormDeletarCliente(idCliente);
                 break;
             case 0:
                 return false;
@@ -98,20 +99,4 @@ public class MenuFuncionarioCliente extends Menu {
         return idCliente;
     }
 
-    private void deleteUser(int idCliente) {
-        if (controller.hasAluguel(idCliente)) {
-            printVermelho("Há aluguéis pendentes\n");
-            return;
-        }
-
-        printAzul("Você tem crtz??");
-        printVerde(" (S/N) ");
-        String s;
-        do {
-            s = stringInput("").toLowerCase();
-        } while (!(s.equals("s") || s.equals("n")));
-        if (s.equals("s")) {
-            controller.deleteCliente(idCliente);
-        }
-    }
 }
