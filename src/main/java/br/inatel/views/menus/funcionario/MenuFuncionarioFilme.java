@@ -136,6 +136,7 @@ public class MenuFuncionarioFilme extends Menu {
         ArrayList<Integer> listaId = listarFilmesBanco();
         return escolherFilme(listaId);
     }
+
     private void adicionaFilmeLocadora(int idInfoFilme) {
         String idFilmeAux = "" + Main.context.getLocadoraId() + idInfoFilme;
         int idFilme = Integer.parseInt(idFilmeAux);
@@ -152,7 +153,16 @@ public class MenuFuncionarioFilme extends Menu {
 
         int qnt = intInput("Adicionar quantas cópias? ");
 
-        controller.adicionaFilmeLocadora(idInfoFilme, qnt);
+        if (controller.adicionaFilmeLocadora(idInfoFilme, qnt) == -1) {
+            printVermelho("Falha ao adicionar filme");
+            return;
+        }
+
+        printVerde("Adicionado ");
+        printVermelho(qnt + "");
+        printVerde(" cópias do filme: ");
+        printVermelho(idFilme + "");
+        printVerde(", com sucesso\n");
     }
 
     private void deleteFilmeLocadora(int idFilme) {

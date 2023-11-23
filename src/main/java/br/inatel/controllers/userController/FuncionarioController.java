@@ -8,6 +8,7 @@ import br.inatel.controllers.DAO.LocadoraDAO;
 import br.inatel.controllers.DAO.userDAO.ClienteUserDAO;
 import br.inatel.controllers.DAO.userDAO.FuncionarioUserDAO;
 import br.inatel.models.Cliente;
+import br.inatel.models.Filme;
 import br.inatel.models.FilmeDisplay;
 import br.inatel.views.utils.ColorPrinter;
 
@@ -71,6 +72,21 @@ public class FuncionarioController {
         return filmeDisplayDAO.selectInfos();
     }
 
+    public int adicionaFilmeLocadora(int idInfoFilme, int qnt) {
+        FilmeDAO filmeDAO = new FilmeDAO();
+
+        int idLocadora = Main.context.getLocadoraId();
+        String idFilmeAux = "" + idLocadora + idInfoFilme;
+        int idFilme = Integer.parseInt(idFilmeAux);
+
+        if (getFilmeById(idFilme) == null)
+            if (filmeDAO.insert(new Filme(qnt, idLocadora, idInfoFilme)) != -1)
+                return 1;
+        if (filmeDAO.addQnt(idFilme, qnt))
+            return 2;
+
+        return -1;
+    }
 
     public int deleteFilmeLocadora(FilmeDisplay filme, int qnt) {
         FilmeDAO filmeDAO = new FilmeDAO();
