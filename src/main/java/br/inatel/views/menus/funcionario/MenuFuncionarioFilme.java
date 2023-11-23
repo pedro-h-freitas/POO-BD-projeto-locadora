@@ -1,9 +1,10 @@
 package br.inatel.views.menus.funcionario;
 
-import br.inatel.Main;
 import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.models.FilmeDisplay;
 import br.inatel.views.Tela;
+import br.inatel.views.forms.FormFilmeAddLocadora;
+import br.inatel.views.forms.FormFilmeRemoveLocadora;
 import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
@@ -45,13 +46,13 @@ public class MenuFuncionarioFilme extends Menu {
                 idFilme = escolherFilmeBanco();
                 if (idFilme == 0) break;
 
-                adicionaFilmeLocadora(idFilme);
+                tela = new FormFilmeAddLocadora(idFilme);
                 break;
             case 3:
                 idFilme = escolherFilmeLocadora();
                 if (idFilme == 0) break;
 
-                deleteFilmeLocadora(idFilme);
+                tela = new FormFilmeRemoveLocadora(idFilme);
                 break;
             case 4:
                 listarFilmesBanco();
@@ -137,79 +138,6 @@ public class MenuFuncionarioFilme extends Menu {
         return escolherFilme(listaId);
     }
 
-    private void adicionaFilmeLocadora(int idInfoFilme) {
-        String idFilmeAux = "" + Main.context.getLocadoraId() + idInfoFilme;
-        int idFilme = Integer.parseInt(idFilmeAux);
-
-        FilmeDisplay filme = controller.getFilmeById(idFilme);
-
-        if (filme == null)
-            System.out.println("Nenhuma cópia na locadora.");
-        else {
-            System.out.println("---------------------------------------");
-            showFilme(filme);
-            System.out.println("---------------------------------------");
-        }
-
-        int qnt = intInput("Adicionar quantas cópias? ");
-
-        if (controller.adicionaFilmeLocadora(idInfoFilme, qnt) == -1) {
-            printVermelho("Falha ao adicionar filme");
-            return;
-        }
-
-        printVerde("Adicionado ");
-        printVermelho(qnt + "");
-        printVerde(" cópias do filme: ");
-        printVermelho(idFilme + "");
-        printVerde(", com sucesso\n");
-    }
-
-    private void deleteFilmeLocadora(int idFilme) {
-        FilmeDisplay filme = controller.getFilmeById(idFilme);
-
-        System.out.println("---------------------------------------");
-        showFilme(filme);
-        System.out.println("---------------------------------------");
-
-        int qnt = intInput("Remover quantas cópias? ");
-
-        if (filme.getnCopias() - qnt < 0) {
-            printVermelho("Numero de copias indisponiveis\n");
-            return;
-        }
-
-        if (filme.getnDisponiveis() - qnt < 0) {
-            printVermelho("Filme está alugado\n");
-            return;
-        }
-
-        printAzul("Você tem crtz??");
-        printVerde(" (S/N) ");
-        String s;
-        do {
-            s = stringInput("").toLowerCase();
-        } while (!(s.equals("s") || s.equals("n")));
-        if (s.equals("s")) {
-            switch (controller.deleteFilmeLocadora(filme, qnt)) {
-                case 1:
-                    printVerde("Filme: ");
-                    printVermelho(idFilme + "");
-                    printVerde(", deletado com sucesso\n");
-                    break;
-                case 2:
-                    printVerde("Removido ");
-                    printVermelho(qnt + "");
-                    printVerde(" cópias do filme: ");
-                    printVermelho(idFilme + "");
-                    printVerde(", com sucesso\n");
-                    break;
-                case -1:
-                    printVermelho("Falha ao remover filme");
-                    break;
-            }
-        }
-    }
 /*
     private void deleteFilmeBanco(int idFilme) {
         printAzul("Você tem crtz??");
