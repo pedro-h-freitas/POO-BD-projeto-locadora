@@ -71,13 +71,17 @@ public class FuncionarioController {
         return filmeDisplayDAO.selectInfos();
     }
 
-    public boolean deleteFilmeLocadora(int idFilme) {
-        FilmeDAO filmeDAO = new FilmeDAO();
-        return filmeDAO.deleteById(idFilme);
-    }
 
-    public boolean removeFilmeLocadora(int idFilme, int qnt) {
+    public int deleteFilmeLocadora(FilmeDisplay filme, int qnt) {
         FilmeDAO filmeDAO = new FilmeDAO();
-        return filmeDAO.removeQnt(idFilme, qnt);
+
+        if (filme.getnCopias() - qnt == 0)
+            if (filmeDAO.deleteById(filme.getId()))
+                return 1;
+
+        if (filmeDAO.removeQnt(filme.getId(), qnt))
+            return 2;
+
+        return -1;
     }
 }
