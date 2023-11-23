@@ -113,6 +113,8 @@ public class MenuClienteAluguel extends Menu {
         System.out.print("--------------- Filmes ----------------");
         for (FilmeDisplay filme :
                 filmes) {
+            if (filme.getnDisponiveis() == 0) continue;
+
             String id = Integer.toString(filme.getId());
             String ano = Integer.toString(filme.getAno());
 

@@ -89,7 +89,7 @@ public class FilmeDisplayDAO {
                 from filme\s
                 join info_filme on info_filme.id = filme.id_info_filme
                 join generos on info_filme.id = generos.id_info_filme
-                where id_locadora=? and n_disponiveis > 0
+                where id_locadora=? and n_disponiveis >= 0
                 GROUP BY filme.id;""";
         try {
             pst = con.prepareStatement(sql);
