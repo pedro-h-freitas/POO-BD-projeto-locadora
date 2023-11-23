@@ -37,7 +37,7 @@ public class FuncionarioController {
         return getIdAluguel(idCliente) != -1;
     }
 
-    public void deleteUser(int idCliente) {
+    public void deleteCliente(int idCliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
 
         clienteUserDAO.delete(idCliente);

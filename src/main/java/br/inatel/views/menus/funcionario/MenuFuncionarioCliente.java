@@ -110,7 +110,7 @@ public class MenuFuncionarioCliente extends Menu {
             s = stringInput("").toLowerCase();
         } while (!(s.equals("s") || s.equals("n")));
         if (s.equals("s")) {
-            controller.deleteUser(idCliente);
+            controller.deleteCliente(idCliente);
         }
     }
 }
