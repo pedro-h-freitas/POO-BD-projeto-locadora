@@ -36,6 +36,48 @@ public class FilmeDisplayDAO {
         }
     }
 
+    public ArrayList<FilmeDisplay> selectInfos() {
+        ArrayList<FilmeDisplay> filmes = new ArrayList<>();
+
+        connectToDB();
+
+        String sql = """
+                select info_filme.id as id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
+                GROUP_CONCAT(generos.nome) as generos
+                from info_filme
+                join generos on info_filme.id = generos.id_info_filme
+                GROUP BY info_filme.id;
+                """;
+        try {
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                FilmeDisplay filme = new FilmeDisplay(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getInt("ano"),
+                        rs.getString("generos")
+                );
+                filmes.add(filme);
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                // st.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+
+        return filmes;
+    }
+
     public ArrayList<FilmeDisplay> selectByLocadora(int idLocadora) {
         ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
@@ -127,6 +169,51 @@ public class FilmeDisplayDAO {
         }
 
         return filmes;
+    }
+
+    public FilmeDisplay selectById(int id) {
+        FilmeDisplay filme = null;
+
+        connectToDB();
+
+        String sql = """
+                select filme.id, info_filme.nome, info_filme.ano_lancamento as ano,
+                GROUP_CONCAT(generos.nome) as generos, filme.n_copias, filme.n_disponiveis
+                from filme\s
+                join info_filme on info_filme.id = filme.id_info_filme
+                join generos on info_filme.id = generos.id_info_filme
+                where filme.id=? and n_disponiveis > 0
+                GROUP BY filme.id;""";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                filme = new FilmeDisplay(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getInt("ano"),
+                        rs.getString("generos"),
+                        rs.getInt("n_copias"),
+                        rs.getInt("n_disponiveis")
+                );
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                // st.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+
+        return filme;
     }
 
 }
