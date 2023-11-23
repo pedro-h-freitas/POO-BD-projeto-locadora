@@ -99,7 +99,7 @@ public class MenuClienteAluguel extends Menu {
         }
 
         if (carrinho.isEmpty()){
-            printVermelho("Carrinho vazio");
+            printVermelho("Carrinho vazio\n");
             return false;
         }
 

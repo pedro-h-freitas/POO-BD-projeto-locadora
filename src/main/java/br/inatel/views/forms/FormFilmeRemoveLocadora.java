@@ -17,6 +17,7 @@ public class FormFilmeRemoveLocadora extends FormFilme {
         System.out.println("--------------- REMOVER ---------------");
         System.out.println("  ------------- Locadora ------------  ");
         showFilme(filme);
+        System.out.println();
         System.out.println("---------------------------------------");
 
         int qnt = intInput("Remover quantas cópias? ");
