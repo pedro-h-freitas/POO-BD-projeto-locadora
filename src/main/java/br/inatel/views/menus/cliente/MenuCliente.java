@@ -92,7 +92,7 @@ public class MenuCliente extends Menu {
         int id;
 
         id = intInput("Id: ");
-        if (!idList.contains(id)) {
+        while (!idList.contains(id)) {
             printVermelho("ID INVÁLIDO");
             id = intInput("Id: ");
         }
