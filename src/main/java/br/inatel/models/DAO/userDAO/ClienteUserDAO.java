@@ -130,14 +130,14 @@ public class ClienteUserDAO extends UserDAO<Cliente> {
             pst.execute();
             sucesso = true;
         } catch (SQLException e) {
-            System.out.println("Erro = " + e.getMessage());
+            ColorPrinter.printErro(e);
             sucesso = false;
         } finally {
             try {
                 con.close();
                 pst.close();
             } catch (SQLException e) {
-                System.out.println("Erro: " + e.getMessage());
+                ColorPrinter.printErro(e);
             }
         }
         return sucesso;
