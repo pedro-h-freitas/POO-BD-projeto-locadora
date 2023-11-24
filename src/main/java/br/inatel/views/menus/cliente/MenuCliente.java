@@ -5,6 +5,7 @@ import br.inatel.controllers.userController.ClienteController;
 import br.inatel.models.Locadora;
 import br.inatel.views.menus.Menu;
 import br.inatel.views.Tela;
+import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
 

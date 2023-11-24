@@ -13,7 +13,6 @@ public class DbConfig {
             "&useSSL=false" +
             "&allowPublicKeyRetrieval=true";
 
-    //Getters
     /**
      * Getter for database name
      * @return database name
