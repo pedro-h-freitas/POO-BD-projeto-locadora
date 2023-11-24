@@ -5,7 +5,6 @@ import br.inatel.controllers.userController.ClienteController;
 import br.inatel.models.Locadora;
 import br.inatel.views.menus.Menu;
 import br.inatel.views.Tela;
-import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
 
@@ -135,7 +134,12 @@ public class MenuCliente extends Menu {
             s = stringInput("").toLowerCase();
         } while (!(s.equals("s") || s.equals("n")));
         if (s.equals("s")) {
-            controller.deleteUser();
+            int idCliente = controller.deleteUser();
+
+            printAzul("Usuario: ");
+            printVermelho(idCliente + "");
+            printAzul(" deletado\n");
+
             return true;
         }
 
