@@ -81,14 +81,15 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         return "SELECT nome FROM funcionario WHERE id=?";
     }
 
-    public ArrayList<Funcionario> selectAll() {
+    public ArrayList<Funcionario> selectByLocadora(int idLocadora){
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
         connectToDB();
 
-        String sql = "SELECT * FROM funcionario";
+        String sql = "SELECT * FROM funcionario WHERE id_locadora=?;";
         try {
             pst = con.prepareStatement(sql);
+            pst.setInt(1, idLocadora);
             rs = pst.executeQuery();
 
             while (rs.next()) {
@@ -103,11 +104,11 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         } finally {
             try {
                 con.close();
+                // st.close();
             } catch (SQLException e) {
                 ColorPrinter.printErro(e);
             }
         }
-
         return funcionarios;
     }
 
