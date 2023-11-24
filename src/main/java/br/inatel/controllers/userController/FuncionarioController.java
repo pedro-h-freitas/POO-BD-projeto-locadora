@@ -10,33 +10,53 @@ import br.inatel.models.FilmeDisplay;
 
 import java.util.ArrayList;
 
+/**
+ * Controler para funcionario
+ */
 public class FuncionarioController {
 
+    /**
+     * Método para selecionar o nome da locadora atual da sessão
+     * @return nome da locadora da sessão
+     */
     public String getNomeLocadora() {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectNome(Main.context.getLocadoraId());
     }
 
+    /**
+     * Método para selecionar o nome do funcionario da atual da sessão
+     * @return nome do funcionario da sessão
+     */
     public String getNomeFuncionario() {
         FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
         return funcionarioUserDAO.selectNome(Main.context.getUserId());
     }
 
+    /**
+     * Seleciona todas os cliente
+     * @return lista de cliente
+     */
     public ArrayList<Cliente> getAllClientes() {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
         return clienteUserDAO.selectAll();
     }
 
-    public ArrayList<FilmeDisplay> getFilmesLocadora() {
+    /**
+     * Seleciona todos os filmes da locadora da sessão
+     * @return lista dos filmes da locadora da sessão
+     */
+    public ArrayList<FilmeDisplay> getFilmesByLocadora() {
         FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
-        int locadoraId = Main.context.getLocadoraId();
-
-        return filmeDisplayDAO.selectByLocadora(locadoraId);
+        return filmeDisplayDAO.selectByLocadora(Main.context.getLocadoraId());
     }
 
+    /**
+     * Seleciona todos os meta dados dos filmes
+     * @return lista dos meta dados
+     */
     public ArrayList<FilmeDisplay> getFilmesInfos() {
         FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
-
         return filmeDisplayDAO.selectInfos();
     }
 

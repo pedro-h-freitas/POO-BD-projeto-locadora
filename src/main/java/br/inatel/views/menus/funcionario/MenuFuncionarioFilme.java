@@ -103,7 +103,7 @@ public class MenuFuncionarioFilme extends Menu {
     }
 
     private ArrayList<Integer> listarFilmesLocadora() {
-        ArrayList<FilmeDisplay> filmes = controller.getFilmesLocadora();
+        ArrayList<FilmeDisplay> filmes = controller.getFilmesByLocadora();
         return listaFilmes(filmes);
     }
 
