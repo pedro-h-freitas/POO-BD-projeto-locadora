@@ -142,4 +142,29 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         return sucesso;
     }
 
+    public boolean updateLocadora(int idFuncionario, int idLocadora) {
+        connectToDB();
+
+        String sql = "UPDATE funcionario " +
+                "SET id_locadora=? " +
+                "WHERE id=?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, idLocadora);
+            pst.setInt(2, idFuncionario);
+            pst.execute();
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                pst.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+        return sucesso;
+    }
 }

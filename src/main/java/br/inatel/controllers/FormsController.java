@@ -146,9 +146,19 @@ public class FormsController {
         return getIdAluguel(idCliente) != -1;
     }
 
+    public ArrayList<Locadora> selectAllLocadoras() {
+        LocadoraDAO locadoraDAO = new LocadoraDAO();
+        return locadoraDAO.selectAll();
+    }
+
     public ArrayList<Integer> getLocadorasIdByInfoFilme(int idInfoFilme) {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectIdsByInfoFilme(idInfoFilme);
+    }
+
+    public boolean transfereFuncioario(int idFuncionario, int idLocadora) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+        return funcionarioUserDAO.updateLocadora(idFuncionario, idLocadora);
     }
 
 }
