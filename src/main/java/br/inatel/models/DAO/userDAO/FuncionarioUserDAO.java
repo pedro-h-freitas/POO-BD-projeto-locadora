@@ -141,5 +141,4 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         return sucesso;
     }
 
-
 }
