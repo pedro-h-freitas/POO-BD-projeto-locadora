@@ -49,13 +49,13 @@ public class MenuGerente extends Menu {
         tela = null;
         switch (op) {
             case 1:
-                tela = new MenuFuncionarioCliente();
+                tela = new MenuGerenteCliente();
                 break;
             case 2:
-                System.out.println("Funcionarios");
+                tela = new MenuGerenteFuncionario();
                 break;
             case 3:
-                tela = new MenuFuncionarioFilme();
+                tela = new MenuGerenteFilme();
                 break;
             case 0:
                 System.out.println("logout");
