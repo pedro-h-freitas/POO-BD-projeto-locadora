@@ -129,20 +129,4 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
             }
         }
     }
-
-    public Aluguel getMapper() {
-        try {
-            return new Aluguel(
-                    rs.getInt("id"),
-                    rs.getString("data_locacao"),
-                    rs.getString("data_devolucao"),
-                    rs.getString("status"),
-                    rs.getInt("id_cliente"),
-                    rs.getInt("id_cliente")
-            );
-        } catch (SQLException e) {
-            ColorPrinter.printErro(e);
-            return null;
-        }
-    }
 }
