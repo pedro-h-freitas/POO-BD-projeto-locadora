@@ -15,49 +15,10 @@ import java.sql.Statement;
 public abstract class UserDAO<T> extends ConnectionDAO<T> {
 
     /**
-     * Método abstrato para obter a query de seleção por id para cada tabela
-     * @return query de busca
-     */
-    protected abstract String getSelectByIdQuery();
-
-    /**
      * Método abstrato para mapear o ResultSet em um model
      * @return Objeto T mapeado no ResultSet
      */
     protected abstract T getMapper();
-
-    /**
-     * Busca um objeto T em pelo id sua respectiva tabela
-     * @param id do objeto selecionado
-     * @return Objeto T selecionado
-     */
-    public T selectById(int id){
-        connectToDB();
-
-        String sql = getSelectByIdQuery();
-        try {
-            pst = con.prepareStatement(sql);
-            pst.setInt(1, id);
-            rs = pst.executeQuery();
-
-            if (rs != null && rs.next()) {
-                sucesso = true;
-                return getMapper();
-            }
-
-        } catch (SQLException e) {
-            ColorPrinter.printErro(e);
-            sucesso = false;
-        } finally {
-            try {
-                con.close();
-                // st.close();
-            } catch (SQLException e) {
-                ColorPrinter.printErro(e);
-            }
-        }
-        return null;
-    }
 
     /**
      * Insere um objeto T que teha index em sua respectiva tabela
@@ -102,6 +63,45 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
         }
 
         return id;
+    }
+
+    /**
+     * Método abstrato para obter a query de seleção por id para cada tabela
+     * @return query de busca
+     */
+    protected abstract String getSelectByIdQuery();
+
+    /**
+     * Busca um objeto T em pelo id sua respectiva tabela
+     * @param id do objeto selecionado
+     * @return Objeto T selecionado
+     */
+    public T selectById(int id){
+        connectToDB();
+
+        String sql = getSelectByIdQuery();
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                sucesso = true;
+                return getMapper();
+            }
+
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+                // st.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+        return null;
     }
 
     /**
