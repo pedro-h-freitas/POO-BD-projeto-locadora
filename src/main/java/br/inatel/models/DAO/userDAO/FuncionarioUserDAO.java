@@ -5,6 +5,7 @@ import br.inatel.views.utils.ColorPrinter;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Class for CREATE, READ, UPDATE objects of the table "funcionario"
@@ -79,4 +80,35 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
     protected String getSelectNomeQuery() {
         return "SELECT nome FROM funcionario WHERE id=?";
     }
+
+    public ArrayList<Funcionario> selectAll() {
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+
+        connectToDB();
+
+        String sql = "SELECT * FROM funcionario";
+        try {
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Funcionario funcionario = getMapper();
+                funcionarios.add(funcionario);
+            }
+
+            sucesso = true;
+        } catch (SQLException e) {
+            ColorPrinter.printErro(e);
+            sucesso = false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                ColorPrinter.printErro(e);
+            }
+        }
+
+        return funcionarios;
+    }
+
 }
