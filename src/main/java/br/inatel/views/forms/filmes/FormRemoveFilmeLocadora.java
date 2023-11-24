@@ -1,11 +1,11 @@
-package br.inatel.views.forms;
+package br.inatel.views.forms.filmes;
 
 import br.inatel.models.FilmeDisplay;
 
-public class FormFilmeRemoveLocadora extends FormFilme {
+public class FormRemoveFilmeLocadora extends FormFilme {
     private final int idFilme;
 
-    public FormFilmeRemoveLocadora(int idFilme) {
+    public FormRemoveFilmeLocadora(int idFilme) {
         super();
         this.idFilme = idFilme;
     }

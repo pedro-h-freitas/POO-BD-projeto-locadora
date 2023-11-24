@@ -1,6 +1,7 @@
-package br.inatel.views.forms;
+package br.inatel.views.forms.clientes;
 
 import br.inatel.models.Cliente;
+import br.inatel.views.forms.Form;
 
 /**
  * Tela de cadastro, cadastra cliente, funcionario ou gerente

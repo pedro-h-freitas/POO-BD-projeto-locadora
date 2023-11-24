@@ -1,6 +1,7 @@
-package br.inatel.views.forms;
+package br.inatel.views.forms.clientes;
 
 import br.inatel.models.Cliente;
+import br.inatel.views.forms.Form;
 
 public class FormEditarCliente extends Form {
     private final int idCliente;

@@ -3,10 +3,10 @@ package br.inatel.views.menus.funcionario;
 import br.inatel.controllers.userController.FuncionarioController;
 import br.inatel.models.FilmeDisplay;
 import br.inatel.views.Tela;
-import br.inatel.views.forms.FormFilmeAddBanco;
-import br.inatel.views.forms.FormFilmeAddLocadora;
-import br.inatel.views.forms.FormFilmeRemoveBanco;
-import br.inatel.views.forms.FormFilmeRemoveLocadora;
+import br.inatel.views.forms.filmes.FormAddFilmeBanco;
+import br.inatel.views.forms.filmes.FormAddFilmeLocadora;
+import br.inatel.views.forms.filmes.FormRemoveFilmeBanco;
+import br.inatel.views.forms.filmes.FormRemoveFilmeLocadora;
 import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
@@ -48,25 +48,25 @@ public class MenuFuncionarioFilme extends Menu {
                 idFilme = escolherFilmeBanco();
                 if (idFilme == 0) break;
 
-                tela = new FormFilmeAddLocadora(idFilme);
+                tela = new FormAddFilmeLocadora(idFilme);
                 break;
             case 3:
                 idFilme = escolherFilmeLocadora();
                 if (idFilme == 0) break;
 
-                tela = new FormFilmeRemoveLocadora(idFilme);
+                tela = new FormRemoveFilmeLocadora(idFilme);
                 break;
             case 4:
                 listarFilmesBanco();
                 break;
             case 5:
-                tela = new FormFilmeAddBanco();
+                tela = new FormAddFilmeBanco();
                 break;
             case 6:
                 idFilme = escolherFilmeBanco();
                 if (idFilme == 0) break;
 
-                tela = new FormFilmeRemoveBanco(idFilme);
+                tela = new FormRemoveFilmeBanco(idFilme);
                 break;
             case 0:
                 return false;

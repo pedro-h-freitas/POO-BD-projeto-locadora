@@ -1,10 +1,10 @@
-package br.inatel.views.forms;
+package br.inatel.views.forms.filmes;
 
 import br.inatel.models.FilmeDisplay;
 
 import java.util.ArrayList;
 
-public class FormFilmeAddBanco extends FormFilme {
+public class FormAddFilmeBanco extends FormFilme {
     @Override
     public boolean render() {
         String nome;

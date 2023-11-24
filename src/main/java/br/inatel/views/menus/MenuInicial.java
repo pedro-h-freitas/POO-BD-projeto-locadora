@@ -2,8 +2,7 @@ package br.inatel.views.menus;
 
 import br.inatel.views.Tela;
 import br.inatel.views.TelaLogin;
-import br.inatel.views.forms.FormCadastroCliente;
-import br.inatel.views.menus.Menu;
+import br.inatel.views.forms.clientes.FormCadastroCliente;
 
 /**
  * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa

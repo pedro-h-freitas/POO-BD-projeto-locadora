@@ -1,13 +1,11 @@
-package br.inatel.views.forms;
-
-import br.inatel.models.FilmeDisplay;
+package br.inatel.views.forms.filmes;
 
 import java.util.ArrayList;
 
-public class FormFilmeRemoveBanco extends FormFilme {
+public class FormRemoveFilmeBanco extends FormFilme {
     private final int idInfoFilme;
 
-    public FormFilmeRemoveBanco(int idInfoFilme) {
+    public FormRemoveFilmeBanco(int idInfoFilme) {
         super();
         this.idInfoFilme = idInfoFilme;
     }

@@ -1,4 +1,6 @@
-package br.inatel.views.forms;
+package br.inatel.views.forms.clientes;
+
+import br.inatel.views.forms.Form;
 
 public class FormDeletarCliente extends Form {
     private final int idCliente;
