@@ -115,7 +115,7 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         connectToDB();
 
         String sql = "UPDATE funcionario " +
-                "SET nome=?, telefone=?, salario=?, senha=?, idLocadora=? " +
+                "SET nome=?, telefone=?, salario=?, senha=?, id_locadora=? " +
                 "WHERE id=?";
         try {
             pst = con.prepareStatement(sql);
