@@ -66,6 +66,16 @@ public class FormsController {
         ColorPrinter.printAzul(" deletado\n");
     }
 
+    public boolean aumentaSalario(int idFuncionario, int qnt) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+        Funcionario funcionario = funcionarioUserDAO.selectById(idFuncionario);
+
+        int novoSalario = funcionario.getSalario() + qnt;
+
+        funcionario.setSalario(novoSalario);
+
+        return funcionarioUserDAO.update(funcionario);
+    }
 
     public FilmeDisplay getFilmeById(int idFilme) {
         FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();

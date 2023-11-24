@@ -41,4 +41,13 @@ public abstract class Tela extends ColorPrinter {
         }
     }
 
+    protected float floatInput(String label) {
+        while (true) {
+            try {
+                return Float.parseFloat(stringInput(label).replace(",", "."));
+            } catch (Exception e) {
+                printVermelho("Insira um número\n");
+            }
+        }
+    }
 }

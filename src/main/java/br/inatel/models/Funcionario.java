@@ -77,6 +77,10 @@ public class Funcionario {
         return salario;
     }
 
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
     /**
      * Getter do senha
      * @return senha
