@@ -4,6 +4,7 @@ import br.inatel.Main;
 import br.inatel.models.DAO.*;
 import br.inatel.models.DAO.userDAO.ClienteUserDAO;
 import br.inatel.models.*;
+import br.inatel.models.DAO.userDAO.FuncionarioUserDAO;
 import br.inatel.views.utils.ColorPrinter;
 
 import java.util.ArrayList;
@@ -40,6 +41,31 @@ public class FormsController {
         ColorPrinter.printVermelho(idCliente + "");
         ColorPrinter.printAzul(" deletado\n");
     }
+
+    public int cadastroFuncionario(Funcionario funcionario) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+        return funcionarioUserDAO.insert(funcionario);
+    }
+
+    public Funcionario getFuncionario(int idFuncionario) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+        return funcionarioUserDAO.selectById(idFuncionario);
+    }
+
+    public boolean updateFuncionario(Funcionario funcionario) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+        return funcionarioUserDAO.update(funcionario);
+    }
+
+    public void deleteFuncionario(int idFuncionario) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+
+        funcionarioUserDAO.delete(idFuncionario);
+        ColorPrinter.printAzul("Funcionario: ");
+        ColorPrinter.printVermelho(idFuncionario + "");
+        ColorPrinter.printAzul(" deletado\n");
+    }
+
 
     public FilmeDisplay getFilmeById(int idFilme) {
         FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
