@@ -32,7 +32,7 @@ public class FormRemoveFilmeBanco extends FormFilme {
         } while (!(s.equals("s") || s.equals("n")));
 
         if (s.equals("s")) {
-            controller.deleteInfoFilme(idInfoFilme);
+            controller.deleteFilmeBanco(idInfoFilme);
             return true;
         }
 

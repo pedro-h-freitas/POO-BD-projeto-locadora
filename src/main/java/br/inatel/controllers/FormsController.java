@@ -66,6 +66,11 @@ public class FormsController {
         return -1;
     }
 
+    public void deleteFilmeBanco(int idInfoFilme) {
+        InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
+        infoFilmeDAO.delete(idInfoFilme);
+    }
+
     public int getIdAluguel(int idCliente) {
         AluguelDAO aluguelDAO = new AluguelDAO();
         return aluguelDAO.selectAluguelIdByCliente(idCliente);
@@ -114,8 +119,4 @@ public class FormsController {
         return locadoraDAO.selectIdsByInfoFilme(idInfoFilme);
     }
 
-    public void deleteInfoFilme(int idInfoFilme) {
-        InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
-        infoFilmeDAO.delete(idInfoFilme);
-    }
 }
