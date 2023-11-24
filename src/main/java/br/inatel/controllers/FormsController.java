@@ -22,14 +22,23 @@ public class FormsController {
         return clienteUserDAO.insert(cliente);
     }
 
+    public Cliente getCliente(int idCliente) {
+        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
+        return clienteUserDAO.selectById(idCliente);
+    }
+
     public boolean updateCliente(Cliente cliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
         return clienteUserDAO.update(cliente);
     }
 
-    public Cliente getCliente(int idCliente) {
+    public void deleteCliente(int idCliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
-        return clienteUserDAO.selectById(idCliente);
+
+        clienteUserDAO.delete(idCliente);
+        ColorPrinter.printAzul("Usuario: ");
+        ColorPrinter.printVermelho(idCliente + "");
+        ColorPrinter.printAzul(" deletado\n");
     }
 
     public FilmeDisplay getFilmeById(int idFilme) {
@@ -66,33 +75,6 @@ public class FormsController {
         return -1;
     }
 
-    public void deleteFilmeBanco(int idInfoFilme) {
-        InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
-        infoFilmeDAO.delete(idInfoFilme);
-    }
-
-    public int getIdAluguel(int idCliente) {
-        AluguelDAO aluguelDAO = new AluguelDAO();
-        return aluguelDAO.selectAluguelIdByCliente(idCliente);
-    }
-
-    public boolean hasAluguel(int idCliente) {
-        return getIdAluguel(idCliente) != -1;
-    }
-
-    public void deleteCliente(int idCliente) {
-        ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
-
-        clienteUserDAO.delete(idCliente);
-        ColorPrinter.printAzul("Usuario: ");
-        ColorPrinter.printVermelho(idCliente + "");
-        ColorPrinter.printAzul(" deletado\n");
-
-        Main.context.setUserId(-1);
-        Main.context.setUserType(null);
-        Main.context.setLocadoraId(-1);
-    }
-
     public int adicionaFilmeBanco(FilmeDisplay filme) {
         InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
         GenerosDAO generosDAO = new GenerosDAO();
@@ -113,7 +95,21 @@ public class FormsController {
 
         return idInfoFilme;
     }
-    
+
+    public void deleteFilmeBanco(int idInfoFilme) {
+        InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
+        infoFilmeDAO.delete(idInfoFilme);
+    }
+
+    public int getIdAluguel(int idCliente) {
+        AluguelDAO aluguelDAO = new AluguelDAO();
+        return aluguelDAO.selectAluguelIdByCliente(idCliente);
+    }
+
+    public boolean hasAluguel(int idCliente) {
+        return getIdAluguel(idCliente) != -1;
+    }
+
     public ArrayList<Integer> getLocadorasIdByInfoFilme(int idInfoFilme) {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectIdsByInfoFilme(idInfoFilme);
