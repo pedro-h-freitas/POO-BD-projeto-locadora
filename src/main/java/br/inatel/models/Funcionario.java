@@ -5,11 +5,11 @@ package br.inatel.models;
  */
 public class Funcionario {
     private int id;             // id do funcionario
-    private String nome;        // nome do funcionario
-    private String telefone;    // telefone do funcionario
+    private final String nome;        // nome do funcionario
+    private final String telefone;    // telefone do funcionario
     private int salario;        // salario do funcionario
-    private String senha;       // senha do funcionario para acessar o sistema
-    private int idLocadora;     // id da locadora que o funcionario trabalha
+    private final String senha;       // senha do funcionario para acessar o sistema
+    private final int idLocadora;     // id da locadora que o funcionario trabalha
 
     /**
      * Construtor da Classe Funcionario para retorno de uma query (SELECT)

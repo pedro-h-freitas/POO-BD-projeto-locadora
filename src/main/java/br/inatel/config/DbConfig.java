@@ -14,14 +14,6 @@ public class DbConfig {
             "&allowPublicKeyRetrieval=true";
 
     /**
-     * Getter for database name
-     * @return database name
-     */
-    public String getDatabase() {
-        return database;
-    }
-
-    /**
      * Getter for database user
      * @return database user
      */
