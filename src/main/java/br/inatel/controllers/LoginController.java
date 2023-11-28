@@ -32,14 +32,12 @@ public class LoginController {
             Gerente gerente = gerenteDAO.selectById(Integer.parseInt(id));
             if (!(gerente == null)) {
                 Main.context.setUserId(funcionario.getId());
-                Main.context.setUserType(Context.GERENTE);
                 Main.context.setLocadoraId(funcionario.getIdLocadora());
 
                 return 1;
             }
 
             Main.context.setUserId(funcionario.getId());
-            Main.context.setUserType(Context.FUNCIONARIO);
             Main.context.setLocadoraId(funcionario.getIdLocadora());
 
             return 2;
@@ -54,7 +52,6 @@ public class LoginController {
                 return -2;
 
             Main.context.setUserId(cliente.getId());
-            Main.context.setUserType(Context.CLIENTE);
             Main.context.setLocadoraId(-1);
 
             return 3;

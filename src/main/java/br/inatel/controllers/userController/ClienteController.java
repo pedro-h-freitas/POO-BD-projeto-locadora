@@ -93,7 +93,6 @@ public class ClienteController {
         clienteUserDAO.delete(idCliente);
 
         Main.context.setUserId(-1);
-        Main.context.setUserType(null);
         Main.context.setLocadoraId(-1);
 
         return idCliente;
@@ -116,7 +115,6 @@ public class ClienteController {
             filmeAlugadoDAO.insert(filmeAlugado);
         }
     }
-
 
     /**
      * Realiza a devolução do aluguel do cliente da sessão

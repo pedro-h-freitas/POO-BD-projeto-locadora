@@ -34,8 +34,8 @@ public class FuncionarioController {
     }
 
     /**
-     * Seleciona todas os cliente
-     * @return lista de cliente
+     * Seleciona todos os clientes
+     * @return lista de clientes
      */
     public ArrayList<Cliente> getAllClientes() {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();

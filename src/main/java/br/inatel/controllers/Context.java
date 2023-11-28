@@ -4,13 +4,7 @@ package br.inatel.controllers;
  * Classe para criar o contexto da sessão
  */
 public class Context {
-    // Constantes
-    public static final String CLIENTE = "CLIENTE";
-    public static final String FUNCIONARIO = "FUNCIONARIO";
-    public static final String GERENTE = "GERENTE";
-
     private int userId;
-    private String userType; // (CLIENTE, FUNCIONARIO, GERENTE)
     private int locadoraId;
 
     /**
@@ -27,22 +21,6 @@ public class Context {
      */
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    /**
-     * Getter do tipo de usuario da sessao
-     * @return tipo de usuario da sessao (Cliente, Funcionario, Gerente, Dono)
-     */
-    public String getUserType() {
-        return userType;
-    }
-
-    /**
-     * Setter do tipo de usuario da sessao
-     * @param userType tipo de usuario da sessao (Cliente, Funcionario, Gerente, Dono)
-     */
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 
     /**

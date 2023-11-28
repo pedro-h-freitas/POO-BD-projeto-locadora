@@ -23,16 +23,27 @@ public class FormsController {
         return clienteUserDAO.insert(cliente);
     }
 
+    /**
+     * Seleciona o cliente por id
+     * @return Objeto Cliente selecionado
+     */
     public Cliente getCliente(int idCliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
         return clienteUserDAO.selectById(idCliente);
     }
 
+    /**
+     * Atualiza um cliente
+     * @return boolean var (true: atualizou | false: falhou)
+     */
     public boolean updateCliente(Cliente cliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
         return clienteUserDAO.update(cliente);
     }
 
+    /**
+     * Deleta um cliente pelo id
+     */
     public void deleteCliente(int idCliente) {
         ClienteUserDAO clienteUserDAO = new ClienteUserDAO();
 
@@ -42,21 +53,35 @@ public class FormsController {
         ColorPrinter.printAzul(" deletado\n");
     }
 
-    public int cadastroFuncionario(Funcionario funcionario) {
+    /**
+     * Cadastra um funcionario pelo id
+     */
+    public void cadastroFuncionario(Funcionario funcionario) {
         FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
-        return funcionarioUserDAO.insert(funcionario);
+        funcionarioUserDAO.insert(funcionario);
     }
 
+    /**
+     * Seleciona o funcionario por id
+     * @return Objeto Funcionario selecionado
+     */
     public Funcionario getFuncionario(int idFuncionario) {
         FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
         return funcionarioUserDAO.selectById(idFuncionario);
     }
 
+    /**
+     * Atualiza um funcionario
+     * @return boolean var (true: atualizou | false: falhou)
+     */
     public boolean updateFuncionario(Funcionario funcionario) {
         FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
         return funcionarioUserDAO.update(funcionario);
     }
 
+    /**
+     * Deleta um funcionario pelo id
+     */
     public void deleteFuncionario(int idFuncionario) {
         FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
 
@@ -66,6 +91,9 @@ public class FormsController {
         ColorPrinter.printAzul(" deletado\n");
     }
 
+    /**
+     * Aumenta o salario de um funcionario pelo id
+     */
     public boolean aumentaSalario(int idFuncionario, int qnt) {
         FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
         Funcionario funcionario = funcionarioUserDAO.selectById(idFuncionario);
@@ -77,11 +105,33 @@ public class FormsController {
         return funcionarioUserDAO.update(funcionario);
     }
 
+    /**
+     * Transfere um funcionario para outra locadora
+     * @param idFuncionario Id do funcionario a ser transferido
+     * @param idLocadora Id da locadora que o funcionario sera transferido
+     * @return boolean var (true: transferiu | false: falhou)
+     */
+    public boolean transfereFuncioario(int idFuncionario, int idLocadora) {
+        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
+        return funcionarioUserDAO.updateLocadora(idFuncionario, idLocadora);
+    }
+
+    /**
+     * Seleciona um filme pelo id
+     * @return Objeto FilmeDisplay selecionado
+     */
     public FilmeDisplay getFilmeById(int idFilme) {
         FilmeDisplayDAO filmeDisplayDAO = new FilmeDisplayDAO();
         return filmeDisplayDAO.selectById(idFilme);
     }
 
+    /**
+     * Adiciona uma ou mais cópias de um filme em uma locadora
+     * @param idInfoFilme Id das informações do filme
+     * @param qnt Quantidade de cópias
+     * @return int var
+     * (1: primeiro cadastro do filme na locadora | 2: adicionado mais cópia de um filme | -1: falhou)
+     */
     public int adicionaFilmeLocadora(int idInfoFilme, int qnt) {
         FilmeDAO filmeDAO = new FilmeDAO();
 
@@ -98,6 +148,13 @@ public class FormsController {
         return -1;
     }
 
+    /**
+     * Remove uma ou mais cópias de um filme em uma locadora
+     * @param filme Objeto do filme a ser deletado
+     * @param qnt Quantidade de cópias a excluir
+     * @return int var
+     * (1: removido todas as cópias | 2: pelo menos uma cópia | -1: falhou)
+     */
     public int deleteFilmeLocadora(FilmeDisplay filme, int qnt) {
         FilmeDAO filmeDAO = new FilmeDAO();
 
@@ -111,6 +168,11 @@ public class FormsController {
         return -1;
     }
 
+    /**
+     * Adiciona as informações de um filme ao banco de dados
+     * @param filme Objeto com as informações do filme a se adicionar
+     * @return id das informções do filme
+     */
     public int adicionaFilmeBanco(FilmeDisplay filme) {
         InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
         GenerosDAO generosDAO = new GenerosDAO();
@@ -132,33 +194,51 @@ public class FormsController {
         return idInfoFilme;
     }
 
+    /**
+     * Remove as informações de um filme do banco de dados
+     * @param idInfoFilme Id das informações
+     */
     public void deleteFilmeBanco(int idInfoFilme) {
         InfoFilmeDAO infoFilmeDAO = new InfoFilmeDAO();
         infoFilmeDAO.delete(idInfoFilme);
     }
 
+    /**
+     * Seleciona um aluguel pelo id do cliente
+     * @param idCliente Id do aluguel do cliente selecionado
+     * @return Objeto FilmeDisplay selecionado
+     */
     public int getIdAluguel(int idCliente) {
         AluguelDAO aluguelDAO = new AluguelDAO();
         return aluguelDAO.selectAluguelIdByCliente(idCliente);
     }
 
+    /**
+     * Verifica se um cliente tem alugueis ativos
+     * @param idCliente Id do cliente que se deseja verificar
+     * @return boolean var (true: tem aluguel ativo| false: não tem aluguel ativo)
+     */
     public boolean hasAluguel(int idCliente) {
         return getIdAluguel(idCliente) != -1;
     }
 
+    /**
+     * Seleciona todas as locadoras
+     * @return lista de locadoras
+     */
     public ArrayList<Locadora> selectAllLocadoras() {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectAll();
     }
 
+    /**
+     * Seleciona todas as locadoras que conetenham um certo filme
+     * @param idInfoFilme Id das informações do filme
+     * @return lista de locadoras
+     */
     public ArrayList<Integer> getLocadorasIdByInfoFilme(int idInfoFilme) {
         LocadoraDAO locadoraDAO = new LocadoraDAO();
         return locadoraDAO.selectIdsByInfoFilme(idInfoFilme);
-    }
-
-    public boolean transfereFuncioario(int idFuncionario, int idLocadora) {
-        FuncionarioUserDAO funcionarioUserDAO = new FuncionarioUserDAO();
-        return funcionarioUserDAO.updateLocadora(idFuncionario, idLocadora);
     }
 
 }
