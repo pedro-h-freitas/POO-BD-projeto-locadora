@@ -22,7 +22,6 @@ public class MenuFuncionario extends Menu {
      * @return boolean var (true: roda novamente | false: logout)
      */
     public boolean render() {
-        //TODO
         String nomeFuncionario;
         String nomeLocadora;
         int op;

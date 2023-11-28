@@ -25,7 +25,6 @@ public class MenuCliente extends Menu {
      * @return boolean var (true: roda novamente | false: logout)
      */
     public boolean render() {
-        //TODO
         int op;
 
         Tela tela;

@@ -36,7 +36,7 @@ public class MenuFuncionarioFilme extends Menu {
         Tela tela;
         int op;
 
-        // todo edição dos filmes
+        // TODO edição dos filmes
         System.out.println("--------------- Filmes ----------------");
         System.out.println("  ------------ Locadora -------------  ");
         printOpcao("  1", "Listar filmes");

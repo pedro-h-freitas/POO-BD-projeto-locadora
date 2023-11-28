@@ -23,7 +23,6 @@ public class MenuGerente extends Menu {
      * @return boolean var (true: roda novamente | false: logout)
      */
     public boolean render() {
-        //TODO
         Tela tela;
         String nomeLocadora;
         String nomeGerente;
