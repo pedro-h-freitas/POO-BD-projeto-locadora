@@ -12,6 +12,18 @@ public class FormDeletarFuncionario extends Form {
 
     @Override
     public boolean render() {
+        printAzul("Você tem crtz??");
+        printVerde(" (S/N) ");
+        String s;
+        do {
+            s = stringInput("").toLowerCase();
+        } while (!(s.equals("s") || s.equals("n")));
+
+        if (s.equals("s")) {
+            controller.deleteFuncionario(idFuncionario);
+            return true;
+        }
+
         return false;
     }
 }
