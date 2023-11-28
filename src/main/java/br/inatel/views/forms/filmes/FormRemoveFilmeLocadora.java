@@ -2,6 +2,9 @@ package br.inatel.views.forms.filmes;
 
 import br.inatel.models.FilmeDisplay;
 
+/**
+ * Form para remover um filme da locadora
+ */
 public class FormRemoveFilmeLocadora extends FormFilme {
     private final int idFilme;
 
@@ -10,6 +13,9 @@ public class FormRemoveFilmeLocadora extends FormFilme {
         this.idFilme = idFilme;
     }
 
+    /**
+     * Exibe Form para remover um filme da locadora
+     */
     @Override
     public boolean render() {
         FilmeDisplay filme = controller.getFilmeById(idFilme);

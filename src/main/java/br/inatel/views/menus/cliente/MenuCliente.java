@@ -9,7 +9,7 @@ import br.inatel.views.Tela;
 import java.util.ArrayList;
 
 /**
- * Tela do Cliente
+ * Menu do Cliente
  */
 public class MenuCliente extends Menu {
     private final ClienteController controller;
@@ -19,7 +19,10 @@ public class MenuCliente extends Menu {
     }
 
     /**
-     * Mostra Tela do Cliente
+     * Exibe Menu do Funcionario
+     * Chama Menu para manipular Clientes
+     * Chama Menu para manipular Filmes
+     * @return boolean var (true: roda novamente | false: logout)
      */
     public boolean render() {
         //TODO

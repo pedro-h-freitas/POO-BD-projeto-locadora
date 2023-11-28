@@ -4,7 +4,14 @@ import br.inatel.Main;
 import br.inatel.models.Funcionario;
 import br.inatel.views.forms.Form;
 
+/**
+ * Form de Cadastro de Funcionario
+ */
 public class FormCadastroFuncionario extends Form {
+
+    /**
+     * Exibe Form de Cadastro de Funcionario
+     */
     @Override
     public boolean render() {
         // TODO fazer validação dos dados

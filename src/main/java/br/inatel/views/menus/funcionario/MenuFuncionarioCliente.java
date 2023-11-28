@@ -10,6 +10,9 @@ import br.inatel.views.forms.clientes.FormEditarCliente;
 
 import java.util.ArrayList;
 
+/**
+ * Menu para o funcionario manipular cliente
+ */
 public class MenuFuncionarioCliente extends Menu {
     private final FuncionarioController controller;
 
@@ -17,6 +20,13 @@ public class MenuFuncionarioCliente extends Menu {
         this.controller = new FuncionarioController();
     }
 
+    /**
+     * Exibe Menu do Gerente para manipular Funcionarios
+     * Chama Form de cadastro de cliente
+     * Chama Form de edição de cliente
+     * Chama Form de deleção de cliente
+     * @return boolean var (true: roda novamente | false: logout)
+     */
     @Override
     public boolean render() {
         Tela tela;
@@ -65,6 +75,10 @@ public class MenuFuncionarioCliente extends Menu {
         return true;
     }
 
+    /**
+     * Função auxiliar para mostrar na tela a lista de clientes
+     * @return Lista com os ids dos clientes
+     */
     private ArrayList<Integer> listarClientes() {
         ArrayList<Cliente> clientes = controller.getAllClientes();
         ArrayList<Integer> listaId = new ArrayList<>();
@@ -81,6 +95,10 @@ public class MenuFuncionarioCliente extends Menu {
         return listaId;
     }
 
+    /**
+     * Função auxiliar para escolher um cliente
+     * @return Id do cliente escolhido
+     */
     private int escolherCliente() {
         int idCliente;
         ArrayList<Integer> listaId = listarClientes();

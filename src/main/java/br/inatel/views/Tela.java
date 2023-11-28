@@ -23,6 +23,10 @@ public abstract class Tela extends ColorPrinter {
         return Main.sc.nextLine();
     }
 
+    /**
+     * Mostra um Input de int com a label padrão: "Opção: "
+     * @return int inputado
+     */
     protected Integer intInput() {
         return intInput("Opção: ");
     }
@@ -30,6 +34,7 @@ public abstract class Tela extends ColorPrinter {
     /**
      * Mostra um Input de int
      * @param label texto a ser exibido
+     * @return int inputado
      */
     protected Integer intInput(String label) {
         while (true) {
@@ -41,6 +46,11 @@ public abstract class Tela extends ColorPrinter {
         }
     }
 
+    /**
+     * Mostra um Input de int
+     * @param label texto a ser exibido
+     * @return float inputado
+     */
     protected float floatInput(String label) {
         while (true) {
             try {

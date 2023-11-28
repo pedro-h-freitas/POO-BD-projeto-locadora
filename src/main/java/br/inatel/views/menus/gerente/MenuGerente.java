@@ -4,11 +4,9 @@ import br.inatel.Main;
 import br.inatel.controllers.userController.GerenteController;
 import br.inatel.views.Tela;
 import br.inatel.views.menus.Menu;
-import br.inatel.views.menus.funcionario.MenuFuncionarioCliente;
-import br.inatel.views.menus.funcionario.MenuFuncionarioFilme;
 
 /**
- * Tela do Gerente
+ * Menu do Gerente
  */
 public class MenuGerente extends Menu {
     private final GerenteController controller;
@@ -18,7 +16,11 @@ public class MenuGerente extends Menu {
     }
 
     /**
-     * Mostra Tela do Gerente
+     * Exibe Menu do Gerente
+     * Chama Menu para manipular Clientes
+     * Chama Menu para manipular Funcionarios
+     * Chama Menu para manipular Filmes
+     * @return boolean var (true: roda novamente | false: logout)
      */
     public boolean render() {
         //TODO
@@ -26,8 +28,6 @@ public class MenuGerente extends Menu {
         String nomeLocadora;
         String nomeGerente;
         int op;
-
-        nomeLocadora = controller.getNomeLocadora();
 
         nomeGerente = controller.getNomeFuncionario();
         nomeLocadora = controller.getNomeLocadora();

@@ -6,6 +6,9 @@ import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
 
+/**
+ * Menu para Cliente ver os Filmes Alugados
+ */
 public class MenuClienteFilmesAlugados extends Menu {
     private final ClienteController controller;
 
@@ -13,6 +16,9 @@ public class MenuClienteFilmesAlugados extends Menu {
         this.controller = new ClienteController();
     }
 
+    /**
+     * Menu para Cliente ver os Filmes Alugados
+     */
     @Override
     public boolean render() {
         // TODO ver data de locacao e calcular atraso caso haja
@@ -51,7 +57,6 @@ public class MenuClienteFilmesAlugados extends Menu {
                     printOpcaoInvalida();
                     break;
             }
-
         }
     }
 }

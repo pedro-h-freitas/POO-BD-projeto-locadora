@@ -11,6 +11,9 @@ import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
 
+/**
+ * Menu para o funcionario manipular filmes
+ */
 public class MenuFuncionarioFilme extends Menu {
     private final FuncionarioController controller;
 
@@ -18,11 +21,22 @@ public class MenuFuncionarioFilme extends Menu {
         this.controller = new FuncionarioController();
     }
 
+    /**
+     * Exibe Menu do Gerente para manipular Funcionarios
+     * Chama Form de cadastro de filmes da locadora
+     * Chama Form de edição de filmes da locadora
+     * Chama Form de deleção de filmes da locadora
+     * Chama Form de cadastro de filmes do banco de dados
+     * Chama Form de edição de filmes do banco de dados
+     * Chama Form de deleção de filmes do banco de dados
+     * @return boolean var (true: roda novamente | false: logout)
+     */
     @Override
     public boolean render() {
         Tela tela;
         int op;
 
+        // todo edição dos filmes
         System.out.println("--------------- Filmes ----------------");
         System.out.println("  ------------ Locadora -------------  ");
         printOpcao("  1", "Listar filmes");
@@ -79,6 +93,10 @@ public class MenuFuncionarioFilme extends Menu {
         return true;
     }
 
+    /**
+     * Função auxiliar para mostrar um filme na tela
+     * @param filme Filme a ser exibido
+     */
     private void showFilme(FilmeDisplay filme) {
         printOpcao(filme.getId()+"", filme.getNome() + " (" + filme.getAno() + ")");
         if (filme.getnCopias() != -1) {
@@ -88,6 +106,10 @@ public class MenuFuncionarioFilme extends Menu {
         }
     }
 
+    /**
+     * Função auxiliar para mostrar na tela a lista de filmes
+     * @return Lista com os ids dos filmes
+     */
     private ArrayList<Integer> listaFilmes(ArrayList<FilmeDisplay> filmes) {
         ArrayList<Integer> listaId = new ArrayList<>();
 
@@ -102,16 +124,28 @@ public class MenuFuncionarioFilme extends Menu {
         return listaId;
     }
 
+    /**
+     * Função auxiliar para mostrar na tela a lista de filmes da locadora
+     * @return Lista com os ids dos lista dos filmes da locadora
+     */
     private ArrayList<Integer> listarFilmesLocadora() {
         ArrayList<FilmeDisplay> filmes = controller.getFilmesByLocadora();
         return listaFilmes(filmes);
     }
 
+    /**
+     * Função auxiliar para mostrar na tela a lista de filmes do banco de dados
+     * @return Lista com os ids dos filmes do banco de dados
+     */
     private ArrayList<Integer> listarFilmesBanco() {
         ArrayList<FilmeDisplay> filmes = controller.getFilmesInfos();
         return listaFilmes(filmes);
     }
 
+    /**
+     * Função auxiliar para escolher um filme
+     * @return Id do filme escolhido
+     */
     private int escolherFilme(ArrayList<Integer> listaId) {
         int idFilme;
 
@@ -129,26 +163,21 @@ public class MenuFuncionarioFilme extends Menu {
         return idFilme;
     }
 
+    /**
+     * Função auxiliar para escolher um filme da locadora
+     * @return Id do filme da locadora escolhido
+     */
     private int escolherFilmeLocadora() {
         ArrayList<Integer> listaId = listarFilmesLocadora();
         return escolherFilme(listaId);
     }
 
+    /**
+     * Função auxiliar para escolher um filme do banco de dados
+     * @return Id do filme do banco de dados escolhido
+     */
     private int escolherFilmeBanco() {
         ArrayList<Integer> listaId = listarFilmesBanco();
         return escolherFilme(listaId);
     }
-
-/*
-    private void deleteFilmeBanco(int idFilme) {
-        printAzul("Você tem crtz??");
-        printVerde(" (S/N) ");
-        String s;
-        do {
-            s = stringInput("").toLowerCase();
-        } while (!(s.equals("s") || s.equals("n")));
-        if (s.equals("s")) {
-            controller.deleteFilmeBanco(idFilme);
-        }
-    }*/
 }

@@ -1,5 +1,8 @@
 package br.inatel.views.utils;
 
+/**
+ * Classe com funções estáticas para printar com cores no terminal
+ */
 public class ColorPrinter {
 
     /**
@@ -42,6 +45,10 @@ public class ColorPrinter {
         System.out.print("\u001B[33m" + label + "\u001B[0m");
     }
 
+    /**
+     * Mostra a mensagem padrão de erro
+     * @param e Erro a ser exibido
+     */
     public static void printErro(Exception e) {
         printVermelho("Erro: " + e.getMessage() + '\n');
         e.getStackTrace();

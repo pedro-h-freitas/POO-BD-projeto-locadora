@@ -1,10 +1,11 @@
 package br.inatel.views.forms.funcionarios;
 
-import br.inatel.Main;
-import br.inatel.models.FilmeDisplay;
 import br.inatel.models.Funcionario;
 import br.inatel.views.forms.Form;
 
+/**
+ * Form de Aumento de salario de Funcionario
+ */
 public class FormAumentoFunionario extends Form {
     private final int idFuncionario;
 
@@ -13,6 +14,9 @@ public class FormAumentoFunionario extends Form {
         this.idFuncionario = idFuncionario;
     }
 
+    /**
+     * Exibe Form de Aumento de salario de Funcionario
+     */
     @Override
     public boolean render() {
         Funcionario funcionario = controller.getFuncionario(idFuncionario);
@@ -44,6 +48,5 @@ public class FormAumentoFunionario extends Form {
         printVerde(", com sucesso\n");
 
         return true;
-
     }
 }

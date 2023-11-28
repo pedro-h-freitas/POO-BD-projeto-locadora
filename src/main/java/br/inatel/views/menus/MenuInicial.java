@@ -5,13 +5,13 @@ import br.inatel.views.TelaLogin;
 import br.inatel.views.forms.clientes.FormCadastroCliente;
 
 /**
- * Tela do Menu Principal, faz login, se cadastra como cliente, fecha o programa
+ * Tela do Menu Principal
  */
 public class MenuInicial extends Menu {
     /**
      * Exibe o Menu Principal
      * Chama Tela de Login
-     * Chama Tela de Cadastro
+     * Chama Form de Cadastro
      * @return boolean var (true: roda novamente | false: encerra o programa)
      */
     public boolean render() {

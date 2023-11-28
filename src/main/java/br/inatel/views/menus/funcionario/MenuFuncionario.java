@@ -6,7 +6,7 @@ import br.inatel.views.menus.Menu;
 import br.inatel.views.Tela;
 
 /**
- * Tela do Funcionario
+ * Menu do Funcionario
  */
 public class MenuFuncionario extends Menu {
     private final FuncionarioController controller;
@@ -16,7 +16,10 @@ public class MenuFuncionario extends Menu {
     }
 
     /**
-     * Mostra Tela do Funcionario
+     * Exibe Menu do Funcionario
+     * Chama Menu para manipular Clientes
+     * Chama Menu para manipular Filmes
+     * @return boolean var (true: roda novamente | false: logout)
      */
     public boolean render() {
         //TODO

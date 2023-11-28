@@ -2,6 +2,9 @@ package br.inatel.views.forms.funcionarios;
 
 import br.inatel.views.forms.Form;
 
+/**
+ * Form de Deletar de Funcionario
+ */
 public class FormDeletarFuncionario extends Form {
     private final int idFuncionario;
 
@@ -10,6 +13,9 @@ public class FormDeletarFuncionario extends Form {
         this.idFuncionario = idFuncionario;
     }
 
+    /**
+     * Exibe Form de Deletar de Funcionario
+     */
     @Override
     public boolean render() {
         printAzul("Você tem crtz??");

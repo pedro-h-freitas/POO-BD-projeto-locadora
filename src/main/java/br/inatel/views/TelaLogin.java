@@ -7,7 +7,7 @@ import br.inatel.views.menus.gerente.MenuGerente;
 import br.inatel.views.menus.Menu;
 
 /**
- * Tela de login, loga um cliente, funcionario ou gerente
+ * Tela de login
  */
 public class TelaLogin extends Tela{
     private final LoginController controller;

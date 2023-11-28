@@ -3,6 +3,9 @@ package br.inatel.views.forms.clientes;
 import br.inatel.models.Cliente;
 import br.inatel.views.forms.Form;
 
+/**
+ * Form de Edição de Cliente
+ */
 public class FormEditarCliente extends Form {
     private final int idCliente;
     public FormEditarCliente(int idCliente) {
@@ -10,6 +13,9 @@ public class FormEditarCliente extends Form {
         this.idCliente = idCliente;
     }
 
+    /**
+     * Exibe Form de Edição de Cliente
+     */
     @Override
     public boolean render() {
         Cliente cliente = controller.getCliente(idCliente);
@@ -48,6 +54,12 @@ public class FormEditarCliente extends Form {
         return b;
     }
 
+    /**
+     * Função auxiliar para editar campos
+     * @param nomeCampo Nome do campo para exibir na tela
+     * @param valAntigo valor antigo do campo
+     * @return Novo valor inputado
+     */
     private String inputEditCampo(String nomeCampo, String valAntigo) {
         String campo;
         String label;
@@ -65,6 +77,12 @@ public class FormEditarCliente extends Form {
         return campo;
     }
 
+    /**
+     * Função Auxiliar para checkar se o campo foi atualizado ou nao
+     * @param valNovo Valor novo
+     * @param valAntigo Valor antigo
+     * @return valAntigo (se valNovo é vazio) | valNovo
+     */
     private String checkCampo(String valNovo, String valAntigo) {
         if (valNovo == null)
             return valAntigo;

@@ -4,7 +4,14 @@ import br.inatel.models.FilmeDisplay;
 
 import java.util.ArrayList;
 
+/**
+ * Form para adicionar informações de um filme no banco
+ */
 public class FormAddFilmeBanco extends FormFilme {
+
+    /**
+     * Exibe Form para adicionar informações de um filme
+     */
     @Override
     public boolean render() {
         String nome;

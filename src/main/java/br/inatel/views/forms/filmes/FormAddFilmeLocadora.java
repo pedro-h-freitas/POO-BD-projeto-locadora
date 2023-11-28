@@ -3,6 +3,9 @@ package br.inatel.views.forms.filmes;
 import br.inatel.Main;
 import br.inatel.models.FilmeDisplay;
 
+/**
+ * Form para adicionar um filme a locadora
+ */
 public class FormAddFilmeLocadora extends FormFilme {
     private final int idInfoFilme;
 
@@ -11,6 +14,9 @@ public class FormAddFilmeLocadora extends FormFilme {
         this.idInfoFilme = idInfoFilme;
     }
 
+    /**
+     * Mostrar Form para adicionar um filme a locadora
+     */
     @Override
     public boolean render() {
         String idFilmeAux = "" + Main.context.getLocadoraId() + idInfoFilme;

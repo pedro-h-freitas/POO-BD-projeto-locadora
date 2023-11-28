@@ -6,6 +6,9 @@ import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
 
+/**
+ * Menu para Cliente alugar Filmes
+ */
 public class MenuClienteAluguel extends Menu {
     private ArrayList<FilmeDisplay> filmes;
     private ArrayList<FilmeDisplay> carrinho;
@@ -15,6 +18,9 @@ public class MenuClienteAluguel extends Menu {
         this.controller = new ClienteController();
     }
 
+    /**
+     * Exibe Menu para Cliente alugar Filmes
+     */
     @Override
     public boolean render() {
         filmes = controller.getFilmesByLocadora();
@@ -109,6 +115,9 @@ public class MenuClienteAluguel extends Menu {
         return true;
     }
 
+    /**
+     * Função auxiliar para exibir os filmes na tela
+     */
     private void printFilmes() {
         System.out.print("--------------- Filmes ----------------");
         for (FilmeDisplay filme :
@@ -128,6 +137,9 @@ public class MenuClienteAluguel extends Menu {
         System.out.println("---------------------------------------");
     }
 
+    /**
+     * Função auxiliar para exibir o carrinho na tela
+     */
     private void printCarrinho() {
         System.out.println("-------------- Carrinho ---------------");
         for (FilmeDisplay filme :
@@ -140,10 +152,15 @@ public class MenuClienteAluguel extends Menu {
         System.out.println("---------------------------------------");
     }
 
-    private int adicionaFilme(int op) {
+    /**
+     * Função auxiliar para adicionar filme ao carrinho
+     * @param idFilme Filme que se deseja adicionar
+     * @return Retorna o preço do filme
+     */
+    private int adicionaFilme(int idFilme) {
         for (FilmeDisplay filme :
                 filmes) {
-            if (filme.getId() == op) {
+            if (filme.getId() == idFilme) {
                 carrinho.add(filme);
 
                 return filme.getPreco();
@@ -153,9 +170,14 @@ public class MenuClienteAluguel extends Menu {
         return 0;
     }
 
-    private int removeFilme(int op) {
+    /**
+     * Função auxiliar para remover filme ao carrinho
+     * @param idFilme Filme que se deseja remover
+     * @return Retorna o preço do filme
+     */
+    private int removeFilme(int idFilme) {
         for (int i = 0; i < carrinho.size(); i++) {
-            if (carrinho.get(i).getId() == op)
+            if (carrinho.get(i).getId() == idFilme)
                 return carrinho.remove(i).getPreco();
         }
         printVermelho("Filme inválido\n");

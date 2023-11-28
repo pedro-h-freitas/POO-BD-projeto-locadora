@@ -8,6 +8,9 @@ import br.inatel.views.menus.Menu;
 
 import java.util.ArrayList;
 
+/**
+ * Menu para o gerente manipular funcionarios
+ */
 public class MenuGerenteFuncionario extends Menu {
     private final GerenteController controller;
 
@@ -15,6 +18,15 @@ public class MenuGerenteFuncionario extends Menu {
         this.controller = new GerenteController();
     }
 
+    /**
+     * Exibe Menu do Gerente para manipular Funcionarios
+     * Chama Form de cadastro de funcionario
+     * Chama Form de edição de funcionario
+     * Chama Form de aumento do salario de funcionario
+     * Chama Form de transferencia de funcionario
+     * Chama Form de deleção de funcionario
+     * @return boolean var (true: roda novamente | false: logout)
+     */
     @Override
     public boolean render() {
         Tela tela;
@@ -78,6 +90,10 @@ public class MenuGerenteFuncionario extends Menu {
         return true;
     }
 
+    /**
+     * Função auxiliar para mostrar na tela a lista de funcionario da locadora
+     * @return Lista com os ids dos funcionário
+     */
     private ArrayList<Integer> listarFuncionario() {
         ArrayList<Funcionario> funcionarios = controller.getAllFuncionarios();
         ArrayList<Integer> listaId = new ArrayList<>();
@@ -93,6 +109,11 @@ public class MenuGerenteFuncionario extends Menu {
 
         return listaId;
     }
+
+    /**
+     * Função auxiliar para escolher um funcionario da locadora
+     * @return Id do funcinário escolhido
+     */
     private int escolherFuncionario() {
         int idFuncionario;
         ArrayList<Integer> listaId = listarFuncionario();

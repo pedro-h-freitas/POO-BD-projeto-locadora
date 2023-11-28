@@ -2,6 +2,9 @@ package br.inatel.views.forms.clientes;
 
 import br.inatel.views.forms.Form;
 
+/**
+ * Form de Deleção de Cliente
+ */
 public class FormDeletarCliente extends Form {
     private final int idCliente;
 
@@ -10,6 +13,9 @@ public class FormDeletarCliente extends Form {
         this.idCliente = idCliente;
     }
 
+    /**
+     * Exibe Form de Deleção de Cliente
+     */
     @Override
     public boolean render() {
         if (controller.hasAluguel(idCliente)) {

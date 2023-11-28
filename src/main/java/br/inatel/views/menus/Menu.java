@@ -1,12 +1,14 @@
 package br.inatel.views.menus;
 
-import br.inatel.Main;
 import br.inatel.views.Tela;
-import br.inatel.views.utils.ColorPrinter;
 
+/**
+ * Classe abstrata para todoso os Menus
+ */
 public abstract class Menu extends Tela {
+
     /**
-     * Método auxiliar mostrar as opções do menu
+     * Método para mostrar as opções do menu
      * @param id número da opção
      * @param opcao descrição da opção
      */
@@ -17,6 +19,9 @@ public abstract class Menu extends Tela {
         System.out.println();
     }
 
+    /**
+     * Método para mostrar a mensagem padrão de opção inávlida
+     */
     protected void printOpcaoInvalida() {
         printVermelho("Opção Inválida\n");
     }

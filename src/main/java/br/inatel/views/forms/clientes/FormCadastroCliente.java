@@ -4,12 +4,12 @@ import br.inatel.models.Cliente;
 import br.inatel.views.forms.Form;
 
 /**
- * Tela de cadastro, cadastra cliente, funcionario ou gerente
+ * Form de Cadastro de Cliente
  */
 public class FormCadastroCliente extends Form {
 
     /**
-     * Exibe a tela de Cadastro
+     * Exibe Form de Cadastro de Cliente
      */
     @Override
     public boolean render(){

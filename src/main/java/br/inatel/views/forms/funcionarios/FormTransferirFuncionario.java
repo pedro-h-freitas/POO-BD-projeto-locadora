@@ -1,13 +1,14 @@
 package br.inatel.views.forms.funcionarios;
 
 import br.inatel.Main;
-import br.inatel.models.Funcionario;
 import br.inatel.models.Locadora;
 import br.inatel.views.forms.Form;
 
 import java.util.ArrayList;
-import java.util.spi.AbstractResourceBundleProvider;
 
+/**
+ * Form de Tranferir de Funcionario
+ */
 public class FormTransferirFuncionario extends Form {
     private final int idFuncionario;
 
@@ -16,6 +17,9 @@ public class FormTransferirFuncionario extends Form {
         this.idFuncionario = idFuncionario;
     }
 
+    /**
+     * Exibe Form de Tranferir de Funcionario
+     */
     @Override
     public boolean render() {
         ArrayList<Locadora> locadoras = controller.selectAllLocadoras();
