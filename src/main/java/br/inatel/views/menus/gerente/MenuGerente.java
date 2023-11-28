@@ -58,7 +58,8 @@ public class MenuGerente extends Menu {
                 tela = new MenuGerenteFilme();
                 break;
             case 0:
-                System.out.println("logout");
+                printVermelho("Logout...");
+                controller.logout();
                 return false;
             default:
                 printOpcaoInvalida();

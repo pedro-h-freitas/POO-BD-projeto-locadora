@@ -72,6 +72,8 @@ public class MenuCliente extends Menu {
             case 4:
                 return !deleteUser();
             case 0:
+                printVermelho("Logout...");
+                controller.logout();
                 return false;
             default:
                 printOpcaoInvalida();

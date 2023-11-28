@@ -125,4 +125,12 @@ public class ClienteController {
         aluguelDAO.devolver(idAluguel);
     }
 
+    /**
+     * Desloga da sessão atual
+     */
+    public void logout() {
+        Main.context.setUserId(-1);
+        Main.context.setLocadoraId(-1);
+    }
+
 }

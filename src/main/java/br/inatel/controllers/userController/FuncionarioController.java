@@ -60,4 +60,12 @@ public class FuncionarioController {
         return filmeDisplayDAO.selectInfos();
     }
 
+    /**
+     * Desloga da sessão atual
+     */
+    public void logout() {
+        Main.context.setUserId(-1);
+        Main.context.setLocadoraId(-1);
+    }
+
 }

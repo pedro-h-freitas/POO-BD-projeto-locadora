@@ -51,7 +51,8 @@ public class MenuFuncionario extends Menu {
                 tela = new MenuFuncionarioFilme();
                 break;
             case 0:
-                System.out.println("logout");
+                printVermelho("Logout...");
+                controller.logout();
                 return false;
             default:
                 printOpcaoInvalida();
