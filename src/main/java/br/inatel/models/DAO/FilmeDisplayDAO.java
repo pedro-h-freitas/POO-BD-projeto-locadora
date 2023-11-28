@@ -7,6 +7,9 @@ import br.inatel.views.utils.ColorPrinter;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * DAO para manipular as tabelas filme, info_iilme e generos a partir do model FilmeDisplay
+ */
 public class FilmeDisplayDAO {
 
     protected Connection con;
@@ -35,16 +38,20 @@ public class FilmeDisplayDAO {
         }
     }
 
+    /**
+     * Seleciona todos info_filme e mapeia em um objeto FilmeDisplay
+     * @return Objeto FilmeDisplay com as informações de um filme
+     */
     public ArrayList<FilmeDisplay> selectInfos() {
         ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
         connectToDB();
 
         String sql = """
-                select info_filme.id as id, info_filme.nome as nome, info_filme.ano_lancamento as ano,
-                GROUP_CONCAT(generos.nome) as generos
-                from info_filme
-                join generos on info_filme.id = generos.id_info_filme
+                SELECT info_filme.id, info_filme.nome, info_filme.ano_lancamento AS ano,
+                GROUP_CONCAT(generos.nome) AS generos
+                FROM info_filme
+                JOIN generos ON info_filme.id = generos.id_info_filme
                 GROUP BY info_filme.id;
                 """;
         try {
@@ -77,6 +84,10 @@ public class FilmeDisplayDAO {
         return filmes;
     }
 
+    /**
+     * Seleciona todos filmes de uma locadora
+     * @return lista de FilmeDisplay com os filmes
+     */
     public ArrayList<FilmeDisplay> selectByLocadora(int idLocadora) {
         ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
@@ -123,6 +134,11 @@ public class FilmeDisplayDAO {
         return filmes;
     }
 
+
+    /**
+     * Seleciona todos filmes que estao em um alguel
+     * @return lista de FilmeDisplay com os filmes
+     */
     public ArrayList<FilmeDisplay> selectByAluguel(int idAluguel) {
         ArrayList<FilmeDisplay> filmes = new ArrayList<>();
 
@@ -170,6 +186,12 @@ public class FilmeDisplayDAO {
         return filmes;
     }
 
+
+    /**
+     * Seleciona um filme pelo id
+     * @param id id do filme selecionado
+     * @return objeto FilmeDisplay com o filme selecionado
+     */
     public FilmeDisplay selectById(int id) {
         FilmeDisplay filme = null;
 
@@ -206,7 +228,6 @@ public class FilmeDisplayDAO {
         } finally {
             try {
                 con.close();
-                // st.close();
             } catch (SQLException e) {
                 ColorPrinter.printErro(e);
             }
@@ -214,5 +235,4 @@ public class FilmeDisplayDAO {
 
         return filme;
     }
-
 }
