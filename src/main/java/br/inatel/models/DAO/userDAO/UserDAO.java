@@ -3,7 +3,6 @@ package br.inatel.models.DAO.userDAO;
 import br.inatel.models.DAO.ConnectionDAO;
 import br.inatel.views.utils.ColorPrinter;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,17 +12,10 @@ import java.sql.Statement;
  * @param <T> Model usado no DAO
  */
 public abstract class UserDAO<T> extends ConnectionDAO<T> {
-
     /**
-     * Método abstrato para mapear o ResultSet em um model
-     * @return Objeto T mapeado no ResultSet
-     */
-    protected abstract T getMapper();
-
-    /**
-     * Insere um objeto T que teha index em sua respectiva tabela
+     * Insere um objeto T em sua respectiva tabela
      * @param object objeto a ser inserido
-     * @return boolean var (true: inseriu | false: falhou)
+     * @return int var (id do objeto T | -1: falhou)
      */
     @Override
     public int insert(T object) {
@@ -66,13 +58,19 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
     }
 
     /**
+     * Método abstrato para mapear o ResultSet em um model
+     * @return Objeto T mapeado no ResultSet
+     */
+    protected abstract T getMapper();
+
+    /**
      * Método abstrato para obter a query de seleção por id para cada tabela
      * @return query de busca
      */
     protected abstract String getSelectByIdQuery();
 
     /**
-     * Busca um objeto T em pelo id sua respectiva tabela
+     * Busca um objeto T pelo id em sua respectiva tabela
      * @param id do objeto selecionado
      * @return Objeto T selecionado
      */
@@ -111,20 +109,16 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
     protected abstract String getDeleteQuery();
 
     /**
-     * Método abstrato para definir os valores específicos para cada tabela
-     * @param pst PreparedStatement
-     * @param id id a ser excluido
-     * @throws SQLException Exceção de SQL
+     * Deleta um objeto T pelo id sua respectiva tabela
+     * @param id Id do objeto selecionado
      */
-    protected abstract void setDeleteValues(PreparedStatement pst, int id) throws SQLException;
-
-    public boolean delete(int id) {
+    public void delete(int id) {
         connectToDB();
 
         String sql = getDeleteQuery();
         try {
             pst = con.prepareStatement(sql);
-            setDeleteValues(pst, id);
+            pst.setInt(1, id);
             pst.execute();
 
             sucesso = true;
@@ -139,11 +133,19 @@ public abstract class UserDAO<T> extends ConnectionDAO<T> {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return sucesso;
     }
 
+    /**
+     * Método abstrato para obter a query para selecionar o nome de um usuario
+     * @return query de seleção
+     */
     protected abstract String getSelectNomeQuery();
 
+    /**
+     * Busca o nome de um objeto T pelo id em sua respectiva tabela
+     * @param id id do objeto selecionado
+     * @return Nome do um objeto T selecionado
+     */
     public String selectNome(int id) {
         connectToDB();
 

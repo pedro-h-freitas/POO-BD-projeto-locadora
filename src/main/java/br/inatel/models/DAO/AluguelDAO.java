@@ -12,7 +12,6 @@ import java.sql.Statement;
  * Class for CREATE, READ, UPDATE objects of the table "aluguel"
  */
 public class AluguelDAO extends ConnectionDAO<Aluguel> {
-
     /**
      * Método para obter a query de inserção específica do Aluguel
      * @return "INSERT INTO aluguel(data_locacao, id_cliente, id_locadora) VALUES(?, ?, ?)"
@@ -34,6 +33,11 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
         pst.setInt(2, aluguel.getIdLocadora());
     }
 
+    /**
+     * Insere um Aluguel em sua respectiva tabela
+     * @param object Aluguel a ser inserido
+     * @return int var (id do Aluguel | -1: falhou)
+     */
     @Override
     public int insert(Aluguel object) {
         int id = -1;
@@ -74,6 +78,11 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
         return id;
     }
 
+    /**
+     * Busca o aluguel de um cliente
+     * @param idCliente Id do cliente
+     * @return Id do aluguel
+     */
     public int selectAluguelIdByCliente(int idCliente) {
         int idAluguel = -1;
 
@@ -104,7 +113,11 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
         return idAluguel;
     }
 
-    public void devolver(int id) {
+    /**
+     * Atualiza o status de um aluguel para "devolvido"
+     * @param idAluguel Id do aluguel
+     */
+    public void devolver(int idAluguel) {
         connectToDB();
 
         String sql = """
@@ -114,7 +127,7 @@ public class AluguelDAO extends ConnectionDAO<Aluguel> {
                 """;
         try {
             pst = con.prepareStatement(sql);
-            pst.setInt(1, id);
+            pst.setInt(1, idAluguel);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {

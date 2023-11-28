@@ -34,6 +34,11 @@ public class InfoFilmeDAO extends ConnectionDAO<InfoFilme> {
         pst.setInt(2, infoFilme.getAnoLancamento());
     }
 
+    /**
+     * Insere um Filme em sua respectiva tabela
+     * @param object Filme a ser inserido
+     * @return int var (id do Filme | -1: falhou)
+     */
     @Override
     public int insert(InfoFilme object) {
         int id = -1;
@@ -74,7 +79,11 @@ public class InfoFilmeDAO extends ConnectionDAO<InfoFilme> {
         return id;
     }
 
-    public boolean delete(int id) {
+    /**
+     * Deleta informações de um filme pelo id
+     * @param id Id do objeto selecionado
+     */
+    public void delete(int id) {
         connectToDB();
 
         String sql = "DELETE FROM info_filme WHERE id=?;";
@@ -95,6 +104,5 @@ public class InfoFilmeDAO extends ConnectionDAO<InfoFilme> {
                 ColorPrinter.printErro(e);
             }
         }
-        return sucesso;
     }
 }

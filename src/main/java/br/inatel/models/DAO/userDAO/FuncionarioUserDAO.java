@@ -11,7 +11,6 @@ import java.util.ArrayList;
  * Class for CREATE, READ, UPDATE objects of the table "funcionario"
  */
 public class FuncionarioUserDAO extends UserDAO<Funcionario> {
-
     /**
      * Método para obter a query de inserção específica do Funcionario
      * @return "INSERT INTO funcionario(nome, telefone, salario, senha, id_locadora) VALUES(?, ?, ?, ?, ?)"
@@ -37,16 +36,7 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
     }
 
     /**
-     * Método para obter a query de seleção por id do Funcionario
-     * @return "SELECT * FROM funcionario WHERE id=?"
-     */
-    @Override
-    protected String getSelectByIdQuery() {
-        return "SELECT * FROM funcionario WHERE id=?";
-    }
-
-    /**
-     * Função para mapear um ResultSet em um model.Funcionario
+     * Método para mapear um ResultSet em um Funcionario
      * @return Objeto Funcionario mapeado do ResultSet
      */
     @Override
@@ -66,21 +56,37 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         }
     }
 
+    /**
+     * Método para obter a query de seleção por id do Funcionario
+     * @return "SELECT * FROM funcionario WHERE id=?"
+     */
+    @Override
+    protected String getSelectByIdQuery() {
+        return "SELECT * FROM funcionario WHERE id=?";
+    }
+
+    /**
+     * Método para obter a query de deleção específica para a tabela de funcionario
+     * @return "DELETE FROM funcionario WHERE id=?"
+     */
     @Override
     protected String getDeleteQuery() {
         return "DELETE FROM funcionario WHERE id=?";
     }
 
-    @Override
-    protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
-        pst.setInt(1, id);
-    }
-
+    /**
+     * Método para obter a query para selecionar o nome de um funcionario
+     * @return "SELECT nome FROM funcionario WHERE id=?"
+     */
     @Override
     protected String getSelectNomeQuery() {
         return "SELECT nome FROM funcionario WHERE id=?";
     }
 
+    /**
+     * Busca todos os funcionarios de um locadora
+     * @return Lista de Funcionario
+     */
     public ArrayList<Funcionario> selectByLocadora(int idLocadora){
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
@@ -112,6 +118,11 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         return funcionarios;
     }
 
+    /**
+     * Atualiza um funcionario
+     * @param funcionario Objeto funcioanario atualizado
+     * @return boolean var (true: atualizou | false: falhou)
+     */
     public boolean update(Funcionario funcionario) {
         connectToDB();
 
@@ -142,6 +153,12 @@ public class FuncionarioUserDAO extends UserDAO<Funcionario> {
         return sucesso;
     }
 
+    /**
+     * Atualiza a locadora que um funcionario trabalha
+     * @param idFuncionario Id do funcionario a atualizar
+     * @param idLocadora id da nova locadora
+     * @return boolean var (true: atualizou | false: falhou)
+     */
     public boolean updateLocadora(int idFuncionario, int idLocadora) {
         connectToDB();
 

@@ -11,7 +11,6 @@ public class FilmeDisplayDAO {
 
     protected Connection con;
     protected PreparedStatement pst;
-    protected Statement st;
     protected ResultSet rs;
 
     //Config DataBase
@@ -31,8 +30,8 @@ public class FilmeDisplayDAO {
         try {
             con = DriverManager.getConnection(url, user, password);
             // System.out.println("Conexao deu certo!");
-        } catch(SQLException exc) {
-            System.out.println("Erro: " + exc.getMessage());
+        } catch(SQLException e) {
+            ColorPrinter.printErro(e);
         }
     }
 

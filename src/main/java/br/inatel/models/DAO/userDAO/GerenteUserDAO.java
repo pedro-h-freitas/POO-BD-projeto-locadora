@@ -10,7 +10,6 @@ import java.sql.SQLException;
  * Class for CREATE, READ, UPDATE objects of the table "gerente"
  */
 public class GerenteUserDAO extends UserDAO<Gerente> {
-
     /**
      * Método para obter a query de inserção específica do Gerente
      * @return "INSERT INTO gerente(id_funcionario) VALUES(?)"
@@ -32,15 +31,6 @@ public class GerenteUserDAO extends UserDAO<Gerente> {
     }
 
     /**
-     * Método para obter a query de seleção por id do Gerente
-     * @return "SELECT * FROM gerente WHERE id_funcionario=?"
-     */
-    @Override
-    protected String getSelectByIdQuery() {
-        return "SELECT * FROM gerente WHERE id_funcionario=?";
-    }
-
-    /**
      * Função para mapear um ResultSet em um model.Gerente
      * @return Objeto Gerente mapeado do ResultSet
      */
@@ -56,16 +46,31 @@ public class GerenteUserDAO extends UserDAO<Gerente> {
         }
     }
 
+    /**
+     * Método para obter a query de seleção por id do Gerente
+     * @return "SELECT * FROM gerente WHERE id_funcionario=?"
+     */
+    @Override
+    protected String getSelectByIdQuery() {
+        return "SELECT * FROM gerente WHERE id_funcionario=?";
+    }
+
+    /**
+     * Método para obter a query de deleção específica para a tabela de gerente
+     * @return "DELETE FROM gerente WHERE id_funcionario=?"
+     */
     @Override
     protected String getDeleteQuery() {
         return "DELETE FROM gerente WHERE id_funcionario=?";
     }
 
-    @Override
-    protected void setDeleteValues(PreparedStatement pst, int id) throws SQLException {
-        pst.setInt(1, id);
-    }
-
+    /**
+     * Método para obter a query para selecionar o nome de um gerente
+     * @return SELECT funcionario.nome as nome
+     * FROM gerente
+     * JOIN funcionario ON funcionario.id=gerente.id_funcionario
+     * WHERE id=?
+     */
     @Override
     protected String getSelectNomeQuery() {
         return  "SELECT funcionario.nome as nome " +

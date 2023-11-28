@@ -86,6 +86,11 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
         return locadoras;
     }
 
+    /**
+     * Busca o nome de uma locadora pelo id
+     * @param id id da locadora selecionada
+     * @return Nome da locadora selecionada
+     */
     public String selectNome(int id) {
         connectToDB();
         
@@ -113,6 +118,11 @@ public class LocadoraDAO extends ConnectionDAO<Locadora> {
         return null;
     }
 
+    /**
+     * Seleciona os ids dos filmes buscando pelo id de suas informações
+     * @param idInfoFilme Id das informações do filme
+     * @return Lista de ids de filme
+     */
     public ArrayList<Integer> selectIdsByInfoFilme(int idInfoFilme) {
         ArrayList<Integer> idsLocadoras = new ArrayList<>();
 

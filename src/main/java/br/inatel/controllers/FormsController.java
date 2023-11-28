@@ -159,7 +159,7 @@ public class FormsController {
         FilmeDAO filmeDAO = new FilmeDAO();
 
         if (filme.getnCopias() - qnt == 0)
-            if (filmeDAO.deleteById(filme.getId()))
+            if (filmeDAO.delete(filme.getId()))
                 return 1;
 
         if (filmeDAO.removeQnt(filme.getId(), qnt))

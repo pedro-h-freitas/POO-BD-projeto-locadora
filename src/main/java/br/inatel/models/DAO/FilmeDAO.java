@@ -33,8 +33,12 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
         pst.setInt(3, filme.getIdInfoFilme());
     }
 
-    //DELETE
-    public boolean deleteById(int id) {
+    /**
+     * Deleta um filme pelo id
+     * @param id Id do objeto selecionado
+     * @return boolean var (true: deletou | false: falhou)
+     */
+    public boolean delete(int id) {
         connectToDB();
 
         String sql = "DELETE FROM filme where id=?";
@@ -57,6 +61,12 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
         return sucesso;
     }
 
+    /**
+     * Adiciona copias do filme
+     * @param id Id do filme
+     * @param qnt Quantidade de cópias
+     * @return boolean var (true: adicionou | false: falhou)
+     */
     public boolean addQnt(int id, int qnt) {
         connectToDB();
         String sql = """
@@ -85,6 +95,12 @@ public class FilmeDAO extends ConnectionDAO<Filme> {
         return sucesso;
     }
 
+    /**
+     * Remove copias do filme
+     * @param id Id do filme
+     * @param qnt Quantidade de cópias
+     * @return boolean var (true: removeu | false: falhou)
+     */
     public boolean removeQnt(int id, int qnt) {
         connectToDB();
         String sql = """
