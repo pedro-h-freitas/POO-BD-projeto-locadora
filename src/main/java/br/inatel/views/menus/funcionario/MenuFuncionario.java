@@ -53,7 +53,7 @@ public class MenuFuncionario extends Menu {
                 tela = new MenuFuncionarioFilme();
                 break;
             case 0:
-                printVermelho("Logout...");
+                printVermelho("Logout...\n");
                 controller.logout();
                 return false;
             default:

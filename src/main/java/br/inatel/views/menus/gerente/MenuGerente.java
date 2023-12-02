@@ -57,7 +57,7 @@ public class MenuGerente extends Menu {
                 tela = new MenuGerenteFilme();
                 break;
             case 0:
-                printVermelho("Logout...");
+                printVermelho("Logout...\n");
                 controller.logout();
                 return false;
             default:

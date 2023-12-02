@@ -74,7 +74,7 @@ public class MenuCliente extends Menu {
             case 4:
                 return !deleteUser();
             case 0:
-                printVermelho("Logout...");
+                printVermelho("Logout...\n");
                 controller.logout();
                 return false;
             default:
@@ -97,7 +97,7 @@ public class MenuCliente extends Menu {
 
         id = intInput("Id: ");
         while (!idList.contains(id)) {
-            printVermelho("ID INVÁLIDO");
+            printVermelho("ID INVÁLIDO\n");
             id = intInput("Id: ");
         }
 

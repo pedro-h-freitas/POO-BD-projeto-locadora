@@ -28,11 +28,11 @@ public class FormAddFilmeLocadora extends FormFilme {
         System.out.println("  ------------- Locadora ------------  ");
 
         if (filme == null)
-            printAmarelo("Nenhuma cópia na locadora.\n");
+            printAmarelo("Nenhuma cópia na locadora.");
         else
             showFilme(filme);
 
-        System.out.println("---------------------------------------");
+        System.out.println("\n---------------------------------------");
 
         int qnt = intInput("Adicionar quantas cópias? ");
 
